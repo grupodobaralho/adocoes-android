@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -40,5 +41,9 @@ public class CarlosFragment extends Fragment {
 
         mProgressBar.setVisibility(View.GONE);
 
+    }
+
+    public void acao(TextView view) {
+        view.setText("Its working!");
     }
 }

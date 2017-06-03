@@ -2,10 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Hello Carlos"/>
+
     <ProgressBar
         android:id="@+id/native_progress_bar"
         android:layout_width="40dp"
@@ -13,5 +10,21 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:indeterminate="true" />
+
+
+    <TextView
+        android:id="@+id/teste1tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ainda não.."/>
+
+    <Button
+        android:id="@+id/teste1b"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Try!"
+        android:onClick="Acao"
+        android:layout_marginTop="16dp"
+        />
 
 </RelativeLayout>
