@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.fragments;
+package br.pucrs.ages.adocoes.Fragments;
 
 import android.support.v4.app.Fragment;
 
