@@ -10,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Button;
+
 
 import java.util.ArrayList;
 
 import br.pucrs.ages.adocoes.R;
+
+import static android.R.attr.button;
 
 public class CarlosFragment extends Fragment {
 
@@ -39,11 +43,20 @@ public class CarlosFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.portfolio_allocation_list);
         mProgressBar = (ProgressBar) view.findViewById(R.id.native_progress_bar);
 
-        mProgressBar.setVisibility(View.GONE);
+        Button nomeParaOBotao = (Button) view.findViewById(R.id.teste1b);
+        final TextView textView = (TextView) view.findViewById(R.id.teste1tv);
+
+        nomeParaOBotao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                textView.setText("Deu certo");
+            }
+        });
+
+
+        mProgressBar.setVisibility(View.VISIBLE);
+        nomeParaOBotao.setVisibility(view.VISIBLE);
+        textView.setVisibility(view.VISIBLE);
 
     }
 
-    public void acao(TextView view) {
-        view.setText("Its working!");
-    }
 }
