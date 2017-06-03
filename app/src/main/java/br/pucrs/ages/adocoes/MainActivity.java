@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import br.pucrs.ages.adocoes.Fragments.JuFragment;
 import br.pucrs.ages.adocoes.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
@@ -102,8 +103,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_share) {/
-?
+        } else if (id == R.id.nav_share) {
+            displayView(2);
         } else if (id == R.id.nav_send) {
 
         }
@@ -126,6 +127,10 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 1:
                 fragment = new SecondFragment();
+                title = "Events";
+                break;
+            case 2:
+                fragment = new JuFragment();
                 title = "Events";
                 break;
             default:

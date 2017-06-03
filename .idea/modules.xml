@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Adocoes.iml" filepath="$PROJECT_DIR$/Adocoes.iml" />
       <module fileurl="file://$PROJECT_DIR$/adocoes-android.iml" filepath="$PROJECT_DIR$/adocoes-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adocoes-android.iml" filepath="$PROJECT_DIR$/adocoes-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
