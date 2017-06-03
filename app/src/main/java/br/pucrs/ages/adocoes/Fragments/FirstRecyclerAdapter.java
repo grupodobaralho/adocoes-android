@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.fragments;
+package br.pucrs.ages.adocoes.Fragments;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -15,12 +15,12 @@ import br.pucrs.ages.adocoes.R;
  * Created by kuquert on 29/05/17.
  */
 
-public class SecondRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class FirstRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Activity activity;
     private ArrayList<String> items;
 
-    public SecondRecyclerAdapter(Activity activity) {
+    public FirstRecyclerAdapter(Activity activity) {
         this.activity = activity;
     }
 
@@ -42,7 +42,7 @@ public class SecondRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         int a = activity.getResources().getColor(R.color.colorAccent);
         int b = activity.getResources().getColor(R.color.colorPrimary);
 
-        itemView.textView.setBackgroundColor(position%2==0 ? a : b);
+        itemView.textView.setBackgroundColor(position%2==0 ? b : a);
     }
 
     @Override

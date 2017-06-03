@@ -18,8 +18,8 @@ import android.view.View;
 
 import br.pucrs.ages.adocoes.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
-import br.pucrs.ages.adocoes.fragments.FirstFragment;
-import br.pucrs.ages.adocoes.fragments.SecondFragment;
+import br.pucrs.ages.adocoes.Fragments.FirstFragment;
+import br.pucrs.ages.adocoes.Fragments.SecondFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
