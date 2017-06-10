@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.model;
+package br.pucrs.ages.adocoes.Model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import br.pucrs.ages.adocoes.model.types.Sexo;
+import br.pucrs.ages.adocoes.Model.types.Sexo;
 
 /**
  * Created by kuquert on 03/06/17.

@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.model;
+package br.pucrs.ages.adocoes.Model;
 
 /**
  * Created by kuquert on 04/06/17.
