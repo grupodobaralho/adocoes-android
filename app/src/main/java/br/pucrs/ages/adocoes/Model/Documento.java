@@ -1,8 +1,8 @@
-package br.pucrs.ages.adocoes.model;
+package br.pucrs.ages.adocoes.Model;
 
 import java.io.Serializable;
 import java.util.Date;
-import br.pucrs.ages.adocoes.model.types.*;
+import br.pucrs.ages.adocoes.Model.types.*;
 
 /**
  * Created by kuquert on 03/06/17.

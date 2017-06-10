@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.rest;
+package br.pucrs.ages.adocoes.Rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
