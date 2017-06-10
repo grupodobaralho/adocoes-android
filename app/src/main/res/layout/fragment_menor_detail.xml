@@ -1,74 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Iniciais" />
+
+    <TextView
+        android:id="@+id/text_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Iniciais" />
+</LinearLayout>
+
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
         android:inputType="textPersonName"
         android:text="Informações do menor"
         android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editText"
         android:layout_marginStart="16dp"
         android:layout_marginTop="118dp"
-        android:text="Iniciais do nome" />
+        android:text="Primeiro nome" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView28"
-        android:layout_toEndOf="@+id/textView32"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:text="Idade"
-        android:layout_below="@+id/textView28"
-        android:layout_alignStart="@+id/textView28" />
+        android:layout_below="@+id/textView1"
+        android:layout_alignStart="@+id/textView1" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView28"
-        android:layout_alignTop="@+id/textView29"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toStartOf="@+id/imageView13" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sexo"
-        android:layout_above="@+id/textView31"
-        android:layout_alignStart="@+id/textView29"
-        android:layout_marginBottom="12dp" />
+        android:layout_alignBaseline="@+id/textView18"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_alignEnd="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView30"
-        android:layout_alignEnd="@+id/textView16"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView31"
@@ -76,132 +92,142 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView30"
         android:layout_centerVertical="true"
-        android:text="Deficiência Física" />
-
-    <RadioButton
-        android:id="@+id/radioButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView32"
-        android:layout_alignEnd="@+id/radioButton3"
-        android:layout_alignTop="@+id/textView31"
-        android:layout_toEndOf="@+id/textView32"
-        android:text="Sim" />
-
-    <RadioButton
-        android:id="@+id/radioButton8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não"
-        android:layout_toStartOf="@+id/textView39"
-        android:layout_alignTop="@+id/radioButton7"
-        android:layout_alignBottom="@+id/radioButton7" />
+        android:text="Saúde:" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView31"
-        android:layout_below="@+id/textView31"
-        android:layout_marginTop="13dp"
-        android:text="Deficiência Mental" />
+        android:text="TextView"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/textView18" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sim"
-        android:layout_alignBottom="@+id/textView32"
-        android:layout_alignEnd="@+id/radioButton7"
-        android:layout_alignTop="@+id/textView32" />
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton7"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_above="@+id/textView32"-->
+        <!--android:layout_alignEnd="@+id/radioButton3"-->
+        <!--android:layout_alignTop="@+id/textView31"-->
+        <!--android:layout_toEndOf="@+id/textView32"-->
+        <!--android:text="Sim" />-->
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não"
-        android:layout_alignBottom="@+id/radioButton"
-        android:layout_toEndOf="@+id/imageView12"
-        android:layout_alignTop="@+id/radioButton" />
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton8"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Não"-->
+        <!--android:layout_toStartOf="@+id/textView39"-->
+        <!--android:layout_alignTop="@+id/radioButton7"-->
+        <!--android:layout_alignBottom="@+id/radioButton7" />-->
 
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView32"
-        android:layout_below="@+id/textView32"
-        android:layout_marginTop="16dp"
-        android:text="Possui doença" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView32"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/textView31"-->
+        <!--android:layout_below="@+id/textView31"-->
+        <!--android:layout_marginTop="13dp"-->
+        <!--android:text="Deficiência Mental" />-->
 
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView34"
-        android:layout_alignEnd="@+id/textView12"
-        android:layout_alignTop="@+id/textView33"
-        android:layout_toEndOf="@+id/textView31"
-        android:text="Sim" />
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Sim"-->
+        <!--android:layout_alignBottom="@+id/textView32"-->
+        <!--android:layout_alignEnd="@+id/radioButton7"-->
+        <!--android:layout_alignTop="@+id/textView32" />-->
 
-    <RadioButton
-        android:id="@+id/radioButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/radioButton3"
-        android:layout_toEndOf="@+id/radioButton"
-        android:text="Não"
-        android:layout_alignBottom="@+id/radioButton3" />
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Não"-->
+        <!--android:layout_alignBottom="@+id/radioButton"-->
+        <!--android:layout_toEndOf="@+id/imageView12"-->
+        <!--android:layout_alignTop="@+id/radioButton" />-->
 
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView33"
-        android:layout_below="@+id/textView33"
-        android:layout_marginTop="16dp"
-        android:text="Doença curável" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView33"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/textView32"-->
+        <!--android:layout_below="@+id/textView32"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:text="Possui doença" />-->
 
-    <RadioButton
-        android:id="@+id/radioButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/radioButton3"
-        android:text="Sim"
-        android:layout_above="@+id/textView35"
-        android:layout_alignTop="@+id/textView34" />
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_above="@+id/textView34"-->
+        <!--android:layout_alignEnd="@+id/textView12"-->
+        <!--android:layout_alignTop="@+id/textView33"-->
+        <!--android:layout_toEndOf="@+id/textView31"-->
+        <!--android:text="Sim" />-->
 
-    <RadioButton
-        android:id="@+id/radioButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/radioButton5"
-        android:layout_toEndOf="@+id/radioButton3"
-        android:text="Não"
-        android:layout_alignTop="@+id/radioButton5" />
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton4"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignTop="@+id/radioButton3"-->
+        <!--android:layout_toEndOf="@+id/radioButton"-->
+        <!--android:text="Não"-->
+        <!--android:layout_alignBottom="@+id/radioButton3" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView34"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/textView33"-->
+        <!--android:layout_below="@+id/textView33"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:text="Doença curável" />-->
+
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton5"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/radioButton3"-->
+        <!--android:text="Sim"-->
+        <!--android:layout_above="@+id/textView35"-->
+        <!--android:layout_alignTop="@+id/textView34" />-->
+
+    <!--<RadioButton-->
+        <!--android:id="@+id/radioButton6"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@+id/radioButton5"-->
+        <!--android:layout_toEndOf="@+id/radioButton3"-->
+        <!--android:text="Não"-->
+        <!--android:layout_alignTop="@+id/radioButton5" />-->
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView34"
-        android:layout_below="@+id/textView34"
-        android:layout_marginTop="17dp"
-        android:text="Quer ser adotado com:" />
+        android:text="Adoção conjunta:"
+        android:layout_below="@+id/textView30"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginTop="52dp" />
 
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView35"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        android:layout_below="@+id/textView35"
+        android:layout_toEndOf="@+id/textView35"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciais"
+        android:text="Nome"
         android:layout_alignTop="@+id/imageView12"
         android:layout_toEndOf="@+id/imageView12" />
 
@@ -228,7 +254,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView36"
         android:layout_alignTop="@+id/imageView13"
-        android:text="Iniciais" />
+        android:text="Nome" />
 
     <TextView
         android:id="@+id/textView39"
@@ -242,10 +268,11 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Favoritar/ Desfavoritar"
+        android:text="Manifestar interesse"
         android:textSize="12sp"
-        android:layout_below="@+id/imageView13"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -258,4 +285,4 @@
         android:layout_toEndOf="@+id/textView30"
         android:layout_above="@+id/textView12" />
 
-</RelativeLayout>
+</LinearLayout>
