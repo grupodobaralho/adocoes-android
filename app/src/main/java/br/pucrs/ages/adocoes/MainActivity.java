@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import br.pucrs.ages.adocoes.Fragments.CarlosFragment;
+import br.pucrs.ages.adocoes.Fragments.ContentFragment;
 import br.pucrs.ages.adocoes.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
@@ -130,8 +130,8 @@ public class MainActivity extends AppCompatActivity
                 title = "Events";
                 break;
             case 2:
-                fragment = new CarlosFragment();
-                title = "Events";
+                fragment = new ContentFragment();
+                title = "Termos de uso";
                 break;
             default:
                 fragment = new FirstFragment();
