@@ -12,8 +12,26 @@ public class Usuario implements Serializable {
     private String email;
     private String senha;
     private String nome;
+    private String cpf;
     private Perfis perfis;
     private String refPerfilAdministrador;
     private String refPerfilInteressado;
     private Boolean ativo;
+
+
+    public String getNome() {
+        return this.nome;
+    }
+    public String setNome(String nome) {
+        return this.nome = nome;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+    public String setEmail(String email) {
+        return this.email = email;
+    }
+    public String getCpf() {
+        return this.cpf;
+    }
 }
