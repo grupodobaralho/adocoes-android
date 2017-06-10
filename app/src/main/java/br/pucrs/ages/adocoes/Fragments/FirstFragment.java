@@ -47,18 +47,10 @@ public class FirstFragment extends Fragment {
 
         ArrayList<String> items = new ArrayList<>();
 
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
-        items.add("11");
+        items.add("Marcus Kuquert");
+        items.add("André Botelho");
+        items.add("Gabriel Machado");
+        items.add("Eduardo Arruda");
 
         mListAdapter.setData(items);
     }
