@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.R;
-import br.pucrs.ages.adocoes.model.Menor;
+import br.pucrs.ages.adocoes.Model.Menor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,18 +55,18 @@ public class FirstFragment extends Fragment {
 
 
         Call<List<Menor>> call;
-        call = br.pucrs.ages.adocoes.rest.RestUtil.getMenoresEndPoint().menores("token");
+        call = br.pucrs.ages.adocoes.Rest.RestUtil.getMenoresEndPoint().menores("token");
 
         call.enqueue(new Callback<List<Menor>>() {
             @Override
-            public void onResponse(Call<List<br.pucrs.ages.adocoes.model.Menor>> call, Response<List<Menor>> response) {
-                for (br.pucrs.ages.adocoes.model.Menor menor : response.body()) {
+            public void onResponse(Call<List<br.pucrs.ages.adocoes.Model.Menor>> call, Response<List<Menor>> response) {
+                for (br.pucrs.ages.adocoes.Model.Menor menor : response.body()) {
                     items.add(menor.getNome());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<br.pucrs.ages.adocoes.model.Menor>> call, Throwable t) {
+            public void onFailure(Call<List<br.pucrs.ages.adocoes.Model.Menor>> call, Throwable t) {
 //                Context context = getApplicationContext();
                 CharSequence text = t.getLocalizedMessage();
                 int duration = Toast.LENGTH_SHORT;

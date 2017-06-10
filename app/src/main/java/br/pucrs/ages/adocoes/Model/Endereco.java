@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.model;
+package br.pucrs.ages.adocoes.Model;
 
 import java.io.Serializable;
 

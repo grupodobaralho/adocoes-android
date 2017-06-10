@@ -1,9 +1,9 @@
-package br.pucrs.ages.adocoes.model.dto.Response;
+package br.pucrs.ages.adocoes.Model.dto.Response;
 
 import java.io.Serializable;
 import java.util.List;
 
-import br.pucrs.ages.adocoes.model.Menor;
+import br.pucrs.ages.adocoes.Model.Menor;
 
 /**
  * Created by kuquert on 03/06/17.

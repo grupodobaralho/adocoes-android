@@ -1,8 +1,8 @@
-package br.pucrs.ages.adocoes.rest;
+package br.pucrs.ages.adocoes.Rest;
 
 import java.util.List;
 
-import br.pucrs.ages.adocoes.model.Menor;
+import br.pucrs.ages.adocoes.Model.Menor;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
