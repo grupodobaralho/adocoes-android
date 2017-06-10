@@ -23,3 +23,4 @@ public class Interessado implements Serializable {
     private String visualizacoes;
     private String ativo;
 }
+
