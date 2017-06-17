@@ -36,15 +36,15 @@ public class ContentFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        WebView wv = (WebView) view.findViewById(R.id.webView1);
+        WebView wv = (WebView) view.findViewById(R.id.wv_termos);
         WebSettings ws = wv.getSettings();
         ws.setJavaScriptEnabled(true);
         ws.setSupportZoom(false);
 
-        final Button btnTermos = (Button) (view.findViewById(R.id.btnTermos));
+        final Button btnTermos = (Button) (view.findViewById(R.id.btn_termos));
         btnTermos.setEnabled(false);
 
-        RadioGroup group = (RadioGroup) view.findViewById(R.id.radioGroupTerms);
+        RadioGroup group = (RadioGroup) view.findViewById(R.id.rg_termos);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {

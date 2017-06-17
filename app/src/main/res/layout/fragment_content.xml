@@ -6,31 +6,31 @@
     android:weightSum="1">
 
     <WebView
-        android:id="@+id/webView1"
+        android:id="@+id/wv_termos"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:visibility="visible"
         android:layout_weight="0.94" />
     <RadioGroup
-        android:id="@+id/radioGroupTerms"
+        android:id="@+id/rg_termos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <RadioButton
-        android:id="@+id/radioButton11"
+        android:id="@+id/rb_nao_aceito"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nao aceito"
         android:checked="true"/>
 
         <RadioButton
-            android:id="@+id/radioButton10"
+            android:id="@+id/rg_aceito"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Aceito" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnTermos"
+        android:id="@+id/btn_termos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Avançar"
