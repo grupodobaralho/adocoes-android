@@ -9,7 +9,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="6dp">
 
         <EditText
             android:id="@+id/text_view"
@@ -29,7 +29,7 @@
     <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="6dp">
 
         <TextView
         android:id="@+id/text_view3"
@@ -50,7 +50,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="6dp">
 
         <TextView
             android:id="@+id/text_view5"
@@ -71,7 +71,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="6dp">
 
         <TextView
             android:id="@+id/text_view7"
@@ -92,7 +92,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="6dp">
 
         <TextView
             android:id="@+id/text_view11"
@@ -113,7 +113,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="6dp">
 
         <TextView
             android:id="@+id/text_view9"
@@ -122,18 +122,6 @@
             android:layout_weight="1"
             android:text="Adoção conjunta" />
 
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            app:srcCompat="@android:drawable/ic_menu_gallery"
-            android:layout_weight="0.61" />
-
-        <TextView
-            android:id="@+id/text_view13"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:text="Parentesco" />
 
 
     </LinearLayout>
@@ -141,7 +129,65 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="6dp">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="0.13"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="0.13"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="0.13"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/text_view14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Parentesco" />
+
+        <TextView
+            android:id="@+id/text_view15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Parentesco" />
+
+        <TextView
+            android:id="@+id/text_view16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Parentesco" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:weightSum="1">
 
 
@@ -149,8 +195,7 @@
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="53dp"
-            android:text="Manifestar interesse"
+            android:text="Manifestar interesse na adoção"
             android:textSize="12sp" />
 
     </LinearLayout>
