@@ -12,7 +12,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import java.io.File;
 
 
 import br.pucrs.ages.adocoes.R;
@@ -21,16 +20,16 @@ import br.pucrs.ages.adocoes.R;
  * Created by kuquert on 26/05/17.
  */
 
-public class ContentFragment extends Fragment {
+public class TermosFragment extends Fragment {
 
-    public ContentFragment(){}
+    public TermosFragment(){}
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
     }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_content, container, false);
+        return inflater.inflate(R.layout.fragment_termos, container, false);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
