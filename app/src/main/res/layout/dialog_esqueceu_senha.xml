@@ -3,21 +3,20 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/esqueceu_senha_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:ems="10"
+        android:layout_margin="26dp"
         android:inputType="textEmailAddress"
-        android:text="Insira seu email"
+        android:hint="Insira seu email"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/recuperar_senha_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText10"
+        android:layout_below="@+id/esqueceu_senha_editText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
         android:text="Recuperar Senha" />

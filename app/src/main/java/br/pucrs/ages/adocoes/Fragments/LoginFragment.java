@@ -94,6 +94,16 @@ public class LoginFragment extends Fragment {
         dialogForgotPassword.setCancelable(true);
         dialogForgotPassword.setContentView(R.layout.dialog_esqueceu_senha);
 
+        Button recuperarSenhaButton = (Button) dialogForgotPassword.findViewById(R.id.recuperar_senha_button);
+        recuperarSenhaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO Adicionar chamada backend
+
+                dialogForgotPassword.dismiss();
+            }
+        });
+
         dialogForgotPassword.show();
     }
 }
