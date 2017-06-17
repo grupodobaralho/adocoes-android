@@ -18,4 +18,8 @@ public class RestUtil {
         return retrofit.create(MenoresEndPoint.class);
     }
 
+    public static UsuariosEndPoint getUsuariosEndPoint() {
+        return retrofit.create(UsuariosEndPoint.class);
+    }
+
 }
