@@ -14,6 +14,9 @@ public class RestUtil {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
+    public static AuthEndPoint getAuthEndPoint() {
+        return retrofit.create(AuthEndPoint.class);
+    }
     public static MenoresEndPoint getMenoresEndPoint() {
         return retrofit.create(MenoresEndPoint.class);
     }
