@@ -1,13 +1,16 @@
 package br.pucrs.ages.adocoes.Fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import br.pucrs.ages.adocoes.Model.Usuario;
 import br.pucrs.ages.adocoes.Model.dto.Request.AuthRequest;
@@ -24,6 +27,7 @@ public class LoginFragment extends Fragment {
     private Button cadatrarButton;
     private EditText emailEditText;
     private EditText senhaEditText;
+    private TextView esqueceuSenhaTextView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,12 +48,20 @@ public class LoginFragment extends Fragment {
         senhaEditText = (EditText) view.findViewById(R.id.senha_edit_text);
         entrarButton = (Button) view.findViewById(R.id.entrar_button);
         cadatrarButton = (Button) view.findViewById(R.id.cadastrar_button);
+        esqueceuSenhaTextView = (TextView) view.findViewById(R.id.esqueceu_senha);
 
 
         entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doLogin();
+            }
+        });
+
+        esqueceuSenhaTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doForgotPassword();
             }
         });
     }
@@ -74,5 +86,24 @@ public class LoginFragment extends Fragment {
                 //Falha no login do usuário.
             }
         });
+    }
+
+    public void doForgotPassword() {
+        final Dialog dialogForgotPassword = new Dialog(this.getActivity());
+        dialogForgotPassword.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogForgotPassword.setCancelable(true);
+        dialogForgotPassword.setContentView(R.layout.dialog_esqueceu_senha);
+
+        Button recuperarSenhaButton = (Button) dialogForgotPassword.findViewById(R.id.recuperar_senha_button);
+        recuperarSenhaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO Adicionar chamada backend
+
+                dialogForgotPassword.dismiss();
+            }
+        });
+
+        dialogForgotPassword.show();
     }
 }

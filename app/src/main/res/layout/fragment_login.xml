@@ -59,7 +59,7 @@
             android:text="Senha" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/esqueceu_senha"
             android:layout_width="match_parent"
             android:textAlignment="viewEnd"
             android:layout_marginRight="16dp"

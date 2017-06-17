@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
+import br.pucrs.ages.adocoes.Fragments.ContentFragment;
+import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
@@ -132,6 +134,10 @@ public class MainActivity extends AppCompatActivity
             case 2:
                 fragment = new TermosFragment();
                 title = "Termos de uso";
+                break;
+            case 3:
+                fragment = new LoginFragment();
+                title = "Login teste";
                 break;
             default:
                 fragment = new FirstFragment();
