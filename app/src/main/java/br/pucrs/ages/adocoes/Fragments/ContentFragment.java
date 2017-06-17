@@ -58,6 +58,7 @@ public class ContentFragment extends Fragment {
             }
         });
 
+
         //Aqui deve ser chamado o conteudo html com o texto de termos de uso:
         //wv.loadUrl();
 
