@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_notification.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\xml\\pref_notification.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_headers.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\xml\\pref_headers.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_general.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\xml\\pref_general.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_data_sync.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\xml\\pref_data_sync.xml"
+    }
+]
