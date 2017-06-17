@@ -36,7 +36,7 @@ public class ContentFragment extends Fragment {
         ws.setJavaScriptEnabled(true);
         ws.setSupportZoom(false);
 
-        wv.loadUrl("teste.html");
+        wv.loadUrl("http://pucrs.br");
 
     }
 }
