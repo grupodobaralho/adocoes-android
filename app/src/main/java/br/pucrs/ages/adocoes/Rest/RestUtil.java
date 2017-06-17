@@ -17,6 +17,10 @@ public class RestUtil {
     public static AuthEndPoint getAuthEndPoint() {
         return retrofit.create(AuthEndPoint.class);
     }
+
+    public static ConteudosEndPoint getConteudosEndPoint() {
+        return retrofit.create(ConteudosEndPoint.class);
+    }
     public static MenoresEndPoint getMenoresEndPoint() {
         return retrofit.create(MenoresEndPoint.class);
     }
