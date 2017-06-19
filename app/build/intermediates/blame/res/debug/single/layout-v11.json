@@ -12,12 +12,36 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout-v11\\notification_media_action.xml"
     },
     {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+    },
+    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_cancel_action.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
     },
     {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_custom.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_media_action.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout-v11\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",

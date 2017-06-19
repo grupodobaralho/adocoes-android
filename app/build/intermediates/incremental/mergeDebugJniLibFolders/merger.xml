@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\Faculdade\AGES I\Android\adocoes-android\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\Faculdade\AGES I\Android\adocoes-android\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\14280090\Documents\adocoes-android\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\14280090\Documents\adocoes-android\app\src\debug\jniLibs"/></dataSet></merger>
