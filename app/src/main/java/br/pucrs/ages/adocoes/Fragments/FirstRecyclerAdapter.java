@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,18 +33,14 @@ public class FirstRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_item_holder, parent, false);
-        return new ItemView(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menor_item_holder, parent, false);
+        return new MenorItemView(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ItemView itemView = (ItemView) holder;
+        MenorItemView itemView = (MenorItemView) holder;
         itemView.textView.setText(items.get(position));
-        int a = activity.getResources().getColor(R.color.colorAccent);
-        int b = activity.getResources().getColor(R.color.colorPrimary);
-
-        itemView.textView.setBackgroundColor(position%2==0 ? b : a);
     }
 
     @Override
@@ -50,13 +48,17 @@ public class FirstRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
         return items.size();
     }
 
-    private class ItemView extends RecyclerView.ViewHolder {
+    private class MenorItemView extends RecyclerView.ViewHolder {
 
         TextView textView;
+        ImageView imageView;
+        Button button;
 
-        ItemView(View view) {
+        MenorItemView(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView);
+            textView = (TextView) view.findViewById(R.id.text_view);
+            imageView = (ImageView) view.findViewById(R.id.image_view);
+            button = (Button) view.findViewById(R.id.button);
         }
     }
 }

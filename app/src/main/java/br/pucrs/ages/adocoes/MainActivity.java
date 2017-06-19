@@ -16,6 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import br.pucrs.ages.adocoes.Fragments.TermosFragment;
+import br.pucrs.ages.adocoes.Fragments.ContentFragment;
+import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+                        
             }
         });
 
@@ -90,22 +95,20 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_lista) {
             displayView(0);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_favoritos) {
             displayView(1);
-        } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_login) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_share) {/
-?
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_institucional) {
+            displayView(2);
+        } else if (id == R.id.nav_termos) {
+            displayView(3);
+        } else if (id == R.id.nav_atualizar_cadastro) {
+            displayView(4);
+        } else if (id == R.id.nav_preferencias) {
+            displayView(5);
+        } else if (id == R.id.nav_sair) {
+            displayView(6);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -127,6 +130,14 @@ public class MainActivity extends AppCompatActivity
             case 1:
                 fragment = new SecondFragment();
                 title = "Events";
+                break;
+            case 2:
+                fragment = new TermosFragment();
+                title = "Termos de uso";
+                break;
+            case 3:
+                fragment = new LoginFragment();
+                title = "Login teste";
                 break;
             default:
                 fragment = new FirstFragment();

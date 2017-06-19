@@ -1,0 +1,7 @@
+#Sat Jun 17 13:16:02 BRT 2017
+base.0=D\:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_cfa7350ce408652734f8d59acf4cde758c366033
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=D\:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_e296e7c4e4c9c2c034295d0b4ae0890f05ceaf2a\\classes.dex
+base.1=D\:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_e296e7c4e4c9c2c034295d0b4ae0890f05ceaf2a
+file.0=D\:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_cfa7350ce408652734f8d59acf4cde758c366033\\classes.dex
