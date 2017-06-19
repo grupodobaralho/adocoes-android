@@ -1,4 +1,4 @@
-#Sat Jun 17 13:16:02 BRT 2017
-base.0=D\:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6
+#Mon Jun 19 20:29:58 BRT 2017
+base.0=C\:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6
 renamed.0=classes.dex
-file.0=D\:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6\\classes.dex
+file.0=C\:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_6\\classes.dex
