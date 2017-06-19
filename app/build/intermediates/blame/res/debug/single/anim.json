@@ -4,24 +4,24 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\anim\\design_fab_in.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_popup_exit.xml"
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_popup_enter.xml"
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\anim\\design_fab_in.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_fade_out.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
@@ -30,6 +30,58 @@
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\anim\\design_fab_out.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
@@ -44,15 +96,19 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\anim\\design_snackbar_in.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_slide_out_bottom.xml"
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\anim\\design_snackbar_out.xml"
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\anim\\design_snackbar_out.xml"
     }
 ]

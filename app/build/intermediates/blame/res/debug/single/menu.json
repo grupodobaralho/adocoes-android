@@ -1,10 +1,18 @@
 [
     {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "H:\\adocoes android\\adocoes-android\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
+        "source": "H:\\adocoes android\\adocoes-android\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     }
 ]

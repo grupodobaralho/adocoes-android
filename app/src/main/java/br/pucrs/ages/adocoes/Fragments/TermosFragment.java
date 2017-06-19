@@ -34,7 +34,6 @@ public class TermosFragment extends Fragment {
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         WebView wv = (WebView) view.findViewById(R.id.wv_termos);
         WebSettings ws = wv.getSettings();
         ws.setJavaScriptEnabled(true);

@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -16,7 +18,9 @@ import br.pucrs.ages.adocoes.R;
 
 public class PreferenciasFragment extends Fragment {
 
-    private ProgressBar mProgressBar;
+
+    private RadioGroup rg_lista;
+
 
     public PreferenciasFragment() { }
 
@@ -35,22 +39,33 @@ public class PreferenciasFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.portfolio_allocation_list);
-        mProgressBar = (ProgressBar) view.findViewById(R.id.native_progress_bar);
+        rg_lista = (RadioGroup) view.findViewById(R.id.rg_lista);
 
-        Button nomeParaOBotao = (Button) view.findViewById(R.id.teste1b);
-        final TextView textView = (TextView) view.findViewById(R.id.teste1tv);
+        Button btn_salvarpref = (Button) view.findViewById(R.id.btn_salvarpref);
+     //   final TextView textView = (TextView) view.findViewById(R.id.teste1tv);
 
-        nomeParaOBotao.setOnClickListener(new View.OnClickListener() {
+        btn_salvarpref.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                textView.setText("Deu certo");
+
+                boolean checked = ((RadioButton) v).isChecked();
+
+                // Check which radio button was clicked
+                switch(v.getId()) {
+                    case R.id.rb_vertical:
+                        if (checked)
+                            // vertical
+                            break;
+                    case R.id.rb_horizontal:
+                        if (checked)
+                            // horizontal
+                            break;
+                }
             }
         });
 
 
-        mProgressBar.setVisibility(View.VISIBLE);
-        nomeParaOBotao.setVisibility(view.VISIBLE);
-        textView.setVisibility(view.VISIBLE);
+        //rg_lista.setVisibility(View.VISIBLE);
+
 
     }
 

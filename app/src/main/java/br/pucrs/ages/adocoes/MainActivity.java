@@ -16,8 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import br.pucrs.ages.adocoes.Fragments.PreferenciasFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
-import br.pucrs.ages.adocoes.Fragments.ContentFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 1:
                 fragment = new SecondFragment();
-                title = "Events";
+                title = "Eventos";
                 break;
             case 2:
                 fragment = new TermosFragment();
@@ -138,6 +138,10 @@ public class MainActivity extends AppCompatActivity
             case 3:
                 fragment = new LoginFragment();
                 title = "Login teste";
+                break;
+            case 5:
+                fragment = new PreferenciasFragment();
+                title = "Preferências";
                 break;
             default:
                 fragment = new FirstFragment();

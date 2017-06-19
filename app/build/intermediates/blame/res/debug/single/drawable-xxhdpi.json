@@ -1,5 +1,9 @@
 [
     {
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_menu_investments.png",
+        "source": "H:\\adocoes android\\adocoes-android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_menu_investments.png"
+    },
+    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_menu_investments.png",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_menu_investments.png"
     }
