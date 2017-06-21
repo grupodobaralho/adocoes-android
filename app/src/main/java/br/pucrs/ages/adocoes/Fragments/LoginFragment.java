@@ -23,7 +23,8 @@ import retrofit2.Response;
 public class LoginFragment extends Fragment {
 
     public LoginFragment() { }
-    private Button entrarButton;
+    private Button entrarComCadastroButton;
+    private Button entrarSemCadastroButton;
     private Button cadatrarButton;
     private EditText emailEditText;
     private EditText senhaEditText;
@@ -46,15 +47,16 @@ public class LoginFragment extends Fragment {
 
         emailEditText = (EditText) view.findViewById(R.id.email_edit_text);
         senhaEditText = (EditText) view.findViewById(R.id.senha_edit_text);
-        entrarButton = (Button) view.findViewById(R.id.entrar_button);
+        entrarComCadastroButton = (Button) view.findViewById(R.id.entrar_com_cadastro_button);
+        entrarSemCadastroButton = (Button) view.findViewById(R.id.entrar_sem_cadastro_button);
         cadatrarButton = (Button) view.findViewById(R.id.cadastrar_button);
         esqueceuSenhaTextView = (TextView) view.findViewById(R.id.esqueceu_senha);
 
 
-        entrarButton.setOnClickListener(new View.OnClickListener() {
+        entrarComCadastroButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doLogin();
+                doLoginComCadastro();
             }
         });
 
@@ -64,9 +66,17 @@ public class LoginFragment extends Fragment {
                 doForgotPassword();
             }
         });
+
+        entrarSemCadastroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { doLoginSemCadastro(); }});
     }
 
-    private void doLogin() {
+    /**
+     * Login de usuário já previamente cadastrado pelo TJ
+     */
+    private void doLoginComCadastro() {
+
         //TODO métodos para validar os campos
         String email = emailEditText.getText().toString();
         String senha = senhaEditText.getText().toString();
@@ -86,6 +96,13 @@ public class LoginFragment extends Fragment {
                 //Falha no login do usuário.
             }
         });
+    }
+
+    /**
+     * Entrar com permissão de visitante
+     */
+    private void doLoginSemCadastro() {
+        //TODO Chamada da tela do restante do aplicativo com perfil de visitante
     }
 
     public void doForgotPassword() {
