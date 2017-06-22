@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
+import br.pucrs.ages.adocoes.Fragments.ContentFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -100,13 +103,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_institucional) {
             displayView(2);
         } else if (id == R.id.nav_termos) {
-            displayView(3);
+            displayView(2);
         } else if (id == R.id.nav_atualizar_cadastro) {
             displayView(4);
         } else if (id == R.id.nav_preferencias) {
             displayView(5);
         } else if (id == R.id.nav_sair) {
             displayView(6);
+        } else if (id == R.id.nav_tela_login) {
+            displayView(7);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -133,7 +138,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new TermosFragment();
                 title = "Termos de uso";
                 break;
-            case 3:
+            case 7:
                 fragment = new LoginFragment();
                 title = "Login teste";
                 break;
