@@ -14,5 +14,21 @@
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_data_sync.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\xml\\pref_data_sync.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_data_sync.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\xml\\pref_data_sync.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_notification.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\xml\\pref_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_general.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\xml\\pref_general.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_headers.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\xml\\pref_headers.xml"
     }
 ]

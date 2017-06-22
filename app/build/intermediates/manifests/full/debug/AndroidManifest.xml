@@ -41,6 +41,9 @@
         <activity
             android:name="br.pucrs.ages.adocoes.Settings.SettingsActivity"
             android:label="@string/title_activity_settings" />
+        <activity
+            android:name="br.pucrs.ages.adocoes.CadastroCompletoActivity"
+            android:label="Cadastro completo" />
     </application>
 
 </manifest>

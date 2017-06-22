@@ -6,7 +6,7 @@ package br.pucrs.ages.adocoes.Model.types;
 
 public enum Sexo {
 
-    Masculino("Maslino"),
+    Masculino("Masculino"),
     Feminino("Feminino");
 
     private String value;

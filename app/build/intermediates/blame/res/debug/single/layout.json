@@ -4,12 +4,20 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_layout_tab_text.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
@@ -20,12 +28,8 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_cadastro.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_cadastro.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_part_chronometer.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
@@ -36,12 +40,12 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_menu_item.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail_alternative.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail_alternative.xml"
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
@@ -52,28 +56,24 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_second.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_second.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\login.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item_separator.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_login.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_estado_civil.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_estado_civil.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -84,20 +84,300 @@
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\home.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_screen_content_include.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\app_bar_main.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contato.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_contato.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_cadastro.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_cadastro.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_terms.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\activity_user_terms.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_second.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_carlos.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_carlos.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\app_bar_main.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_item_holder.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\custom_item_holder.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cadastro.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\cadastro.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_esqueceu_senha.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\dialog_esqueceu_senha.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\home.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cadastro.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\cadastro.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\login.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_cadastro.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_cadastro.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail_alternative.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail_alternative.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_second.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\app_bar_main.xml",
+        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_first.xml",
@@ -120,16 +400,8 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_layout_tab_icon.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\select_dialog_item_material.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
@@ -140,24 +412,12 @@
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_carlos.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_terms.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\activity_user_terms.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_menu_layout.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
@@ -168,8 +428,24 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_terms.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\activity_user_terms.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_termos.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_termos.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
@@ -180,48 +456,72 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_item_holder.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\custom_item_holder.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_first.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_first.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail_alternative.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail_alternative.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_comprovantes.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_comprovantes.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_bar_up_container.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_item_subheader.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_search_view.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_main.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_select_dialog_material.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cadastro_completo_activity.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\cadastro_completo_activity.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
@@ -232,43 +532,39 @@
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_content.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_layout_tab_text.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cadastro.xml",
-        "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\cadastro.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_dados_pessoais.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_dados_pessoais.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_text_input_password_icon.xml"
-    },
-    {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_menu_item_action_area.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_layout_snackbar.xml"
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_item_holder.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\custom_item_holder.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
         "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menor_item_holder.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\menor_item_holder.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\notification_template_media.xml"
     }
 ]
