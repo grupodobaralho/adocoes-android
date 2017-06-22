@@ -1,12 +1,17 @@
 package br.pucrs.ages.adocoes.Fragments;
 
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -41,8 +46,17 @@ public class PreferenciasFragment extends Fragment {
 
         rg_lista = (RadioGroup) view.findViewById(R.id.rg_lista);
 
+        WebView wv = (WebView) view.findViewById(R.id.wv_trocaapi);
+        WebSettings ws = wv.getSettings();
+        ws.setJavaScriptEnabled(true);
+        ws.setSupportZoom(false);
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Preferências escolhidas: ");
+
+
         Button btn_salvarpref = (Button) view.findViewById(R.id.btn_salvarpref);
-     //   final TextView textView = (TextView) view.findViewById(R.id.teste1tv);
+
 
         btn_salvarpref.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -54,18 +68,22 @@ public class PreferenciasFragment extends Fragment {
                     case R.id.rb_vertical:
                         if (checked)
                             // vertical
-                            break;
+                            builder.setMessage("Você escolheu lista vertical!");
+                        break;
                     case R.id.rb_horizontal:
                         if (checked)
                             // horizontal
+                            builder.setMessage("Você escolheu lista horizontal!");
                             break;
                 }
             }
+
         });
 
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
-        //rg_lista.setVisibility(View.VISIBLE);
-
+      //  wv.loadUrl();
 
     }
 
