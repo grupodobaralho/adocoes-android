@@ -20,13 +20,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MenorDetailFragment extends Fragment {
+public class MenorDetailAlternativeFragment extends Fragment {
 
     private FirstRecyclerAdapter mListAdapter;
     private ProgressBar mProgressBar;
     private ArrayList<String> items = new ArrayList<>();
 
-    public MenorDetailFragment() { }
+    public MenorDetailAlternativeFragment() { }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class MenorDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_menor_detail, container, false);
+        return inflater.inflate(R.layout.fragment_menor_detail_alternative, container, false);
     }
 
     @Override
