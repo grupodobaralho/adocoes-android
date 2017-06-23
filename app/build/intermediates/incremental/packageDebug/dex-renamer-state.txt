@@ -1,4 +1,4 @@
-#Mon Jun 19 20:29:59 BRT 2017
+#Fri Jun 23 14:05:07 BRT 2017
 base.0=C\:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_dff52eca14eeca86e03f1e29aeeb59a0dcf49da9
 renamed.1=classes2.dex
 renamed.0=classes.dex
