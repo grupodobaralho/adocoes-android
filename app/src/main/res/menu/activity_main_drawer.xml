@@ -1,60 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_investments"
-            android:title="Meus investimentos" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Documentos e Contratos" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_notifications_black_24dp"
-            android:title="Notificações" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Ajustes" />
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="Apenas para teste de telas">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Compartilhe" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Sugestão/Crítica" />
-
-            <item
-                android:id="@+id/nav_send_4"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Avaliar o App" />
-
-            <item
-                android:id="@+id/nav_send_3"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Contato" />
-
+                android:id="@+id/nav_tela_login"
+                android:title="Tela de Login" />
         </menu>
     </item>
 
-    <item android:title="FAQ">
+    <item android:title="Lista de Crianças">
         <menu>
             <item
-                android:id="@+id/nav_login"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Login" />
+                android:id="@+id/nav_lista"
+                android:title="Crianças/Adolescentes" />
             <item
-                android:id="@+id/nav_send_2"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_favoritos"
+                android:title="Favoritos" />
         </menu>
     </item>
+
+    <item android:title="Informações">
+        <menu>
+            <item
+                android:id="@+id/nav_institucional"
+                android:title="Conteúdo Institucional" />
+            <item
+                android:id="@+id/nav_termos"
+                android:title="Termos de Uso" />
+        </menu>
+    </item>
+
+    <item android:title="Meu Perfil">
+        <menu>
+            <item
+                android:id="@+id/nav_atualizar_cadastro"
+                android:title="Meu Cadastro" />
+            <item
+                android:id="@+id/nav_preferencias"
+                android:title="Preferências" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_sair"
+        android:title="Encerrar Programa" />
 
 </menu>
