@@ -34,7 +34,5 @@ public class Usuario implements Serializable {
     public String getCpf() {
         return this.cpf;
     }
-    public String setCpf(String cpf) {
-        return this.cpf = cpf;
-    }
+    public String setCpf(String cpf){return this.cpf = cpf;}
 }

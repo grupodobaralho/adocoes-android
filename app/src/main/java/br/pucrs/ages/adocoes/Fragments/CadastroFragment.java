@@ -61,7 +61,7 @@ public class CadastroFragment extends Fragment {
                     public void onClick(View view)
                     {
                         usuario.setNome(etNome.getText().toString().trim()) ;
-                        usuario.setCpf(etCpf.getText().toString().trim());
+//                        usuario.setCpf(etCpf.getText().toString().trim());
                         usuario.setEmail(etEmail.getText().toString().trim());
                     }
                 });

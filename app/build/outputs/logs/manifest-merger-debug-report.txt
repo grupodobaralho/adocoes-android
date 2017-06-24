@@ -1,0 +1,133 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:2:1-41:12
+	package
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:6:5-71
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:6:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:7:5-71
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:7:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:8:5-72
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:8:22-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:9:5-66
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:9:22-64
+application
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:11:5-40:19
+MERGED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\14280090\.android\build-cache\8ffb9559e6d39ae3e8d964890686713e6e79db8e\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\14280090\.android\build-cache\90a7c02ce0ebe24b206d19cf8d55879ed640045c\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\14280090\.android\build-cache\2c1cb3bca07501bcd605bfe5cc019f8da8598f1f\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] C:\Users\14280090\.android\build-cache\8fc0617c98bddda74e05df4752da18f939d74616\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\14280090\.android\build-cache\97e3f29a3ca1ff608e7f17e983d26a4ce0943eca\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\14280090\.android\build-cache\645804ff8df3902ccb9a5514f724886df8c1a8ce\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\14280090\.android\build-cache\1707cf76bc807ce915753e555a46c0815b1b71d1\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\14280090\.android\build-cache\07e0e085f352e51da9f4df42e847951da5db7818\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\14280090\.android\build-cache\143b5a48fd500b4c603e2fc7e19e3e77d5b5e2b9\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:14:9-41
+	android:supportsRtl
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:16:9-35
+	android:roundIcon
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:15:9-54
+	android:allowBackup
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:12:9-35
+	android:icon
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:13:9-43
+	android:theme
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:17:9-40
+activity#br.pucrs.ages.adocoes.MainActivity
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:18:9-27:20
+	android:label
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:20:13-45
+	android:theme
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:21:13-56
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:19:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:22:13-26:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:23:17-69
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:23:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:25:27-74
+activity#br.pucrs.ages.adocoes.Login.LoginActivity
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:29:9-31:60
+	android:label
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:31:13-57
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:30:13-48
+activity#br.pucrs.ages.adocoes.Settings.SettingsActivity
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:33:9-35:63
+	android:label
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:35:13-60
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:34:13-54
+activity#br.pucrs.ages.adocoes.CadastroCompletoActivity
+ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:37:9-39:49
+	android:label
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:39:13-46
+	android:name
+		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:38:13-53
+uses-sdk
+INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\14280090\.android\build-cache\8ffb9559e6d39ae3e8d964890686713e6e79db8e\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\14280090\.android\build-cache\90a7c02ce0ebe24b206d19cf8d55879ed640045c\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\14280090\.android\build-cache\2c1cb3bca07501bcd605bfe5cc019f8da8598f1f\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\14280090\.android\build-cache\d56be7f1ac604328a31d16a6596a6061e95068a8\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] C:\Users\14280090\.android\build-cache\8fc0617c98bddda74e05df4752da18f939d74616\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\14280090\.android\build-cache\97e3f29a3ca1ff608e7f17e983d26a4ce0943eca\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\14280090\.android\build-cache\645804ff8df3902ccb9a5514f724886df8c1a8ce\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\14280090\.android\build-cache\1707cf76bc807ce915753e555a46c0815b1b71d1\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\14280090\.android\build-cache\07e0e085f352e51da9f4df42e847951da5db7818\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\14280090\.android\build-cache\143b5a48fd500b4c603e2fc7e19e3e77d5b5e2b9\output\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\14280090\.android\build-cache\8ffb9559e6d39ae3e8d964890686713e6e79db8e\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\14280090\.android\build-cache\90a7c02ce0ebe24b206d19cf8d55879ed640045c\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\14280090\.android\build-cache\2c1cb3bca07501bcd605bfe5cc019f8da8598f1f\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\14280090\.android\build-cache\d56be7f1ac604328a31d16a6596a6061e95068a8\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] C:\Users\14280090\.android\build-cache\8fc0617c98bddda74e05df4752da18f939d74616\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\14280090\.android\build-cache\97e3f29a3ca1ff608e7f17e983d26a4ce0943eca\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\14280090\.android\build-cache\645804ff8df3902ccb9a5514f724886df8c1a8ce\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\14280090\.android\build-cache\1707cf76bc807ce915753e555a46c0815b1b71d1\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\14280090\.android\build-cache\07e0e085f352e51da9f4df42e847951da5db7818\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:26:9-47
