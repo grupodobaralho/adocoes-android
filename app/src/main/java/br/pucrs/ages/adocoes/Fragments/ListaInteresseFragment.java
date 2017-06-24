@@ -3,12 +3,10 @@ package br.pucrs.ages.adocoes.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -16,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.Model.Usuario;
 import br.pucrs.ages.adocoes.R;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,6 +73,6 @@ public class ListaInteresseFragment extends Fragment {
             }
         });
 
-        mListAdapter.setData(menores);
+//        mListAdapter.setData(menores);
     }
 }

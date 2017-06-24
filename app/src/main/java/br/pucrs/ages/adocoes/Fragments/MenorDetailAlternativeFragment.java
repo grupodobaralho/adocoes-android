@@ -79,6 +79,6 @@ public class MenorDetailAlternativeFragment extends Fragment {
         items.add("Gabriel Machado");
         items.add("Eduardo Arruda");
 
-        mListAdapter.setData(items);
+//        mListAdapter.setData(items);
     }
 }
