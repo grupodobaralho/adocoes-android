@@ -27,7 +27,19 @@
     </LinearLayout>
 
 
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_height="124dp"
+            android:layout_width="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -102,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Saúde" />
+            android:text="Descrição das condições de saúde da criança/adolescente:" />
 
         <TextView
             android:id="@+id/text_view12"
@@ -160,7 +172,38 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="6dp">
+        android:padding="1dp">
+
+        <TextView
+            android:id="@+id/text_view17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Iniciais" />
+
+        <TextView
+            android:id="@+id/text_view18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Iniciais" />
+
+        <TextView
+            android:id="@+id/text_view19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Iniciais" />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="1dp">
 
         <TextView
             android:id="@+id/text_view14"
@@ -191,15 +234,33 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="1dp"
         android:weightSum="1">
 
+        <TextView
+            android:id="@+id/text_view21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.26"
+            android:text="Gostaria de"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adotar"
+            android:textSize="10sp"
+            android:layout_weight="0.35" />
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Manifestar interesse na adoção"
-            android:textSize="12sp" />
+            android:text="Apadrinhar"
+            android:textSize="10sp"
+            android:layout_weight="0.31" />
 
     </LinearLayout>
 

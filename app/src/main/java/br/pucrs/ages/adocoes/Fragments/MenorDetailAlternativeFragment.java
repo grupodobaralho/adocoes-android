@@ -3,7 +3,6 @@ package br.pucrs.ages.adocoes.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,13 +20,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMenorSelectedListener {
+public class MenorDetailAlternativeFragment extends Fragment {
 
     private FirstRecyclerAdapter mListAdapter;
     private ProgressBar mProgressBar;
-    private ArrayList<Pair<String, Integer>> items = new ArrayList<>();
+    private ArrayList<String> items = new ArrayList<>();
 
-    public FirstFragment() { }
+    public MenorDetailAlternativeFragment() { }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMe
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return inflater.inflate(R.layout.fragment_menor_detail_alternative, container, false);
     }
 
     @Override
@@ -58,46 +57,28 @@ public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMe
 
         call.enqueue(new Callback<List<Menor>>() {
             @Override
-            public void onResponse(Call<List<br.pucrs.ages.adocoes.Model.Menor>> call, Response<List<Menor>> response) {
-                for (br.pucrs.ages.adocoes.Model.Menor menor : response.body()) {
-//                    items.add(menor.getNome());
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+                for (Menor menor : response.body()) {
+                    items.add(menor.getNome());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<br.pucrs.ages.adocoes.Model.Menor>> call, Throwable t) {
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
 //                Context context = getApplicationContext();
                 CharSequence text = t.getLocalizedMessage();
                 int duration = Toast.LENGTH_SHORT;
+
 //                Toast toast = Toast.makeText(context, text, duration);
 //                toast.show();
             }
         });
 
-
-
-        items.add(new Pair("Marcus Kuquert", R.drawable.boy));
-        items.add(new Pair("André Botelho", R.drawable.boy_1));
-        items.add(new Pair("Gabriel Machado", R.drawable.boy_2));
-        items.add(new Pair("Eduardo Arruda", R.drawable.boy_3));
-
-        items.add(new Pair("Cassio Trindade", R.drawable.girl));
-        items.add(new Pair("André Botelho", R.drawable.girl_1));
-        items.add(new Pair("Gabriel Machado", R.drawable.girl_2));
-        items.add(new Pair("Eduardo Arruda", R.drawable.girl_3));
+        items.add("Marcus Kuquert");
+        items.add("André Botelho");
+        items.add("Gabriel Machado");
+        items.add("Eduardo Arruda");
 
         mListAdapter.setData(items);
-        mListAdapter.setListener(this);
-    }
-
-
-    @Override
-    public void OnMenorItemSelected(Object menor) {
-        MenorDetailFragment fragment = new MenorDetailFragment();
-        getActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .addToBackStack(FirstFragment.class.getName())
-                .replace(R.id.content_frame, fragment, MenorDetailFragment.class.getSimpleName())
-                .commit();
     }
 }
