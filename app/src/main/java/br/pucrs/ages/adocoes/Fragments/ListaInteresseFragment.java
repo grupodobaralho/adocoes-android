@@ -49,7 +49,11 @@ public class ListaInteresseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.portfolio_allocation_list);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.portfolio_allocation_list);
+        mProgressBar = (ProgressBar) view.findViewById(R.id.native_progress_bar);
+        mListAdapter = new FirstRecyclerAdapter(this.getActivity());
+        recyclerView.setAdapter(mListAdapter);
+        recyclerView.setVisibility(View.VISIBLE);
 
         final ArrayList<String> menores = new ArrayList<String>();
 
@@ -60,7 +64,7 @@ public class ListaInteresseFragment extends Fragment {
             @Override
             public void onResponse(Call<List<br.pucrs.ages.adocoes.Model.Menor>> call, Response<List<Menor>> response) {
                 for (br.pucrs.ages.adocoes.Model.Menor menor : response.body()) {
-                    menores.add(menor.getId());
+                    menores.add(menor.getNome());
                 }
             }
 
@@ -72,6 +76,6 @@ public class ListaInteresseFragment extends Fragment {
             }
         });
 
-        recyclerView.setAdapter(new FirstRecyclerAdapter(this.getActivity())); //TODO como passar os dados
+        mListAdapter.setData(menores);
     }
 }
