@@ -40,7 +40,7 @@ public class CadastroCompletoActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         setupViewPager(viewPager);
 
