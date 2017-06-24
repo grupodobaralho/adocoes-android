@@ -33,7 +33,6 @@ public class MenorDetailFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-
         adapter = new CustomSwipeAdapter();
         viewPager.setAdapter(adapter);
     }

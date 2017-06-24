@@ -17,20 +17,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginTop="50dp"
             android:text="Informações da criança/adolescente" />
-
-        <TextView
-            android:id="@+id/text_view2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="140dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="160dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
