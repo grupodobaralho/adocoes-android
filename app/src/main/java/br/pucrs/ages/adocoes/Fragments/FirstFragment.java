@@ -3,6 +3,7 @@ package br.pucrs.ages.adocoes.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,17 +15,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMenorSelectedListener {
 
     private FirstRecyclerAdapter mListAdapter;
     private ProgressBar mProgressBar;
-    private ArrayList<String> items = new ArrayList<>();
+    private ArrayList<Pair<String, Integer>> items = new ArrayList<>();
 
     public FirstFragment() { }
 
@@ -52,8 +53,6 @@ public class FirstFragment extends Fragment {
         recyclerView.setAdapter(mListAdapter);
         recyclerView.setVisibility(View.VISIBLE);
 
-
-
         Call<List<Menor>> call;
         call = br.pucrs.ages.adocoes.Rest.RestUtil.getMenoresEndPoint().menores("token");
 
@@ -61,7 +60,7 @@ public class FirstFragment extends Fragment {
             @Override
             public void onResponse(Call<List<br.pucrs.ages.adocoes.Model.Menor>> call, Response<List<Menor>> response) {
                 for (br.pucrs.ages.adocoes.Model.Menor menor : response.body()) {
-                    items.add(menor.getNome());
+//                    items.add(menor.getNome());
                 }
             }
 
@@ -70,17 +69,35 @@ public class FirstFragment extends Fragment {
 //                Context context = getApplicationContext();
                 CharSequence text = t.getLocalizedMessage();
                 int duration = Toast.LENGTH_SHORT;
-
 //                Toast toast = Toast.makeText(context, text, duration);
 //                toast.show();
             }
         });
 
-        items.add("Marcus Kuquert");
-        items.add("André Botelho");
-        items.add("Gabriel Machado");
-        items.add("Eduardo Arruda");
+
+
+        items.add(new Pair("Marcus Kuquert", R.drawable.boy));
+        items.add(new Pair("André Botelho", R.drawable.boy_1));
+        items.add(new Pair("Gabriel Machado", R.drawable.boy_2));
+        items.add(new Pair("Eduardo Arruda", R.drawable.boy_3));
+
+        items.add(new Pair("Cassio Trindade", R.drawable.girl));
+        items.add(new Pair("André Botelho", R.drawable.girl_1));
+        items.add(new Pair("Gabriel Machado", R.drawable.girl_2));
+        items.add(new Pair("Eduardo Arruda", R.drawable.girl_3));
 
         mListAdapter.setData(items);
+        mListAdapter.setListener(this);
+    }
+
+
+    @Override
+    public void OnMenorItemSelected(Object menor) {
+        MenorDetailFragment fragment = new MenorDetailFragment();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .addToBackStack(FirstFragment.class.getName())
+                .replace(R.id.content_frame, fragment, MenorDetailFragment.class.getSimpleName())
+                .commit();
     }
 }
