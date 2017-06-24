@@ -39,10 +39,11 @@ MERGED from [com.android.support:transition:25.3.1] C:\Users\14280090\.android\b
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\14280090\.android\build-cache\97e3f29a3ca1ff608e7f17e983d26a4ce0943eca\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\14280090\.android\build-cache\645804ff8df3902ccb9a5514f724886df8c1a8ce\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\14280090\.android\build-cache\1707cf76bc807ce915753e555a46c0815b1b71d1\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\14280090\.android\build-cache\07e0e085f352e51da9f4df42e847951da5db7818\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\14280090\.android\build-cache\143b5a48fd500b4c603e2fc7e19e3e77d5b5e2b9\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\14280090\.android\build-cache\37d14a4ebf0cdf98176eb6ca0744570337312b8a\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from C:\Users\14280090\Documents\adocoes-android\app\src\main\AndroidManifest.xml:14:9-41
 	android:supportsRtl
@@ -102,10 +103,11 @@ MERGED from [com.android.support:transition:25.3.1] C:\Users\14280090\.android\b
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\14280090\.android\build-cache\97e3f29a3ca1ff608e7f17e983d26a4ce0943eca\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\14280090\.android\build-cache\645804ff8df3902ccb9a5514f724886df8c1a8ce\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\14280090\.android\build-cache\1707cf76bc807ce915753e555a46c0815b1b71d1\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\14280090\.android\build-cache\07e0e085f352e51da9f4df42e847951da5db7818\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\14280090\.android\build-cache\143b5a48fd500b4c603e2fc7e19e3e77d5b5e2b9\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\14280090\.android\build-cache\37d14a4ebf0cdf98176eb6ca0744570337312b8a\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -124,8 +126,9 @@ MERGED from [com.android.support:transition:25.3.1] C:\Users\14280090\.android\b
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\14280090\.android\build-cache\97e3f29a3ca1ff608e7f17e983d26a4ce0943eca\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\14280090\.android\build-cache\645804ff8df3902ccb9a5514f724886df8c1a8ce\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\14280090\.android\build-cache\1707cf76bc807ce915753e555a46c0815b1b71d1\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\14280090\.android\build-cache\07e0e085f352e51da9f4df42e847951da5db7818\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\14280090\.android\build-cache\37d14a4ebf0cdf98176eb6ca0744570337312b8a\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\14280090\.android\build-cache\c15956850644f532d474af7d941823e33a86d2d7\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\14280090\.android\build-cache\89de7038df798e8d2e17876b0a62d05d378febde\output\AndroidManifest.xml:25:5-27:34
 	android:value
 		ADDED from [com.android.support:design:25.3.1] C:\Users\14280090\.android\build-cache\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\output\AndroidManifest.xml:27:9-31

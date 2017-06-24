@@ -8,12 +8,12 @@
         "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_layout_tab_text.xml"
     },
     {
-        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_search_view.xml"
-    },
-    {
         "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
         "source": "C:\\Users\\14280090\\.android\\build-cache\\4f404cd5e6f5c71ca52cbcb4251673254bb07cd1\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
@@ -56,12 +56,12 @@
         "source": "C:\\Users\\Computador\\.android\\build-cache\\13bbfa01abcdc9c47e8c43513b8ef972a108ed30\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
-        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail.xml",
-        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail.xml"
-    },
-    {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login.xml",
         "source": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\src\\main\\res\\layout\\login.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_menor_detail.xml",
+        "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_menor_detail.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
@@ -92,12 +92,12 @@
         "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
@@ -120,12 +120,12 @@
         "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
         "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contato.xml",
         "source": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\src\\main\\res\\layout\\fragment_contato.xml"
+    },
+    {
+        "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\14280090\\.android\\build-cache\\8ffb9559e6d39ae3e8d964890686713e6e79db8e\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "C:\\Users\\14280090\\Documents\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
