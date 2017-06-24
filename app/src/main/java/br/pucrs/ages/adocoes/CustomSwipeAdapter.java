@@ -29,11 +29,6 @@ public class CustomSwipeAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return (view == (LinearLayout)object);
-    }
-
-    @Override
     public Object instantiateItem(ViewGroup container, int position) {
         layoutInflater = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.swipe_layout, container, false);
@@ -49,5 +44,10 @@ public class CustomSwipeAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout)object);
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return true;
     }
 }
