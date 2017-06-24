@@ -7,10 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import br.pucrs.ages.adocoes.CustomSwipeAdapter;
 import br.pucrs.ages.adocoes.R;
 
 public class MenorDetailFragment extends Fragment {
+
     ViewPager viewPager;
     CustomSwipeAdapter adapter;
 
@@ -30,8 +32,9 @@ public class MenorDetailFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        adapter = new CustomSwipeAdapter(getActivity());
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+
+        adapter = new CustomSwipeAdapter();
         viewPager.setAdapter(adapter);
     }
 }
