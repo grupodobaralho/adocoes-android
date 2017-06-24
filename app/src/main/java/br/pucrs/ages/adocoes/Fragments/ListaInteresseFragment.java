@@ -53,8 +53,8 @@ public class ListaInteresseFragment extends Fragment {
 
         final ArrayList<String> menores = new ArrayList<String>();
 
-        Call<List< Menor >> call;
-        call = br.pucrs.ages.adocoes.Rest.RestUtil.getMenoresEndPoint().menores("token");
+        Call<List<Menor>> call;
+        call = br.pucrs.ages.adocoes.Rest.RestUtil.getMenoresEndPoint().menores("token"); //GET /interessados/{id_interessado}/menores
 
         call.enqueue(new Callback<List<Menor>>() {
             @Override
@@ -72,9 +72,6 @@ public class ListaInteresseFragment extends Fragment {
             }
         });
 
-        recyclerView.setAdapter(new FirstRecyclerAdapter(this.getActivity()));
-
-        //TODO como passar os dados para a outra classe
-
+        recyclerView.setAdapter(new FirstRecyclerAdapter(this.getActivity())); //TODO como passar os dados
     }
 }
