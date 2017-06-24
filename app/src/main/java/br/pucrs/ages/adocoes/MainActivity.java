@@ -16,8 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import br.pucrs.ages.adocoes.Fragments.MenorDetailFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
-import br.pucrs.ages.adocoes.Fragments.ContentFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
 
         switch (viewId) {
             case 0:
-                fragment = new FirstFragment();
+                fragment = new MenorDetailFragment();
                 title  = "News";
                 break;
             case 1:
