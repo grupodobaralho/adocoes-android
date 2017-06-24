@@ -39,4 +39,8 @@ public class Menor implements Serializable {
         return nome;
     }
     public String getId() { return this.id; }
+
+    public Menor(String nome) {
+        this.nome = nome;
+    }
 }

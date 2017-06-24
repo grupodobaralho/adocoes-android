@@ -1,7 +1,6 @@
 package br.pucrs.ages.adocoes.Fragments;
 
 import android.app.Activity;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
 /**
@@ -32,13 +32,13 @@ public class FirstRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     private Activity activity;
     //Title, Image
-    private ArrayList<Pair<String, Integer>> items;
+    private ArrayList<Menor> items;
 
     public FirstRecyclerAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setData(ArrayList<Pair<String, Integer>> items) {
+    public void setData(ArrayList<Menor> items) {
         this.items = items;
         notifyDataSetChanged();
     }
@@ -52,8 +52,9 @@ public class FirstRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         MenorItemView itemView = (MenorItemView) holder;
-        itemView.textView.setText(items.get(position).first);
-        itemView.imageView.setImageResource(items.get(position).second);
+        if (items.get(position).getNome()  != null) {
+            itemView.textView.setText(items.get(position).getNome());
+        }
     }
 
     @Override
