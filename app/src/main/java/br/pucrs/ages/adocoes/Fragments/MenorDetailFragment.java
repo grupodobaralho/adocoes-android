@@ -35,9 +35,6 @@ public class MenorDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        viewPager = ;
-//        adapter = new CustomSwipeAdapter(this);
-        viewPager.setAdapter(adapter);
     }
 
     @Nullable
@@ -55,6 +52,9 @@ public class MenorDetailFragment extends Fragment {
 
         mProgressBar.setVisibility(View.GONE);
         mListAdapter = new FirstRecyclerAdapter(getActivity());
+        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        adapter = new CustomSwipeAdapter(getActivity());
+        viewPager.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(mListAdapter);
         recyclerView.setVisibility(View.VISIBLE);
