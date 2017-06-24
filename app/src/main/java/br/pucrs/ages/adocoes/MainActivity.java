@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import br.pucrs.ages.adocoes.Fragments.MenorDetailFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
@@ -127,12 +126,12 @@ public class MainActivity extends AppCompatActivity
 
         switch (viewId) {
             case 0:
-                fragment = new MenorDetailFragment();
-                title  = "News";
+                fragment = new FirstFragment();
+                title  = "Crianças e Adolescentes";
                 break;
             case 1:
                 fragment = new SecondFragment();
-                title = "Events";
+                title = "Fovaritados";
                 break;
             case 2:
                 fragment = new TermosFragment();
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             default:
                 fragment = new FirstFragment();
-                title = "Events";
+                title = "Adoções app";
                 break;
 
         }
