@@ -87,4 +87,24 @@
             android:layout_toEndOf="@+id/textView20" />
     </GridLayout>
 
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/rg_lista"
+        android:layout_below="@+id/rg_lista"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="34dp"
+        android:text="ToggleButton" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toggleButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginStart="20dp"
+        android:text="TextView" />
+
 </RelativeLayout>
