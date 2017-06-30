@@ -9,7 +9,7 @@
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\aca8f4336ca1dd873dc2a027e0a44a8469adad6f\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_camera.xml",
@@ -28,12 +28,12 @@
         "source": "H:\\adocoes android\\adocoes-android\\app\\src\\main\\res\\drawable-v21\\ic_menu_share.xml"
     },
     {
-        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
-        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\drawable-v21\\avd_hide_password.xml"
+        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\f5512bc7fa8ec08e6f5d67e34546236c711ebcda\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
+        "source": "C:\\Users\\Computador\\.android\\build-cache\\e7a7a2e7ee10d1504551762814b1ce7bef08112a\\output\\res\\drawable-v21\\avd_hide_password.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
@@ -65,15 +65,15 @@
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\drawable-v21\\avd_show_password.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\aca8f4336ca1dd873dc2a027e0a44a8469adad6f\\output\\res\\drawable-v21\\avd_show_password.xml"
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_password_eye.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\drawable-v21\\design_password_eye.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\aca8f4336ca1dd873dc2a027e0a44a8469adad6f\\output\\res\\drawable-v21\\design_password_eye.xml"
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\f5512bc7fa8ec08e6f5d67e34546236c711ebcda\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_gallery.xml",
@@ -81,11 +81,11 @@
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\f5512bc7fa8ec08e6f5d67e34546236c711ebcda\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\0b284582315bc64c39ca864b6c22aa645e73c1dc\\output\\res\\drawable-v21\\notification_action_background.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\f5512bc7fa8ec08e6f5d67e34546236c711ebcda\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "D:\\Faculdade\\AGES I\\Android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_menu_slideshow.xml",
@@ -109,6 +109,6 @@
     },
     {
         "merged": "H:\\adocoes android\\adocoes-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
-        "source": "C:\\Users\\14104127\\.android\\build-cache\\bd7ec35b3eaaad0a4a2a8c18d1df257692d616ea\\output\\res\\drawable-v21\\avd_hide_password.xml"
+        "source": "C:\\Users\\14104127\\.android\\build-cache\\aca8f4336ca1dd873dc2a027e0a44a8469adad6f\\output\\res\\drawable-v21\\avd_hide_password.xml"
     }
 ]
