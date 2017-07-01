@@ -5,11 +5,14 @@ package br.pucrs.ages.adocoes.Model.dto.Request;
  */
 
 public class AuthRequest {
-    private String email;
-    private String senha;
 
-    public AuthRequest(String email, String senha) {
-        this.email = email;
-        this.senha = senha;
+    private String username;
+    private String password;
+    private String grant_type;
+
+    public AuthRequest(String username, String password) {
+        this.grant_type = "password";
+        this.username = username;
+        this.password = password;
     }
 }

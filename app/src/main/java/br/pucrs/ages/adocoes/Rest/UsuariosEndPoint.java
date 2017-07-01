@@ -21,5 +21,8 @@ public interface UsuariosEndPoint {
     Call<List<Usuario>> usuarios(@Header("access-token") String accessToken);
 
     @GET("/usuarios/{usuarioId}")
-    Call<Usuario> usuario(@Path("usuarioId") String portfolioId, @Header("access-token") String accessToken);
+    Call<Usuario> usuario(@Path("usuarioId") String usuarioId, @Header("access-token") String accessToken);
+
+    @GET("/usuarios/me")
+    Call<Usuario> me(@Header("access-token") String accessToken);
 }

@@ -1,9 +1,11 @@
 package br.pucrs.ages.adocoes.Fragments;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +14,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import br.pucrs.ages.adocoes.Model.Usuario;
+import java.io.UnsupportedEncodingException;
+
+import br.pucrs.ages.adocoes.MainActivity;
+import br.pucrs.ages.adocoes.Model.dto.AccessToken;
 import br.pucrs.ages.adocoes.Model.dto.Request.AuthRequest;
+import br.pucrs.ages.adocoes.Model.dto.Response.AuthResponse;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
+import br.pucrs.ages.adocoes.UserBusiness;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginFragment extends Fragment {
 
-    public LoginFragment() { }
+    public LoginFragment() {
+    }
+
     private Button entrarComCadastroButton;
     private Button entrarSemCadastroButton;
     private Button cadatrarButton;
@@ -69,33 +78,52 @@ public class LoginFragment extends Fragment {
 
         entrarSemCadastroButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { doLoginSemCadastro(); }});
+            public void onClick(View v) {
+                doLoginSemCadastro();
+            }
+        });
     }
 
     /**
      * Login de usuário já previamente cadastrado pelo TJ
      */
     private void doLoginComCadastro() {
+        try {
 
-        //TODO métodos para validar os campos
-        String email = emailEditText.getText().toString();
-        String senha = senhaEditText.getText().toString();
+            //TODO métodos para validar os campos
+            String email = emailEditText.getText().toString();
+            String senha = senhaEditText.getText().toString();
 
-        AuthRequest authRquest = new AuthRequest(email, senha);
+            AuthRequest authRquest = new AuthRequest(email, senha);
 
-        Call<Usuario> call = RestUtil.getAuthEndPoint().authUser(authRquest);
+            String APP_KEY = "adocoes.app";
+            String APP_SECRET = "407a4d80fce791751cd83ab1af3d9b26";
 
-        call.enqueue(new Callback<Usuario>() {
-            @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                //Usuário logado.
-            }
+            String str = APP_KEY + ":" + APP_SECRET;
 
-            @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
-                //Falha no login do usuário.
-            }
-        });
+            byte[] data = str.getBytes("UTF-8");
+            String base64 = Base64.encodeToString(data, Base64.NO_WRAP | Base64.URL_SAFE);
+            String authorizationString = "Basic " + base64;
+            Call<AuthResponse> call = RestUtil.getAuthEndPoint().authUser(authorizationString, authRquest);
+
+            call.enqueue(new Callback<AuthResponse>() {
+                @Override
+                public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                    AccessToken accessToken = response.body().getAccess_token();
+                    UserBusiness.getInstance().updateAccessToken(accessToken.getValue(), accessToken.getUserId());
+
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(Call<AuthResponse> call, Throwable t) {
+                    //Falha no login do usuário.
+                }
+            });
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -1,9 +1,10 @@
 package br.pucrs.ages.adocoes.Rest;
 
-import br.pucrs.ages.adocoes.Model.Usuario;
 import br.pucrs.ages.adocoes.Model.dto.Request.AuthRequest;
+import br.pucrs.ages.adocoes.Model.dto.Response.AuthResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 /**
@@ -11,6 +12,6 @@ import retrofit2.http.POST;
  */
 
 public interface AuthEndPoint {
-    @POST("/oauth/token")
-    Call<Usuario> authUser(@Body AuthRequest request);
+    @POST("/adocoes/oauth")
+    Call<AuthResponse> authUser(@Header("Authorization") String authorization, @Body AuthRequest request);
 }
