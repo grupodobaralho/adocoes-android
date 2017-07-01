@@ -1,8 +1,10 @@
 package br.pucrs.ages.adocoes.Fragments;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -18,6 +20,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Button;
 
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import br.pucrs.ages.adocoes.R;
 
@@ -43,13 +48,16 @@ public class PreferenciasFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        int ordenacaoData;
         rg_lista = (RadioGroup) view.findViewById(R.id.rg_lista);
+        rg_lista.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton selected = (RadioButton) group.findViewById(checkedId);
+                ordenacaoData = selected.getId();
+            }
+        });
 
-        WebView wv = (WebView) view.findViewById(R.id.wv_trocaapi);
-        WebSettings ws = wv.getSettings();
-        ws.setJavaScriptEnabled(true);
-        ws.setSupportZoom(false);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Preferências escolhidas: ");
@@ -62,6 +70,9 @@ public class PreferenciasFragment extends Fragment {
             public void onClick(View v) {
 
                 boolean checked = ((RadioButton) v).isChecked();
+
+                save(v);//Salva dados localmente
+
 
                 // Check which radio button was clicked
                 switch(v.getId()) {
@@ -78,7 +89,22 @@ public class PreferenciasFragment extends Fragment {
                 }
             }
 
+            public void save (View v){
+
+                String fileName = "teste";
+
+                try {
+                    //FileOutputStream file = openFileOutput(fileName, Context.MODE_PRIVATE);
+                    FileOutputStream file = getContext().openFileOutput(fileName, getActivity().MODE_PRIVATE);
+                    file.write(ordenacaoData.toString().getBytes());
+                    file.close();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
         });
+
+
 
         AlertDialog dialog = builder.create();
         dialog.show();
