@@ -35,12 +35,27 @@ public class Menor implements Serializable {
     private List<String> interessados;
     private boolean ativo;
 
+
+    public Menor(String id, String nome, Sexo sexo, String descricaoSaude) {
+        this.id = id;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.descricaoSaude = descricaoSaude;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
-    public String getId() { return this.id; }
 
-    public Menor(String nome) {
-        this.nome = nome;
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public String getDescricaoSaude() {
+        return descricaoSaude;
     }
 }

@@ -41,7 +41,7 @@
             android:text="Nome" />
 
         <TextView
-            android:id="@+id/text_view4"
+            android:id="@+id/nome_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,10 +60,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Idade" />
+            android:text="Data de nascimento" />
 
         <TextView
-            android:id="@+id/text_view6"
+            android:id="@+id/data_nasc_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -85,7 +85,7 @@
             android:text="Sexo" />
 
         <TextView
-            android:id="@+id/text_view8"
+            android:id="@+id/sexo_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -107,7 +107,7 @@
             android:text="Descrição das condições de saúde da criança/adolescente:" />
 
         <TextView
-            android:id="@+id/text_view12"
+            android:id="@+id/saude_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

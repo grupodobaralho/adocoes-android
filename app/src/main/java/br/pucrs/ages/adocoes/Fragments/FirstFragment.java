@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import java.util.ArrayList;
 
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.types.Sexo;
 import br.pucrs.ages.adocoes.R;
 
 public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMenorSelectedListener {
@@ -68,14 +69,8 @@ public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMe
 //            }
 //        });
 
-        items.add(new Menor("Marcus Kuquert 1"));
-        items.add(new Menor("Marcus Kuquert 2"));
-        items.add(new Menor("Marcus Kuquert 3"));
-        items.add(new Menor("Marcus Kuquert 4"));
-        items.add(new Menor("Marcus Kuquert 5"));
-        items.add(new Menor("Marcus Kuquert 6"));
-        items.add(new Menor("Marcus Kuquert 7"));
-        items.add(new Menor("Marcus Kuquert 8"));
+        items.add(new Menor("Marcus Kuquert 1", "Zezinho", Sexo.Masculino ,"Saúde em perfeito estado"));
+
 
         mListAdapter.setData(items);
         mListAdapter.setListener(this);
@@ -84,7 +79,8 @@ public class FirstFragment extends Fragment implements FirstRecyclerAdapter.OnMe
 
     @Override
     public void OnMenorItemSelected(Object menor) {
-        MenorDetailFragment fragment = new MenorDetailFragment();
+
+        MenorDetailFragment fragment = MenorDetailFragment.newInstance((Menor) menor);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack(FirstFragment.class.getName())
