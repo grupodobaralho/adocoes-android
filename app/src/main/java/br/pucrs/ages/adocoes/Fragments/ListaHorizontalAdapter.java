@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
@@ -19,18 +18,21 @@ import br.pucrs.ages.adocoes.R;
  * Created by kuquert on 29/05/17.
  */
 
-public class ListaHorizontalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontalAdapter.MenorItemView> {
 
     public interface OnMenorSelectedListener {
-        void OnMenorItemSelected(Object transaction);
+        void OnMenorItemSelected(Menor menor);
     }
 
     private OnMenorSelectedListener mOnMenorSelectedListener;
     private OnMenorSelectedListener mOnMenorFavoritarListener;
 
-    public void setListener(OnMenorSelectedListener listener, OnMenorSelectedListener favoritar) {
+    public void setListener(OnMenorSelectedListener listener) {
         this.mOnMenorSelectedListener = listener;
-        this.mOnMenorFavoritarListener = favoritar;
+    }
+
+    public void setOnMenorFavoritarListener(OnMenorSelectedListener onMenorFavoritarListener) {
+        mOnMenorFavoritarListener = onMenorFavoritarListener;
     }
 
     private Activity activity;
@@ -47,15 +49,18 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListaHorizontalAdapter.MenorItemView onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_horizontal_item, parent, false);
         return new MenorItemView(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MenorItemView itemView = (MenorItemView) holder;
-        if (items.get(position).getNome()  != null) {
+    public void onBindViewHolder(ListaHorizontalAdapter.MenorItemView holder, int position) {
+        MenorItemView itemView = holder;
+        final Menor menor = items.get(position);
+        if (menor != null) {
+            itemView.tvNome.setText(menor.getNome());
+
         }
     }
 
@@ -64,7 +69,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         return items.size();
     }
 
-    private class MenorItemView extends RecyclerView.ViewHolder  {
+    class MenorItemView extends RecyclerView.ViewHolder  {
 
         TextView tvNome;
         TextView tvSexo;
@@ -86,7 +91,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             btnDetalhes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Object menorItem = items.get(getAdapterPosition());
+                    Menor menorItem = items.get(getAdapterPosition());
                     mOnMenorSelectedListener.OnMenorItemSelected(menorItem);
 
                 }
@@ -95,7 +100,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             btnFavoritar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Object menorItem = items.get(getAdapterPosition());
+                    Menor menorItem = items.get(getAdapterPosition());
                     mOnMenorFavoritarListener.OnMenorItemSelected(menorItem);
                 }
             });
