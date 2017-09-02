@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -76,7 +77,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
         TextView tvIdade;
         ImageView imgFoto;
         Button btnDetalhes;
-        Button btnFavoritar;
+        ImageButton btnFavoritar;
 
         MenorItemView(View view) {
             super(view);
@@ -85,7 +86,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
             tvSexo = (TextView) view.findViewById(R.id.tv_sexo);
             imgFoto = (ImageView) view.findViewById(R.id.img_menor);
             btnDetalhes = (Button) view.findViewById(R.id.btn_detalhes);
-            btnFavoritar = (Button) view.findViewById(R.id.btn_favoritar);
+            btnFavoritar = (ImageButton) view.findViewById(R.id.btn_favoritar);
 
 
             btnDetalhes.setOnClickListener(new View.OnClickListener() {

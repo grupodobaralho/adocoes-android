@@ -6,8 +6,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/portfolio_allocation_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="?attr/actionBarSize"/>
+        android:layout_height="match_parent"/>
 
     <ProgressBar
         android:id="@+id/native_progress_bar"
