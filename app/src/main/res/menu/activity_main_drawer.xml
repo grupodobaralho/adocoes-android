@@ -46,4 +46,8 @@
         android:id="@+id/nav_sair"
         android:title="Encerrar Programa" />
 
+    <item
+        android:id="@+id/nav_listagem_horizontal"
+        android:title="Listagem Horizontal" />
+
 </menu>

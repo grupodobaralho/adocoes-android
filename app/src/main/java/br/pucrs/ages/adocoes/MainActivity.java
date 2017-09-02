@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import br.pucrs.ages.adocoes.Fragments.ListaMenoresCardFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
@@ -111,6 +112,8 @@ public class MainActivity extends AppCompatActivity
             displayView(6);
         } else if (id == R.id.nav_tela_login) {
             displayView(7);
+        } else if (id == R.id.nav_listagem_horizontal) {
+            displayView(8);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -141,11 +144,14 @@ public class MainActivity extends AppCompatActivity
                 fragment = new LoginFragment();
                 title = "Login teste";
                 break;
+            case 8:
+                fragment = new ListaMenoresCardFragment();
+                title = "Lista Horizontal";
+                break;
             default:
                 fragment = new FirstFragment();
                 title = "Adoções app";
                 break;
-
         }
 
         if (fragment != null) {
