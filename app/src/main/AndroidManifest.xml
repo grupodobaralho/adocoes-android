@@ -30,13 +30,15 @@
             android:name=".CadastroCompletoActivity"
             android:label="Cadastro completo" />
         <activity android:name=".LauncherActivity">
+
+        </activity>
+        <activity android:name=".MenorDetails.MenorDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MinorDetails.MinorDetails"></activity>
     </application>
 
 </manifest>
