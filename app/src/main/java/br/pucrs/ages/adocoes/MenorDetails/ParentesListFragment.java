@@ -26,6 +26,7 @@ public class ParentesListFragment extends Fragment {
 
     private ArrayList<Menor> mMenores;
 
+    // TODO: Criar versão do método abaixo que use um Bundle para setar mMenores no fragment
 
     public static ParentesListFragment newInstance() { return new ParentesListFragment(); }
 
