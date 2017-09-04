@@ -39,7 +39,6 @@
         <activity android:name=".LauncherActivity">
 
         </activity>
-        <activity android:name=".MinorDetails.MinorDetails"></activity>
     </application>
 
 </manifest>
