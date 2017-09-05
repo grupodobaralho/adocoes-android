@@ -21,19 +21,15 @@ public class CommonMenorInformationFragment extends Fragment {
     private static final String ARGUMENT_AGE = "idade";
     private static final String ARGUMENT_HEALTH = "saude";
 
-//    public static CommonMenorInformationFragment newInstance(Menor menor) {
-//        final Bundle args = new Bundle();
-//        args.putString(ARGUMENT_NAME, menor.getNome());
-//        // PEGAR SEXO
-//        // PEGAR IDADE
-//        // PEGAR ESTADO DE SAUDE
-//        final CommonMenorInformationFragment fragment = new CommonMenorInformationFragment();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-
-    public static CommonMenorInformationFragment newInstance() {
-        return new CommonMenorInformationFragment();
+    public static CommonMenorInformationFragment newInstance(Menor menor) {
+        final Bundle args = new Bundle();
+        args.putString(ARGUMENT_NAME, menor.getNome());
+        // PEGAR SEXO
+        // PEGAR IDADE
+        // PEGAR ESTADO DE SAUDE
+        final CommonMenorInformationFragment fragment = new CommonMenorInformationFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -45,14 +41,12 @@ public class CommonMenorInformationFragment extends Fragment {
         final TextView genderTextView = (TextView) view.findViewById(R.id.sexo_text_view);
         final TextView healthTextView = (TextView) view.findViewById(R.id.saude_text_view);
 
-//        final Bundle args = getArguments();
-//        nameTextView.setText(args.getString(ARGUMENT_NAME));
-        // TODO: Descomentar as linhas acima quando arrumar o problema de usar o Bundle pra carregar as informacoes no fragment crashar o app
-        nameTextView.setText("Pepo");
+        final Bundle args = getArguments();
+        nameTextView.setText(args.getString(ARGUMENT_NAME));
+        // TODO: Alterar os sets abaixo para pegar informações do bundle
         ageTextView.setText("18");
         genderTextView.setText("Masculino");
         healthTextView.setText("EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ ");
-
         return view;
     }
 
