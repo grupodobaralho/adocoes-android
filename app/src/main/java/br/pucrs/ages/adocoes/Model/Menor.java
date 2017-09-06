@@ -35,6 +35,180 @@ public class Menor implements Serializable {
     private List<String> interessados;
     private boolean ativo;
 
+    public Menor(){
+
+    }
+
+    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, Date dataNascimento, String familiares,
+                 List<Menor> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude,
+                 boolean curavel, boolean deficienciaFisica, boolean deficienciaMental,
+                 String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar,
+                 List<String> interessados, boolean ativo) {
+        this.id = id;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.certidaoNascimento = certidaoNascimento;
+        this.dataNascimento = dataNascimento;
+        this.familiares = familiares;
+        this.menoresVinculados = menoresVinculados;
+        this.refRaca = refRaca;
+        this.saudavel = saudavel;
+        this.descricaoSaude = descricaoSaude;
+        this.curavel = curavel;
+        this.deficienciaFisica = deficienciaFisica;
+        this.deficienciaMental = deficienciaMental;
+        this.guiaAcolhimento = guiaAcolhimento;
+        this.refCidade = refCidade;
+        this.refAbrigo = refAbrigo;
+        this.processoPoderFamiliar = processoPoderFamiliar;
+        this.interessados = interessados;
+        this.ativo = ativo;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setCertidaoNascimento(String certidaoNascimento) {
+        this.certidaoNascimento = certidaoNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setFamiliares(String familiares) {
+        this.familiares = familiares;
+    }
+
+    public void setMenoresVinculados(List<Menor> menoresVinculados) {
+        this.menoresVinculados = menoresVinculados;
+    }
+
+    public void setRefRaca(String refRaca) {
+        this.refRaca = refRaca;
+    }
+
+    public void setSaudavel(boolean saudavel) {
+        this.saudavel = saudavel;
+    }
+
+    public void setDescricaoSaude(String descricaoSaude) {
+        this.descricaoSaude = descricaoSaude;
+    }
+
+    public void setCuravel(boolean curavel) {
+        this.curavel = curavel;
+    }
+
+    public void setDeficienciaFisica(boolean deficienciaFisica) {
+        this.deficienciaFisica = deficienciaFisica;
+    }
+
+    public void setDeficienciaMental(boolean deficienciaMental) {
+        this.deficienciaMental = deficienciaMental;
+    }
+
+    public void setGuiaAcolhimento(String guiaAcolhimento) {
+        this.guiaAcolhimento = guiaAcolhimento;
+    }
+
+    public void setRefCidade(String refCidade) {
+        this.refCidade = refCidade;
+    }
+
+    public void setRefAbrigo(String refAbrigo) {
+        this.refAbrigo = refAbrigo;
+    }
+
+    public void setProcessoPoderFamiliar(String processoPoderFamiliar) {
+        this.processoPoderFamiliar = processoPoderFamiliar;
+    }
+
+    public void setInteressados(List<String> interessados) {
+        this.interessados = interessados;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public String getCertidaoNascimento() {
+        return certidaoNascimento;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public String getFamiliares() {
+        return familiares;
+    }
+
+    public List<Menor> getMenoresVinculados() {
+        return menoresVinculados;
+    }
+
+    public String getRefRaca() {
+        return refRaca;
+    }
+
+    public boolean isSaudavel() {
+        return saudavel;
+    }
+
+    public String getDescricaoSaude() {
+        return descricaoSaude;
+    }
+
+    public boolean isCuravel() {
+        return curavel;
+    }
+
+    public boolean isDeficienciaFisica() {
+        return deficienciaFisica;
+    }
+
+    public boolean isDeficienciaMental() {
+        return deficienciaMental;
+    }
+
+    public String getGuiaAcolhimento() {
+        return guiaAcolhimento;
+    }
+
+    public String getRefCidade() {
+        return refCidade;
+    }
+
+    public String getRefAbrigo() {
+        return refAbrigo;
+    }
+
+    public String getProcessoPoderFamiliar() {
+        return processoPoderFamiliar;
+    }
+
+    public List<String> getInteressados() {
+        return interessados;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
     public String getNome() {
         return nome;
     }
