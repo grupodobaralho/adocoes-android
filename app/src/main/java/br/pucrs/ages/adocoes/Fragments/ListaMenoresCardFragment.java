@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,8 +60,12 @@ public class ListaMenoresCardFragment extends Fragment {
         items.add(new Menor("Marcus Kuquert 7"));
         items.add(new Menor("Marcus Kuquert 8"));
 
+
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
         mListAdapter = new ListaHorizontalAdapter(getActivity());
         mListAdapter.setData(items);
+
+        snapHelper.attachToRecyclerView(mRecyclerView);
 
         mListAdapter.setOnMenorFavoritarListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
             @Override
