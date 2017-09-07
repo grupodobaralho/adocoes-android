@@ -50,4 +50,8 @@
         android:id="@+id/nav_listagem_horizontal"
         android:title="Listagem Horizontal" />
 
+    <item
+        android:id="@+id/nav_listagem_vertical"
+        android:title="Listagem Vertical" />
+
 </menu>

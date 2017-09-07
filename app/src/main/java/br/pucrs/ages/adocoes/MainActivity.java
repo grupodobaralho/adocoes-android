@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
 import br.pucrs.ages.adocoes.Fragments.ListaMenoresCardFragment;
+import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Fragments.SecondFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
@@ -100,6 +101,8 @@ public class MainActivity extends AppCompatActivity
             displayView(7);
         } else if (id == R.id.nav_listagem_horizontal) {
             displayView(8);
+        } else if (id == R.id.nav_listagem_vertical) {
+            displayView(9);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 1:
                 fragment = new SecondFragment();
-                title = "Fovaritados";
+                title = "Favoritados";
                 break;
             case 2:
                 fragment = new TermosFragment();
@@ -133,6 +136,10 @@ public class MainActivity extends AppCompatActivity
             case 8:
                 fragment = new ListaMenoresCardFragment();
                 title = "Lista Horizontal";
+                break;
+            case 9:
+                fragment = new ListaMenoresVerticalFragment();
+                title = "Lista Vertical";
                 break;
             default:
                 fragment = new FirstFragment();

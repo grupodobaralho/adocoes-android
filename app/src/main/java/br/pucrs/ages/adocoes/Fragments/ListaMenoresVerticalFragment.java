@@ -1,15 +1,15 @@
 package br.pucrs.ages.adocoes.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
+
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,5 +43,40 @@ public class ListaMenoresVerticalFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        items.add(new Menor("Marcus Kuquert 1"));
+        items.add(new Menor("Marcus Kuquert 2"));
+        items.add(new Menor("Marcus Kuquert 3"));
+        items.add(new Menor("Marcus Kuquert 4"));
+        items.add(new Menor("Marcus Kuquert 5"));
+        items.add(new Menor("Marcus Kuquert 6"));
+        items.add(new Menor("Marcus Kuquert 7"));
+        items.add(new Menor("Marcus Kuquert 8"));
+
+        mListAdapter = new ListaVerticalAdapter(getActivity());
+        mListAdapter.setData(items);
+
+        mListAdapter.setOnMenorFavoritarListener(new ListaVerticalAdapter.OnMenorSelectedListener() {
+            @Override
+            public void OnMenorItemSelected(Menor menor) {
+                // Coloque aqui a ação de favoritar :)
+
+                Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mListAdapter.setListener(new ListaVerticalAdapter.OnMenorSelectedListener() {
+            @Override
+            public void OnMenorItemSelected(Menor menor) {
+                // Coloque aqui a ação de ir para tela de detalhes :)
+
+                Toast.makeText(getActivity(), "selecionou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mRecyclerView.setAdapter(mListAdapter);
     }
 }
