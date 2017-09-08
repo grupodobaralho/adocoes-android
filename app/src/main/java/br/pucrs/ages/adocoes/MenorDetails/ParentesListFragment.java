@@ -24,11 +24,21 @@ import br.pucrs.ages.adocoes.R;
 
 public class ParentesListFragment extends Fragment {
 
+    private static final String ARGUMENT_MENORES_VINCULADOS = "menoresVinculados";
+
     private ArrayList<Menor> mMenores;
+
+    public static ParentesListFragment newInstance() { return new ParentesListFragment(); }
 
     // TODO: Criar versão do método abaixo que use um Bundle para setar mMenores no fragment
 
-    public static ParentesListFragment newInstance() { return new ParentesListFragment(); }
+//    public static ParentesListFragment newInstance(Menor menor) {
+//        final Bundle args = new Bundle();
+//        args.putCharSequenceArrayList(ARGUMENT_MENORES_VINCULADOS, menor.getMenoresVinculados());
+//        final ParentesListFragment fragment = new ParentesListFragment();
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onAttach(Context context) {

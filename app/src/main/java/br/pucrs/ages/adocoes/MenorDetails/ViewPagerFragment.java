@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import br.pucrs.ages.adocoes.CustomSwipeAdapter;
+import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
 /**
@@ -22,11 +23,23 @@ import br.pucrs.ages.adocoes.R;
 
 public class ViewPagerFragment extends Fragment {
 
+    private static final String ARGUMENT_MIDIAS = "midias";
+
     private int[] mMidiasMenor;
+
+    public static ViewPagerFragment newInstance() {
+        return new ViewPagerFragment();
+    }
 
 // TODO: Criar versão do método abaixo que use um Bundle para setar mMenores no fragment
 
-    public static ViewPagerFragment newInstance() { return new ViewPagerFragment(); }
+//    public static ViewPagerFragment newInstance(Menor menor) {
+//        final Bundle args = new Bundle();
+//        args.putStringArrayList(ARGUMENT_MIDIAS, menor.getMidias());
+//        final ViewPagerFragment fragment = new ViewPagerFragment();
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onAttach(Context context) {

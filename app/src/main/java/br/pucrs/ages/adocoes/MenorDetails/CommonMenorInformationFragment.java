@@ -16,6 +16,7 @@ import br.pucrs.ages.adocoes.R;
  * Created by Matheus on 03/09/2017.
  */
 public class CommonMenorInformationFragment extends Fragment {
+
     private static final String ARGUMENT_NAME = "nome";
     private static final String ARGUMENT_GENDER = "sexo";
     private static final String ARGUMENT_AGE = "idade";
