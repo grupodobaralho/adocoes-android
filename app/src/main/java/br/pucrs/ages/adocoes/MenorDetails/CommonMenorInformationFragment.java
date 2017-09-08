@@ -46,7 +46,7 @@ public class CommonMenorInformationFragment extends Fragment {
         // TODO: Alterar os sets abaixo para pegar informações do bundle
         ageTextView.setText("18");
         genderTextView.setText("Masculino");
-        healthTextView.setText("EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ EOQ ");
+        healthTextView.setText("CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES CONICOES ");
         return view;
     }
 

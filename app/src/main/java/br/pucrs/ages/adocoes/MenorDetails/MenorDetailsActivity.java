@@ -19,11 +19,12 @@ public class MenorDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menor_details);
 
         // TODO: Receber menor de um intent e passar para os fragments
-        Menor menor = new Menor("Fofao last samurai");
+        Menor menor = new Menor("Nome");
 
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
+                    .add(R.id.menor_details_layout, ViewPagerFragment.newInstance(), "ViewPager")
                     .add(R.id.menor_details_layout, CommonMenorInformationFragment.newInstance(menor), "CommonInformation")
                     .add(R.id.menor_details_layout, ParentesListFragment.newInstance(), "ParentesList")
                     .commit();
