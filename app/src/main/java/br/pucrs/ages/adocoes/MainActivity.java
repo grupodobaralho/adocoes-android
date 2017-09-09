@@ -24,6 +24,10 @@ import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Variável responsável por receber a referência dos intens de menu.
+    private MenuItem mostraTrocaParaHorizontal;
+    private MenuItem mostraTrocaParaVertical;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +43,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
     }
 
@@ -57,6 +60,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        //Instanciação das referências.
+        mostraTrocaParaHorizontal = menu.findItem(R.id.troca_para_horizontal);
+        mostraTrocaParaVertical = menu.findItem(R.id.troca_para_vertical);
         return true;
     }
 
@@ -65,15 +71,25 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
+        //Faz as transações
+        switch (id) {
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.troca_para_vertical:
+                displayView(9);
+                return true;
 
+            case R.id.troca_para_horizontal:
+                displayView(8);
+                return true;
+            default:
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -112,9 +128,14 @@ public class MainActivity extends AppCompatActivity
 
     public void displayView(int viewId) {
 
+        String title = getString(R.string.app_name);
+
         Fragment fragment;
 
-        String title = getString(R.string.app_name);
+        //Apaga as opções de troca.
+        mostraTrocaParaHorizontal.setVisible(false);
+        mostraTrocaParaVertical.setVisible(false);
+
 
         switch (viewId) {
             case 0:
@@ -136,10 +157,14 @@ public class MainActivity extends AppCompatActivity
             case 8:
                 fragment = new ListaMenoresCardFragment();
                 title = "Lista Horizontal";
+                //Mostra a opção de troca
+                mostraTrocaParaVertical.setVisible(true);
                 break;
             case 9:
                 fragment = new ListaMenoresVerticalFragment();
                 title = "Lista Vertical";
+                //Mostra a opção de troca
+                mostraTrocaParaHorizontal.setVisible(true);
                 break;
             default:
                 fragment = new FirstFragment();
@@ -160,5 +185,7 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+
     }
 }

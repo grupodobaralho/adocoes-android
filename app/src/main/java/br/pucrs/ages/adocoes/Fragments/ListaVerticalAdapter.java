@@ -36,6 +36,7 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
         mOnMenorFavoritarListener = favoritarListener;
     }
 
+
     private Activity activity;
     //Title, Image
     private ArrayList<Menor> items;

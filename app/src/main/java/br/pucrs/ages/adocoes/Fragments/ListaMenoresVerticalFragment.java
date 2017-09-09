@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -14,7 +15,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.R;
+
+import static br.pucrs.ages.adocoes.R.id;
+import static br.pucrs.ages.adocoes.R.layout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +27,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ListaVerticalAdapter mListAdapter;
     private ArrayList<Menor> items = new ArrayList<>();
+    protected MenuItem listagemHorizontal;
 
     public ListaMenoresVerticalFragment() {
         // Required empty public constructor
@@ -37,13 +41,14 @@ public class ListaMenoresVerticalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_lista_menores_vertical, container, false);
+        return inflater.inflate(layout.fragment_lista_menores_vertical, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mRecyclerView = (RecyclerView) view.findViewById(id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
