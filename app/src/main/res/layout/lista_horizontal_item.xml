@@ -29,7 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp">
 
         <TextView
             android:id="@+id/tv_nome"
@@ -59,15 +61,6 @@
             android:layout_height="wrap_content"
             android:text="Detalhes"
             android:layout_gravity="center" />
-
-
-        <Button
-            android:id="@+id/btn_detalhes"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:text=""/>
-
 
 
     </LinearLayout>
