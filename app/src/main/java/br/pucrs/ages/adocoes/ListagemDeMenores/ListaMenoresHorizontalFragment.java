@@ -1,6 +1,7 @@
 package br.pucrs.ages.adocoes.ListagemDeMenores;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
@@ -80,10 +82,9 @@ public class ListaMenoresHorizontalFragment extends Fragment {
         mListAdapter.setListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
-                // Coloque aqui a ação de ir para tela de detalhes :)
-
-                Toast.makeText(getActivity(), "selecionou " + menor.getNome(), Toast.LENGTH_SHORT)
-                        .show();
+                final Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
+                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, menor);
+                startActivity(intent);
             }
         });
 
