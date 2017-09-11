@@ -14,8 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
-import br.pucrs.ages.adocoes.Fragments.ListaMenoresHorizontalFragment;
-import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
+import br.pucrs.ages.adocoes.ListagemDeMenores.ListaMenoresHorizontalFragment;
+import br.pucrs.ages.adocoes.ListagemDeMenores.ListaMenoresVerticalFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Fragments.SecondFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
