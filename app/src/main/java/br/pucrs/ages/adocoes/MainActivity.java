@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Fragments.FirstFragment;
-import br.pucrs.ages.adocoes.Fragments.ListaMenoresCardFragment;
+import br.pucrs.ages.adocoes.Fragments.ListaMenoresHorizontalFragment;
 import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Fragments.SecondFragment;
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity
                 title = "Login teste";
                 break;
             case 8:
-                fragment = new ListaMenoresCardFragment();
+                fragment = new ListaMenoresHorizontalFragment();
                 title = "Lista Horizontal";
                 //Mostra a opção de troca
                 mostraTrocaParaVertical.setVisible(true);

@@ -20,7 +20,7 @@ import br.pucrs.ages.adocoes.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListaMenoresCardFragment extends Fragment {
+public class ListaMenoresHorizontalFragment extends Fragment {
 
 
     private RecyclerView mRecyclerView;
@@ -28,7 +28,7 @@ public class ListaMenoresCardFragment extends Fragment {
     private ArrayList<Menor> items = new ArrayList<>();
 
 
-    public ListaMenoresCardFragment() {
+    public ListaMenoresHorizontalFragment() {
         // Required empty public constructor
     }
 
@@ -41,7 +41,7 @@ public class ListaMenoresCardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista_menores_card, container, false);
+        return inflater.inflate(R.layout.fragment_lista_menores_horizontal, container, false);
     }
 
     @Override
