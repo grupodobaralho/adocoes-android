@@ -11,6 +11,8 @@ import br.pucrs.ages.adocoes.R;
 public class ListagemDeMenoresActivity extends AppCompatActivity {
 
     private boolean isListagemVertical = true;
+    private MenuItem buttonTrocaListagem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class ListagemDeMenoresActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.lista_de_menores_menu, menu);
+        buttonTrocaListagem = (MenuItem) menu.findItem(R.id.troca_listagem);
         return true;
     }
 
@@ -39,11 +42,13 @@ public class ListagemDeMenoresActivity extends AppCompatActivity {
                         .beginTransaction()
                         .replace(R.id.listagem_de_menores_layout, new ListaMenoresVerticalFragment())
                         .commit();
+                buttonTrocaListagem.setIcon(R.drawable.boy_9);
             } else {
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.listagem_de_menores_layout, new ListaMenoresHorizontalFragment())
                         .commit();
+                buttonTrocaListagem.setIcon(R.drawable.girl_3);
             }
             return true;
         } else {
