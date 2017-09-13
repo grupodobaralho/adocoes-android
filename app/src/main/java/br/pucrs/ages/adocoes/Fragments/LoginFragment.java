@@ -34,7 +34,7 @@ public class LoginFragment extends Fragment {
 
     private Button entrarComCadastroButton;
     private Button entrarSemCadastroButton;
-    private Button cadatrarButton;
+    //private Button cadatrarButton;
     private EditText emailEditText;
     private EditText senhaEditText;
     private TextView esqueceuSenhaTextView;
@@ -58,7 +58,7 @@ public class LoginFragment extends Fragment {
         senhaEditText = (EditText) view.findViewById(R.id.senha_edit_text);
         entrarComCadastroButton = (Button) view.findViewById(R.id.entrar_com_cadastro_button);
         entrarSemCadastroButton = (Button) view.findViewById(R.id.entrar_sem_cadastro_button);
-        cadatrarButton = (Button) view.findViewById(R.id.cadastrar_button);
+        //cadatrarButton = (Button) view.findViewById(R.id.cadastrar_button);
         esqueceuSenhaTextView = (TextView) view.findViewById(R.id.esqueceu_senha);
 
 
