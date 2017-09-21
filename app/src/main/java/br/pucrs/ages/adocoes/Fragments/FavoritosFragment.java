@@ -1,6 +1,7 @@
 package br.pucrs.ages.adocoes.Fragments;
 
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,7 +25,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
-
+import br.pucrs.ages.adocoes.DatabaseHelper;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
@@ -36,6 +37,7 @@ public class FavoritosFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private FavoritosAdapter mListAdapter;
+    private Cursor mListaFavoritos;
     private ArrayList<Menor> items = new ArrayList<>();
     //private ProgressBar mProgressBar;
 
@@ -64,50 +66,24 @@ public class FavoritosFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
+        mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
+
+        if(mListaFavoritos.getCount() == 0) {
+            Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
+        } else {
+            while(mListaFavoritos.moveToNext()){
+                items.add(new Menor(mListaFavoritos.getString(0)));
+                items.add(new Menor(mListaFavoritos.getString(1)));
+            }
+        }
+        /*
         items.add(new Menor("Israelzinho1"));
         items.add(new Menor("Israelzinho2"));
         items.add(new Menor("Israelzinho3"));
         items.add(new Menor("Israelzinho4"));
         items.add(new Menor("Israelzinho5"));
         items.add(new Menor("Israelzinho6"));
-
-        //Tentando salvar na memoria
-/*
-        try (FileOutputStream fos = getActivity().openFileOutput("listagem_de_favoritos.txt", Context.MODE_PRIVATE)) {
-            PrintWriter p = new PrintWriter(fos);
-            for(Menor menor : items) {
-                p.append(menor.getNome());
-                Toast.makeText(getActivity(), "add " + p.toString(), Toast.LENGTH_SHORT).show();
-            }
-            //fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-            String ret = "";
-
-            try {
-                InputStream inputStream = getActivity().openFileInput("listagem_de_favoritos.txt");
-
-                if ( inputStream != null ) {
-                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    String receiveString = "";
-                    while ( (receiveString = bufferedReader.readLine()) != null ) {
-                        lendoArquivo.add(new Menor(receiveString));
-                        Toast.makeText(getActivity(), "leu " + receiveString, Toast.LENGTH_SHORT).show();
-                    }
-                    inputStream.close();
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-*/
-
+        */
 
         mListAdapter = new FavoritosAdapter(getActivity());
         mListAdapter.setData(items);
