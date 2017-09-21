@@ -17,7 +17,7 @@ import br.pucrs.ages.adocoes.Fragments.FirstFragment;
 import br.pucrs.ages.adocoes.Fragments.ListaMenoresCardFragment;
 import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
 import br.pucrs.ages.adocoes.Fragments.LoginFragment;
-import br.pucrs.ages.adocoes.Fragments.SecondFragment;
+import br.pucrs.ages.adocoes.Fragments.FavoritosFragment;
 import br.pucrs.ages.adocoes.Fragments.TermosFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
@@ -143,8 +143,8 @@ public class MainActivity extends AppCompatActivity
                 title  = "Crianças e Adolescentes";
                 break;
             case 1:
-                fragment = new SecondFragment();
-                title = "Favoritados";
+                fragment = new FavoritosFragment();
+                title = "Lista de Favoritos";
                 break;
             case 2:
                 fragment = new TermosFragment();
