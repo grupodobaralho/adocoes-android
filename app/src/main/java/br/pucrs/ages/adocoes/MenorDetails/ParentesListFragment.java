@@ -50,14 +50,11 @@ public class ParentesListFragment extends Fragment {
 
         // Receive Menores from api here
         mMenores = new ArrayList<>();
-        mMenores.add(new Menor("Pepo"));
-        mMenores.add(new Menor("Kappa"));
-        mMenores.add(new Menor("Pepo"));
-        mMenores.add(new Menor("Kappa"));
-        mMenores.add(new Menor("Pepo"));
-        mMenores.add(new Menor("Kappa"));
-        mMenores.add(new Menor("Pepo"));
-        mMenores.add(new Menor("Kappa"));
+        mMenores.add(new Menor("Parente 1"));
+        mMenores.add(new Menor("Parente 2"));
+        mMenores.add(new Menor("Parente 3"));
+        mMenores.add(new Menor("Parente 4"));
+        mMenores.add(new Menor("Parente 5"));
     }
 
     @Nullable
