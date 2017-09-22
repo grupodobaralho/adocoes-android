@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.ContactsContract;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.pucrs.ages.adocoes.Model.Menor;
 
 //http://guides.codepath.com/android/local-databases-with-sqliteopenhelper
@@ -124,6 +127,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM " + TABLE_FAVORITOS, null);
         return res;
+    }
+
+    public boolean contemMenor(Menor menor){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_FAVORITOS, null);
+
+        while(res.moveToNext()) {
+            if (menor.getNome().equals(res.getString(1)))
+                return true;
+        }
+        return false;
     }
 
 }
