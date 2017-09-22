@@ -72,7 +72,6 @@ public class FavoritosFragment extends Fragment {
             Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
         } else {
             while(mListaFavoritos.moveToNext()){
-                items.add(new Menor(mListaFavoritos.getString(0)));
                 items.add(new Menor(mListaFavoritos.getString(1)));
             }
         }

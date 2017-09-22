@@ -60,6 +60,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String SQL_String = "CREATE TABLE " + TABLE_FAVORITOS + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_2 + " TEXT" + ")";
+        db.execSQL(SQL_String);
+
+        /*
         StringBuilder sql = new StringBuilder();
         sql.append("CREATE TABLE " + TABLE_FAVORITOS);
         sql.append("(");
@@ -67,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sql.append(COL_2 + "TEXT");
         sql.append(")");
         db.execSQL(sql.toString());
+        */
     }
 
     /**
