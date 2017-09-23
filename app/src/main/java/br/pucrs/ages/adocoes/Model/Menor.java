@@ -20,7 +20,7 @@ public class Menor implements Serializable {
     private Sexo sexo;
     private String certidaoNascimento;
     private Date dataNascimento;
-    private String familiares;
+    private List<String> familiares;
     private List<Menor> menoresVinculados;
     private String refRaca;
     private boolean saudavel;
@@ -39,7 +39,7 @@ public class Menor implements Serializable {
 
     }
 
-    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, Date dataNascimento, String familiares,
+    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, Date dataNascimento, List<String> familiares,
                  List<Menor> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude,
                  boolean curavel, boolean deficienciaFisica, boolean deficienciaMental,
                  String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar,
@@ -85,7 +85,7 @@ public class Menor implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public void setFamiliares(String familiares) {
+    public void setFamiliares(List<String> familiares) {
         this.familiares = familiares;
     }
 
@@ -153,7 +153,7 @@ public class Menor implements Serializable {
         return dataNascimento;
     }
 
-    public String getFamiliares() {
+    public List<String> getFamiliares() {
         return familiares;
     }
 

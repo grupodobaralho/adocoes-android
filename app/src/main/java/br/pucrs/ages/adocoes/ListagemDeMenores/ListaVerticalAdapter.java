@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
@@ -39,13 +39,13 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
 
     private Activity activity;
     //Title, Image
-    private ArrayList<Menor> items;
+    private List<Menor> items;
 
     public ListaVerticalAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setData(ArrayList<Menor> items) {
+    public void setData(List<Menor> items) {
         this.items = items;
         notifyDataSetChanged();
     }

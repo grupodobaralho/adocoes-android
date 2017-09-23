@@ -17,17 +17,11 @@ import br.pucrs.ages.adocoes.R;
  */
 public class CommonMenorInformationFragment extends Fragment {
 
-    private static final String ARGUMENT_NAME = "nome";
-    private static final String ARGUMENT_GENDER = "sexo";
-    private static final String ARGUMENT_AGE = "idade";
-    private static final String ARGUMENT_HEALTH = "saude";
+    private static final String ARGUMENT_MENOR = "menor";
 
     public static CommonMenorInformationFragment newInstance(Menor menor) {
         final Bundle args = new Bundle();
-        args.putString(ARGUMENT_NAME, menor.getNome());
-        // PEGAR SEXO
-        // PEGAR IDADE
-        // PEGAR ESTADO DE SAUDE
+        args.putSerializable(ARGUMENT_MENOR, menor);
         final CommonMenorInformationFragment fragment = new CommonMenorInformationFragment();
         fragment.setArguments(args);
         return fragment;
@@ -43,11 +37,12 @@ public class CommonMenorInformationFragment extends Fragment {
         final TextView healthTextView = (TextView) view.findViewById(R.id.saude_text_view);
 
         final Bundle args = getArguments();
-        nameTextView.setText(args.getString(ARGUMENT_NAME));
-        // TODO: Alterar os sets abaixo para pegar informações do bundle
-        ageTextView.setText("18");
-        healthTextView.setText("Condições de Saúde\nCondições de Saúde\nCondições de Saúde\nCondições de Saúde\n");
-        genderTextView.setText("Masculino");
+        final Menor menor = (Menor) args.getSerializable(ARGUMENT_MENOR);
+
+        nameTextView.setText(menor.getNome());
+        ageTextView.setText(menor.getCertidaoNascimento());
+        healthTextView.setText(menor.getDescricaoSaude());
+        genderTextView.setText(menor.getSexo().toString());
         return view;
     }
 

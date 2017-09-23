@@ -1,18 +1,19 @@
 package br.pucrs.ages.adocoes.MenorDetails;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.annotation.Nullable;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.app.Activity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.pucrs.ages.adocoes.Model.Menor;
@@ -32,13 +33,13 @@ public class ParentesListFragment extends Fragment {
 
     // TODO: Criar versão do método abaixo que use um Bundle para setar mMenores no fragment
 
-//    public static ParentesListFragment newInstance(Menor menor) {
-//        final Bundle args = new Bundle();
-//        args.putCharSequenceArrayList(ARGUMENT_MENORES_VINCULADOS, menor.getMenoresVinculados());
-//        final ParentesListFragment fragment = new ParentesListFragment();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
+    public static ParentesListFragment newInstance(Menor menor) {
+        final Bundle args = new Bundle();
+        args.putSerializable(ARGUMENT_MENORES_VINCULADOS, (Serializable) menor.getMenoresVinculados());
+        final ParentesListFragment fragment = new ParentesListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -47,14 +48,8 @@ public class ParentesListFragment extends Fragment {
         // Fazer as paradas do delegate
 
         //
-
-        // Receive Menores from api here
-        mMenores = new ArrayList<>();
-        mMenores.add(new Menor("Parente 1"));
-        mMenores.add(new Menor("Parente 2"));
-        mMenores.add(new Menor("Parente 3"));
-        mMenores.add(new Menor("Parente 4"));
-        mMenores.add(new Menor("Parente 5"));
+        final Bundle args = getArguments();
+        mMenores = (ArrayList<Menor>) args.getSerializable(ARGUMENT_MENORES_VINCULADOS);
     }
 
     @Nullable

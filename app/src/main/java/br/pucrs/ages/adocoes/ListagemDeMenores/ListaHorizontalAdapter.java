@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
@@ -18,7 +18,7 @@ import br.pucrs.ages.adocoes.R;
  * Created by kuquert on 29/05/17.
  */
 
-public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontalAdapter.MenorItemView> {
+public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontalAdapter.MenorItemView>{
 
     public interface OnMenorSelectedListener {
         void OnMenorItemSelected(Menor menor);
@@ -37,13 +37,13 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
 
     private Activity activity;
     //Title, Image
-    private ArrayList<Menor> items;
+    private List<Menor> items;
 
     public ListaHorizontalAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setData(ArrayList<Menor> items) {
+    public void setData(List<Menor> items) {
         this.items = items;
         notifyDataSetChanged();
     }

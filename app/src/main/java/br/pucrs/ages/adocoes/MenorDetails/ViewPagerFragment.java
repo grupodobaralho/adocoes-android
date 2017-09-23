@@ -2,18 +2,19 @@ package br.pucrs.ages.adocoes.MenorDetails;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 
-import br.pucrs.ages.adocoes.CustomSwipeAdapter;
+import java.util.ArrayList;
+
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
@@ -27,19 +28,18 @@ public class ViewPagerFragment extends Fragment {
 
     private int[] mMidiasMenor;
 
-    public static ViewPagerFragment newInstance() {
-        return new ViewPagerFragment();
-    }
-
 // TODO: Criar versão do método abaixo que use um Bundle para setar mMenores no fragment
 
-//    public static ViewPagerFragment newInstance(Menor menor) {
-//        final Bundle args = new Bundle();
+    public static ViewPagerFragment newInstance(Menor menor) {
+        final Bundle args = new Bundle();
 //        args.putStringArrayList(ARGUMENT_MIDIAS, menor.getMidias());
-//        final ViewPagerFragment fragment = new ViewPagerFragment();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
+        final ArrayList<String> stringList = new ArrayList<>();
+
+        args.putStringArrayList(ARGUMENT_MIDIAS, stringList);
+        final ViewPagerFragment fragment = new ViewPagerFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -74,7 +74,7 @@ public class ViewPagerFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 10;
+            return 1;
         }
 
         @Override
@@ -86,9 +86,15 @@ public class ViewPagerFragment extends Fragment {
         public Object instantiateItem(ViewGroup container, int position) {
 
             // TODO: Change layout file to apropriate layout item
-            final View view = mLayoutInflater.inflate(R.layout.recyclerview_parente_item_holder, container, false);
+            final View view = mLayoutInflater.inflate(R.layout.viewpager_item, container, false);
+
+            final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
+            Drawable carta = getResources().getDrawable(R.drawable.carta, null);
+
+            imageView.setImageDrawable(carta);
 
             // Get view's components here, just like a ViewHolder
+
 
             container.addView(view);
             return view;
