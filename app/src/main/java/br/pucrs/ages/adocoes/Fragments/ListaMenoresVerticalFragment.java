@@ -71,7 +71,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
                 // Coloque aqui a ação de favoritar :)
                 boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
                 if(isFavorite) {
-                    Toast.makeText(getActivity(), "Já é favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), ";) Já favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
