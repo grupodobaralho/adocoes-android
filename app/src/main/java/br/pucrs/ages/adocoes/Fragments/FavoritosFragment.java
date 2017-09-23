@@ -1,6 +1,8 @@
 package br.pucrs.ages.adocoes.Fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -69,10 +71,10 @@ public class FavoritosFragment extends Fragment {
 
         mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
 
-        if(mListaFavoritos.getCount() == 0) {
+        if (mListaFavoritos.getCount() == 0) {
             Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
         } else {
-            while(mListaFavoritos.moveToNext()){
+            while (mListaFavoritos.moveToNext()) {
                 items.add(new Menor(mListaFavoritos.getString(1)));
             }
         }
@@ -90,18 +92,38 @@ public class FavoritosFragment extends Fragment {
 
         mListAdapter.setOnMenorDesfavoritarListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
-            public void OnMenorItemSelected(Menor menor, int position) {
+            public void OnMenorItemSelected(final Menor menor, final int position) {
                 // Coloque aqui a ação de desfavoritar :)
-                boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);
-                if(result) {
-                    Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                    items.remove(position);
-                    mListAdapter.setData(items);
 
-                } else {
-                    Toast.makeText(getActivity(), "deu ruim " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                }
 
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+                alert.setTitle("Atenção");
+                alert.setMessage("Deseja realmente desfavoritar " + menor.getNome() + "?");
+
+                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);
+                        if (result) {
+                            Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                            items.remove(position);
+                            mListAdapter.setData(items);
+
+                        } else {
+                            Toast.makeText(getActivity(), "deu ruim " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked Cancel button
+                    }
+                });
+
+                AlertDialog dialog = alert.create();
+                alert.show();
             }
         });
 
