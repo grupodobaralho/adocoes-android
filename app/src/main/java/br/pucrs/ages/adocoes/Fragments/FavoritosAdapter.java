@@ -23,7 +23,7 @@ import br.pucrs.ages.adocoes.R;
 public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.MenorItemView> {
 
     public interface OnMenorSelectedListener {
-        void OnMenorItemSelected(Menor menor);
+        void OnMenorItemSelected(Menor menor, int position);
     }
 
     private OnMenorSelectedListener mOnMenorSelectedListener;
@@ -94,7 +94,7 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
                 @Override
                 public void onClick(View view) {
                     Menor menorItem = items.get(getAdapterPosition());
-                    mOnMenorDesfavoritarListener.OnMenorItemSelected(menorItem);
+                    mOnMenorDesfavoritarListener.OnMenorItemSelected(menorItem, getAdapterPosition());
                 }
             });
 
@@ -102,7 +102,7 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
                 @Override
                 public void onClick(View view) {
                     Menor menorItem = items.get(getAdapterPosition());
-                    mOnMenorSelectedListener.OnMenorItemSelected(menorItem);
+                    mOnMenorSelectedListener.OnMenorItemSelected(menorItem, getAdapterPosition());
                 }
             });
         }

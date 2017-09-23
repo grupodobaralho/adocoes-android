@@ -117,6 +117,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public boolean removeFavorito(Menor menor) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        int result = 0;
+        try {
+            result = db.delete(TABLE_FAVORITOS, COL_2 + "= ?", new String[] {menor.getNome()});
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        if(result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Metodo que retorna os dados da tabela Favoritos da DB Local
      * Cursor eh uma interface que prove acesso randomico de leitura e escrita

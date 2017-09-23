@@ -45,6 +45,7 @@ public class FavoritosFragment extends Fragment {
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,16 +90,24 @@ public class FavoritosFragment extends Fragment {
 
         mListAdapter.setOnMenorDesfavoritarListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
-            public void OnMenorItemSelected(Menor menor) {
+            public void OnMenorItemSelected(Menor menor, int position) {
                 // Coloque aqui a ação de desfavoritar :)
+                boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);
+                if(result) {
+                    Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    items.remove(position);
+                    mListAdapter.setData(items);
 
-                Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "deu ruim " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
         mListAdapter.setListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
-            public void OnMenorItemSelected(Menor menor) {
+            public void OnMenorItemSelected(Menor menor, int position) {
                 // Coloque aqui a ação de ir para tela de detalhes :)
 
                 Toast.makeText(getActivity(), "selecionou " + menor.getNome(), Toast.LENGTH_SHORT).show();
