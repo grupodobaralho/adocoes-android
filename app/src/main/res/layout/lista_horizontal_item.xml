@@ -24,44 +24,34 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:text="Hercilio"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:paddingLeft="26dp"
-        android:paddingRight="26dp">
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:layout_above="@+id/tv_idade"
+        android:textSize="22sp"/>
 
-        <TextView
-            android:id="@+id/tv_nome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="Hercilio"
-            android:textAllCaps="true" />
+    <TextView
+        android:id="@+id/tv_idade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="18 anos"
+        android:textAlignment="center"
+        android:layout_above="@+id/tv_sexo"/>
 
-        <TextView
-            android:id="@+id/tv_idade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="18 anos"
-            android:layout_gravity="center" />
+    <TextView
+        android:id="@+id/tv_sexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Masculino"
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp"/>
 
-        <TextView
-            android:id="@+id/tv_sexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Masculino"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/tv_detalhes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detalhes"
-            android:layout_gravity="center" />
-
-
-    </LinearLayout>
 </RelativeLayout>
