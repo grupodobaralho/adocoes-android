@@ -49,8 +49,9 @@ public class ParentesListFragment extends Fragment {
 
         //
         final Bundle args = getArguments();
-        mMenores = (ArrayList<Menor>) args.getSerializable(ARGUMENT_MENORES_VINCULADOS);
-    }
+//        mMenores = (ArrayList<Menor>) args.getSerializable(ARGUMENT_MENORES_VINCULADOS);
+        mMenores = new ArrayList();
+}
 
     @Nullable
     @Override
