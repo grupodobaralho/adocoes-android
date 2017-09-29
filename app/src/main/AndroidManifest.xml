@@ -39,7 +39,7 @@
             android:name=".CadastroCompletoActivity"
             android:label="Cadastro completo" />
         <activity android:name=".LauncherActivity"></activity>
-        <activity android:name=".ListagemDeMenores.ListagemDeMenoresActivity">
+        <activity android:name=".Fragments.ListagemDeMenoresActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

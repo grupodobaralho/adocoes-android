@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.ListagemDeMenores;
+package br.pucrs.ages.adocoes.Fragments;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

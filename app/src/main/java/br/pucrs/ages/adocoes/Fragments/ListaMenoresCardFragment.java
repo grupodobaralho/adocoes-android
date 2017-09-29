@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.ListagemDeMenores;
+package br.pucrs.ages.adocoes.Fragments;
 
 
 import android.content.Intent;
@@ -22,7 +22,7 @@ import br.pucrs.ages.adocoes.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListaMenoresHorizontalFragment extends Fragment {
+public class ListaMenoresCardFragment extends Fragment {
 
 
     private RecyclerView mRecyclerView;
@@ -30,7 +30,7 @@ public class ListaMenoresHorizontalFragment extends Fragment {
     private ArrayList<Menor> items = new ArrayList<>();
 
 
-    public ListaMenoresHorizontalFragment() {
+    public ListaMenoresCardFragment() {
         // Required empty public constructor
     }
 

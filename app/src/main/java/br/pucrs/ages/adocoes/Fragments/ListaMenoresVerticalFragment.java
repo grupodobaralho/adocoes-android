@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.ListagemDeMenores;
+package br.pucrs.ages.adocoes.Fragments;
 
 
 import android.content.Intent;
