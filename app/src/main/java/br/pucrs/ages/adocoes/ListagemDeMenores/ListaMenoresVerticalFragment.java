@@ -85,14 +85,14 @@ public class ListaMenoresVerticalFragment extends Fragment {
             }
         });
 
-        mListaHorizontalAdapter.setListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
+        mListaHorizontalAdapter.setOnMenorFavoritarListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
                 Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
             }
         });
 
-        mListaHorizontalAdapter.setOnMenorFavoritarListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
+        mListaHorizontalAdapter.setListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
                 Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
