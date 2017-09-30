@@ -1,0 +1,91 @@
+<LinearLayout android:id="@+id/common_menor_information_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="br.pucrs.ages.adocoes.MenorDetails.CommonMenorInformationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/text_view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome: " />
+
+        <TextView
+            android:id="@+id/nome_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/text_view5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Idade: " />
+
+        <TextView
+            android:id="@+id/idade_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/text_view7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo: " />
+
+        <TextView
+            android:id="@+id/sexo_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/text_view11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Descrição das condições de saúde da criança/adolescente:" />
+
+        <TextView
+            android:id="@+id/saude_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+
+    </LinearLayout>
+
+</LinearLayout>

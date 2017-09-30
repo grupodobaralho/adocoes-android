@@ -15,8 +15,8 @@ import retrofit2.http.Path;
  */
 
 public interface MenoresEndPoint {
-    @GET("/menores")
-    Call<List<Menor>> menores(@Header("access-token") String accessToken);
+    @GET("menores")
+    Call<List<Menor>> menores(@Header("Authorization") String accessToken);
 
     @GET("/menores/{menorId}")
     Call<Menor> menor(@Path("menorId") String portfolioId, @Header("access-token") String accessToken);

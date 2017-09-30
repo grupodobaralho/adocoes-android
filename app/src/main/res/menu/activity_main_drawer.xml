@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Apenas para teste de telas">
         <menu>
@@ -45,5 +46,13 @@
     <item
         android:id="@+id/nav_sair"
         android:title="Encerrar Programa" />
+
+    <item
+        android:id="@+id/nav_listagem_horizontal"
+        android:title="Listagem Horizontal" />
+
+    <item
+        android:id="@+id/nav_listagem_vertical"
+        android:title="Listagem Vertical" />
 
 </menu>
