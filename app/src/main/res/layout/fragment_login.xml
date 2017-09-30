@@ -71,30 +71,30 @@
 
         <LinearLayout
             android:id="@+id/LinearLayout02"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:gravity="center">
 
             <Button
                 android:id="@+id/entrar_com_cadastro_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:width="150dp"
+                android:width="160dp"
                 android:height="60dp"
-                android:text="Entrar com Login" />
+                android:text="ENTRAR" />
 
             <Button
                 android:id="@+id/entrar_sem_cadastro_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:width="150dp"
+                android:width="160dp"
                 android:height="60dp"
-                android:text="Entrar sem Login" />
+                android:text="ENTRAR SEM LOGIN" />
         </LinearLayout>
-
+<!--
         <Button
             android:id="@+id/cadastrar_button"
             android:layout_width="wrap_content"
@@ -103,6 +103,7 @@
             android:width="150dp"
             android:height="60dp"
             android:text="Cadastrar" />
+-->
 
 
     </LinearLayout>

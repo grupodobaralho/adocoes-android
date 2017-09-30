@@ -1,7 +1,6 @@
 package br.pucrs.ages.adocoes.Fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import br.pucrs.ages.adocoes.MenorDetails.MenorDetailsActivity;
+import br.pucrs.ages.adocoes.DatabaseHelper;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
@@ -73,18 +72,27 @@ public class ListaMenoresCardFragment extends Fragment {
             @Override
             public void OnMenorItemSelected(Menor menor) {
                 // Coloque aqui a ação de favoritar :)
+                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
+                if(isFavorite) {
+                    Toast.makeText(getActivity(), ";) Já favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                Toast.makeText(getActivity(), "favoritou "+ menor.getNome(), Toast.LENGTH_SHORT)
-                        .show();
+                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(menor);
+                if(result)
+                    Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
             }
         });
 
         mListAdapter.setListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
-                final Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, menor);
-                startActivity(intent);
+                // Coloque aqui a ação de ir para tela de detalhes :)
+
+                Toast.makeText(getActivity(), "selecionou " + menor.getNome(), Toast.LENGTH_SHORT)
+                        .show();
             }
         });
 
