@@ -13,12 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import br.pucrs.ages.adocoes.Fragments.FirstFragment;
-import br.pucrs.ages.adocoes.Fragments.ListaMenoresCardFragment;
-import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
-import br.pucrs.ages.adocoes.Fragments.LoginFragment;
 import br.pucrs.ages.adocoes.Fragments.FavoritosFragment;
-import br.pucrs.ages.adocoes.Fragments.TermosFragment;
+import br.pucrs.ages.adocoes.Fragments.FirstFragment;
+import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -99,24 +96,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_lista) {
-            displayView(0);
-        } else if (id == R.id.nav_favoritos) {
+         if (id == R.id.nav_favoritos) {
             displayView(1);
-        } else if (id == R.id.nav_institucional) {
-            displayView(2);
-        } else if (id == R.id.nav_termos) {
-            displayView(2);
-        } else if (id == R.id.nav_atualizar_cadastro) {
-            displayView(4);
-        } else if (id == R.id.nav_preferencias) {
-            displayView(5);
-        } else if (id == R.id.nav_sair) {
-            displayView(6);
-        } else if (id == R.id.nav_tela_login) {
-            displayView(7);
-        } else if (id == R.id.nav_listagem_horizontal) {
-            displayView(8);
         } else if (id == R.id.nav_listagem_vertical) {
             displayView(9);
         }
@@ -138,27 +119,9 @@ public class MainActivity extends AppCompatActivity
 
 
         switch (viewId) {
-            case 0:
-                fragment = new FirstFragment();
-                title  = "Crianças e Adolescentes";
-                break;
             case 1:
                 fragment = new FavoritosFragment();
                 title = "Lista de Favoritos";
-                break;
-            case 2:
-                fragment = new TermosFragment();
-                title = "Termos de uso";
-                break;
-            case 7:
-                fragment = new LoginFragment();
-                title = "Login teste";
-                break;
-            case 8:
-                fragment = new ListaMenoresCardFragment();
-                title = "Lista Horizontal";
-                //Mostra a opção de troca
-                mostraTrocaParaVertical.setVisible(true);
                 break;
             case 9:
                 fragment = new ListaMenoresVerticalFragment();
