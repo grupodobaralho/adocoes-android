@@ -39,7 +39,7 @@ public class ListagemDeMenoresActivity extends AppCompatActivity {
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 menores = response.body();
                 System.out.println(menores);
-                fragment.setItems(menores, isListagemVertical);
+                fragment.setItems( isListagemVertical);
             }
 
             @Override
@@ -63,15 +63,15 @@ public class ListagemDeMenoresActivity extends AppCompatActivity {
         if (itemId == R.id.troca_listagem) {
             isListagemVertical = !isListagemVertical;
             if (isListagemVertical) {
-                isListagemVertical = true;
-                if (menores != null){
-                    fragment.setItems(menores, isListagemVertical);
-                }
-            } else {
-                isListagemVertical = false;
-                if (menores != null){
-                    fragment.setItems(menores, isListagemVertical);
-                }
+//                isListagemVertical = true;
+//                if (menores != null){
+//                    fragment.setItems(menores, isListagemVertical);
+//                }
+//            } else {
+//                isListagemVertical = false;
+//                if (menores != null){
+//                    fragment.setItems(menores, isListagemVertical);
+//                }
             }
             return true;
         } else {

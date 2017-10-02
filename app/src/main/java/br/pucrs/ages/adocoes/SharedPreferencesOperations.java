@@ -3,7 +3,7 @@ package br.pucrs.ages.adocoes;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SharedPreferencesOperations {
+public class  SharedPreferencesOperations {
 
     private static final String PREFS_NAME = "SHARED_PREFS_ADOCOES";
 

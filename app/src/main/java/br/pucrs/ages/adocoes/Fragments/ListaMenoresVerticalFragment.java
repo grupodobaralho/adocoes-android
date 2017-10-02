@@ -8,17 +8,21 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static br.pucrs.ages.adocoes.R.id;
 import static br.pucrs.ages.adocoes.R.layout;
@@ -31,7 +35,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ListaVerticalAdapter mListaVerticalAdapter;
     private ListaHorizontalAdapter mListaHorizontalAdapter;
-    private List<Menor> items = new ArrayList<>();
+    private List<Menor> menores ;
     protected MenuItem listagemHorizontal;
     private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
 
@@ -64,8 +68,6 @@ public class ListaMenoresVerticalFragment extends Fragment {
 
         mListaVerticalAdapter = new ListaVerticalAdapter(getActivity());
         mListaHorizontalAdapter = new ListaHorizontalAdapter(getActivity());
-
-        mListaVerticalAdapter.setData(items);
 
         mListaVerticalAdapter.setOnMenorFavoritarListener(new ListaVerticalAdapter.OnMenorSelectedListener() {
             @Override
@@ -105,22 +107,35 @@ public class ListaMenoresVerticalFragment extends Fragment {
         });
 
         mRecyclerView.setAdapter(mListaVerticalAdapter);
+
+        RestUtil.getMenoresEndPoint().menores("Bearer anonymous").enqueue(new Callback<List<Menor>>() {
+            @Override
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+                menores = response.body();
+                System.out.println(menores);
+                setItems(true);
+            }
+
+            @Override
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
+                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+            }
+        });
     }
 
-    public void setItems(List<Menor> items, boolean isListagemVertical) {
-        this.items = items;
+    public void setItems( boolean isListagemVertical) {
         if (isListagemVertical){
             pagerSnapHelper.attachToRecyclerView(null);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
             this.mRecyclerView.setLayoutManager(layoutManager);
             this.mRecyclerView.setAdapter(mListaVerticalAdapter);
-            mListaVerticalAdapter.setData(items);
+            mListaVerticalAdapter.setData(menores);
         } else {
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
             pagerSnapHelper.attachToRecyclerView(this.mRecyclerView);
             this.mRecyclerView.setLayoutManager(layoutManager);
             this.mRecyclerView.setAdapter(mListaHorizontalAdapter);
-            mListaHorizontalAdapter.setData(items);
+            mListaHorizontalAdapter.setData(menores);
         }
     }
 
