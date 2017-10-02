@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity
     //Variável responsável por receber a referência dos intens de menu.
     private MenuItem mostraTrocaParaHorizontal;
     private MenuItem mostraTrocaParaVertical;
+    private  boolean isListaVertical = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +78,18 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.troca_para_vertical:
-                displayView(9);
-                return true;
-
+//            case R.id.troca_para_vertical:
+//                ListaMenoresVerticalFragment myFragment = (ListaMenoresVerticalFragment)getSupportFragmentManager().findFragmentByTag("Lista Vertical");
+//                if (myFragment != null && myFragment.isVisible()) {
+//                    myFragment.setItems(true);
+//                }
+//                return true;
             case R.id.troca_para_horizontal:
-                displayView(8);
+                ListaMenoresVerticalFragment myFragment1 = (ListaMenoresVerticalFragment)getSupportFragmentManager().findFragmentByTag("Lista Vertical");
+                if (myFragment1 != null && myFragment1.isVisible()) {
+                    isListaVertical = !isListaVertical;
+                    myFragment1.setItems(isListaVertical);
+                }
                 return true;
             default:
                 break;
@@ -137,7 +144,7 @@ public class MainActivity extends AppCompatActivity
 
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_frame, fragment);
+            ft.replace(R.id.content_frame, fragment, title);
             ft.commit();
         }
 

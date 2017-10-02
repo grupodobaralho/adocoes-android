@@ -113,7 +113,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 menores = response.body();
                 System.out.println(menores);
-                setItems(menores, true);
+                setItems(true);
             }
 
             @Override
@@ -123,19 +123,19 @@ public class ListaMenoresVerticalFragment extends Fragment {
         });
     }
 
-    public void setItems(List<Menor> items, boolean isListagemVertical) {
+    public void setItems( boolean isListagemVertical) {
         if (isListagemVertical){
             pagerSnapHelper.attachToRecyclerView(null);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
             this.mRecyclerView.setLayoutManager(layoutManager);
             this.mRecyclerView.setAdapter(mListaVerticalAdapter);
-            mListaVerticalAdapter.setData(items);
+            mListaVerticalAdapter.setData(menores);
         } else {
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
             pagerSnapHelper.attachToRecyclerView(this.mRecyclerView);
             this.mRecyclerView.setLayoutManager(layoutManager);
             this.mRecyclerView.setAdapter(mListaHorizontalAdapter);
-            mListaHorizontalAdapter.setData(items);
+            mListaHorizontalAdapter.setData(menores);
         }
     }
 
