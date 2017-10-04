@@ -2,7 +2,9 @@ package br.pucrs.ages.adocoes.MenorDetails;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
@@ -20,6 +22,11 @@ public class MenorDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menor_details);
 
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         Intent intentFromList = getIntent();
         if (intentFromList != null) {
             final Menor menor = (Menor) intentFromList.getSerializableExtra(EXTRA_MENOR);
@@ -35,5 +42,17 @@ public class MenorDetailsActivity extends AppCompatActivity {
                         .commit();
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+
+        if (itemId == android.R.id.home) {
+            this.onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
