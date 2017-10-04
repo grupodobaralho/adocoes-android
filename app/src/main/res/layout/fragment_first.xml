@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BlanchedAlmond">
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/portfolio_allocation_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/phone_icon"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
+        android:src="@drawable/icone_adocoes"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <ProgressBar
         android:id="@+id/native_progress_bar"
