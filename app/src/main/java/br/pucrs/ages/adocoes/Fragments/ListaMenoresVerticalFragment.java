@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import br.pucrs.ages.adocoes.DatabaseHelper;
 import br.pucrs.ages.adocoes.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
@@ -74,7 +75,19 @@ public class ListaMenoresVerticalFragment extends Fragment {
             public void OnMenorItemSelected(Menor menor) {
                 // Coloque aqui a ação de favoritar :)
 
-                Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                // Chama o Banco e verifica se o menor já é um favorito
+                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
+                if(isFavorite) {
+                    Toast.makeText(getActivity(), ";) Já favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Chama o Banco e tenta inserir um novo favorito
+                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(menor);
+                if(result)
+                    Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -90,10 +103,27 @@ public class ListaMenoresVerticalFragment extends Fragment {
             }
         });
 
+        /**
+         * Listener para favoritar um menor na lista Horizontal
+         */
         mListaHorizontalAdapter.setOnMenorFavoritarListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
-                Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                // Coloque aqui a ação de favoritar :)
+
+                // Chama o Banco e verifica se o menor já é um favorito
+                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
+                if(isFavorite) {
+                    Toast.makeText(getActivity(), ";) Já favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Chama o Banco e tenta inserir um novo favorito
+                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(menor);
+                if(result)
+                    Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
             }
         });
 
