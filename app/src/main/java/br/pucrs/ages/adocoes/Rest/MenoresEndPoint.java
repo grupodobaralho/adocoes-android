@@ -2,6 +2,7 @@ package br.pucrs.ages.adocoes.Rest;
 
 import java.util.List;
 
+import br.pucrs.ages.adocoes.Fragments.MenorMidia;
 import br.pucrs.ages.adocoes.Model.Menor;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -23,4 +24,7 @@ public interface MenoresEndPoint {
 
     @POST("/menores/{menorId}")
     Call<Menor> updateMenor(@Path("menorId") String portfolioId, @Header("access-token") String accessToken, @Body Menor menor);
+
+    @GET("/menores/{menorId}/midias")
+    Call<MenorMidia> midiasMenor(@Header("access-token") String accessToken, @Path("menorId") String menorId);
 }
