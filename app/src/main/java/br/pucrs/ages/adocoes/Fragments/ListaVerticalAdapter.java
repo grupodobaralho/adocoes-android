@@ -24,8 +24,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static br.pucrs.ages.adocoes.R.id.imageView;
-
 /**
  * Created by lima on 04/09/17.
  */
@@ -69,7 +67,7 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
 
     @Override
     public void onBindViewHolder(ListaVerticalAdapter.MenorItemView holder, int position) {
-        MenorItemView itemView = holder;
+        final MenorItemView itemView = holder;
         final Menor menor = items.get(position);
 
         if (menor != null) {
@@ -81,9 +79,11 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
             public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
                 MenorMidia midia = response.body();
 
-                byte[] imageAsBytes = Base64.decode(midia.getMidia().getBytes(), Base64.DEFAULT);
-                Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-                itemView.imgFoto.setImageBitmap(imgBitmap);
+                if (midia != null) {
+                    byte[] imageAsBytes = Base64.decode(midia.getMidia().getBytes(), Base64.DEFAULT);
+                    Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                    itemView.imgFoto.setImageBitmap(imgBitmap);
+                }
             }
 
             @Override
