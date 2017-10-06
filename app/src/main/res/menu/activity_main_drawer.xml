@@ -6,9 +6,9 @@
         android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_listagem_vertical"
-                android:title="Listagem Vertical"/>
+                android:title="Lista de Menores"/>
             <item
                 android:id="@+id/nav_favoritos"
-                android:title="Favoritos" />
+                android:title="Lista de Favoritos" />
         </group>
 </menu>
