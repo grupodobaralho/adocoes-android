@@ -1,7 +1,11 @@
 package br.pucrs.ages.adocoes.Fragments;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +17,10 @@ import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by kuquert on 29/05/17.
@@ -56,12 +64,30 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
 
     @Override
     public void onBindViewHolder(ListaHorizontalAdapter.MenorItemView holder, int position) {
-        MenorItemView itemView = holder;
+        final MenorItemView itemView = holder;
         final Menor menor = items.get(position);
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
 
         }
+
+        RestUtil.getMenoresEndPoint().midiasMenor("Bearer anonymous", menor.getId()).enqueue(new Callback<MenorMidia>() {
+            @Override
+            public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                MenorMidia midia = response.body();
+
+                if (midia != null) {
+                    byte[] imageAsBytes = Base64.decode(midia.getMidia().getBytes(), Base64.DEFAULT);
+                    Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                    itemView.imgFoto.setImageBitmap(imgBitmap);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MenorMidia> call, Throwable t) {
+                Log.e("ListaVerticalAdapter", t.getLocalizedMessage(), t);
+            }
+        });
     }
 
     @Override
