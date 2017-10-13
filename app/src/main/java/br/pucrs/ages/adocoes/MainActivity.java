@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity
 //                }
 //                return true;
             case R.id.troca_para_horizontal:
-                ListaMenoresVerticalFragment myFragment1 = (ListaMenoresVerticalFragment)getSupportFragmentManager().findFragmentByTag("Lista Vertical");
+                ListaMenoresVerticalFragment myFragment1 = (ListaMenoresVerticalFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
                 if (myFragment1 != null && myFragment1.isVisible()) {
                     isListaVertical = !isListaVertical;
                     myFragment1.setItems(isListaVertical);
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 9:
                 fragment = new ListaMenoresVerticalFragment();
-                title = "Lista Vertical";
+                title = "Lista de Menores";
                 //Mostra a opção de troca
                 mostraTrocaParaHorizontal.setVisible(true);
                 break;
