@@ -2,7 +2,7 @@ package br.pucrs.ages.adocoes.Rest;
 
 import java.util.List;
 
-import br.pucrs.ages.adocoes.Fragments.MenorMidia;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.Model.Menor;
 import retrofit2.Call;
 import retrofit2.http.Body;

@@ -13,9 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import br.pucrs.ages.adocoes.Fragments.FavoritosFragment;
-import br.pucrs.ages.adocoes.Fragments.FirstFragment;
-import br.pucrs.ages.adocoes.Fragments.ListaMenoresVerticalFragment;
+import br.pucrs.ages.adocoes.Funcionalidades.Favoritos.FavoritosFragment;
+import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresVerticalFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity
          if (id == R.id.nav_favoritos) {
             displayView(1);
         } else if (id == R.id.nav_listagem_vertical) {
-            displayView(9);
+            displayView(2);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -130,15 +129,15 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FavoritosFragment();
                 title = "Lista de Favoritos";
                 break;
-            case 9:
+            case 2:
                 fragment = new ListaMenoresVerticalFragment();
                 title = "Lista de Menores";
                 //Mostra a opção de troca
                 mostraTrocaParaHorizontal.setVisible(true);
                 break;
             default:
-                fragment = new FirstFragment();
-                title = "Adoções app";
+                fragment = new FavoritosFragment();
+                title = "Lista de Favoritos";
                 break;
         }
 
