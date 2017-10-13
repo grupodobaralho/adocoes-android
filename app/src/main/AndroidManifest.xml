@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MenorDetails.MenorDetailsActivity"
+            android:name=".Funcionalidades.MenorDetails.MenorDetailsActivity"
             android:label="Detalhes">
         </activity>
         <activity
@@ -31,15 +31,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".Funcionalidades.Login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
             android:name=".Settings.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".CadastroCompletoActivity"
+            android:name=".Funcionalidades.CadastroCompleto.CadastroCompletoActivity"
             android:label="Cadastro completo" />
-        <activity android:name=".LauncherActivity"></activity>
     </application>
 
 </manifest>

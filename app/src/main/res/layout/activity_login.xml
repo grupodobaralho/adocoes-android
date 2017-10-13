@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="br.pucrs.ages.adocoes.Login.LoginActivity">
+    tools:context=".Funcionalidades.Login.LoginActivity">
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
