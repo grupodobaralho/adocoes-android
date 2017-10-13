@@ -40,9 +40,6 @@
             android:name=".CadastroCompletoActivity"
             android:label="Cadastro completo" />
         <activity android:name=".LauncherActivity"></activity>
-        <activity android:name=".Fragments.ListagemDeMenoresActivity">
-
-        </activity>
     </application>
 
 </manifest>
