@@ -20,6 +20,8 @@ import java.util.List;
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,7 +33,7 @@ import static br.pucrs.ages.adocoes.R.layout;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListaMenoresVerticalFragment extends Fragment {
+public class ListaMenoresFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ListaVerticalAdapter mListaVerticalAdapter;
@@ -40,7 +42,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
     protected MenuItem listagemHorizontal;
     private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
 
-    public ListaMenoresVerticalFragment() {
+    public ListaMenoresFragment() {
         // Required empty public constructor
     }
 
@@ -144,6 +146,12 @@ public class ListaMenoresVerticalFragment extends Fragment {
                 menores = response.body();
                 System.out.println(menores);
                 setItems(true);
+
+                for (Menor menor : menores) {
+
+                }
+
+
             }
 
             @Override
@@ -151,6 +159,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
                 Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
             }
         });
+
     }
 
     public void setItems( boolean isListagemVertical) {

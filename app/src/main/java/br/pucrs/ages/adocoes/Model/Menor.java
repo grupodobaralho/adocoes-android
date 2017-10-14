@@ -33,17 +33,14 @@ public class Menor implements Serializable {
     private String refAbrigo;
     private String processoPoderFamiliar;
     private List<String> interessados;
+    private List<RefMidia> refMidias;
     private boolean ativo;
 
     public Menor(){
 
     }
 
-    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, Date dataNascimento, List<String> familiares,
-                 List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude,
-                 boolean curavel, boolean deficienciaFisica, boolean deficienciaMental,
-                 String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar,
-                 List<String> interessados, boolean ativo) {
+    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, Date dataNascimento, List<String> familiares, List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude, boolean curavel, boolean deficienciaFisica, boolean deficienciaMental, String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar, List<String> interessados, List<RefMidia> refMidias, boolean ativo) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -62,6 +59,7 @@ public class Menor implements Serializable {
         this.refAbrigo = refAbrigo;
         this.processoPoderFamiliar = processoPoderFamiliar;
         this.interessados = interessados;
+        this.refMidias = refMidias;
         this.ativo = ativo;
     }
 
@@ -216,5 +214,13 @@ public class Menor implements Serializable {
 
     public Menor(String nome) {
         this.nome = nome;
+    }
+
+    public List<RefMidia> getRefMidias() {
+        return refMidias;
+    }
+
+    public void setRefMidias(List<RefMidia> refMidias) {
+        this.refMidias = refMidias;
     }
 }

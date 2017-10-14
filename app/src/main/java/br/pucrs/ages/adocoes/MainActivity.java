@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Funcionalidades.Favoritos.FavoritosFragment;
-import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresVerticalFragment;
+import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 return true;
 //            case R.id.troca_para_vertical:
-//                ListaMenoresVerticalFragment myFragment = (ListaMenoresVerticalFragment)getSupportFragmentManager().findFragmentByTag("Lista Vertical");
+//                ListaMenoresFragment myFragment = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista Vertical");
 //                if (myFragment != null && myFragment.isVisible()) {
 //                    myFragment.setItems(true);
 //                }
 //                return true;
             case R.id.troca_para_horizontal:
-                ListaMenoresVerticalFragment myFragment1 = (ListaMenoresVerticalFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
+                ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
                 if (myFragment1 != null && myFragment1.isVisible()) {
                     isListaVertical = !isListaVertical;
                     myFragment1.setItems(isListaVertical);
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                 title = "Lista de Favoritos";
                 break;
             case 2:
-                fragment = new ListaMenoresVerticalFragment();
+                fragment = new ListaMenoresFragment();
                 title = "Lista de Menores";
                 //Mostra a opção de troca
                 mostraTrocaParaHorizontal.setVisible(true);

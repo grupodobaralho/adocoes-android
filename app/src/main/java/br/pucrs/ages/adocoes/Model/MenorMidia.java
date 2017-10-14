@@ -1,5 +1,7 @@
 package br.pucrs.ages.adocoes.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -8,30 +10,25 @@ import java.io.Serializable;
 
 public class MenorMidia implements Serializable {
 
-    private String type;
+    @SerializedName("_id")
+    private String id;
     private String conteudo;
-    private String descricao;
 
-    public MenorMidia(String type, String descricao, String conteudo) {
-        this.descricao = descricao;
-        this.type = type;
+    public MenorMidia() {
+
+    }
+
+    public MenorMidia(String id, String conteudo) {
+        this.id = id;
         this.conteudo = conteudo;
     }
 
-    public String getDescricao() {
-        return this.descricao;
+    public String getId() {
+        return this.id;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getConteudo() { return this.conteudo; }
