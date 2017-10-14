@@ -78,7 +78,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
                 MenorMidia midia = response.body();
 
                 if (midia != null) {
-                    byte[] imageAsBytes = Base64.decode(midia.getMidia().getBytes(), Base64.DEFAULT);
+                    byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
                     Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
                     itemView.imgFoto.setImageBitmap(imgBitmap);
                 }

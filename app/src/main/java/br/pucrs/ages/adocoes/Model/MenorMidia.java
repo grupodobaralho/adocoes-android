@@ -8,20 +8,22 @@ import java.io.Serializable;
 
 public class MenorMidia implements Serializable {
 
-    private String midia;
     private String type;
+    private String conteudo;
+    private String descricao;
 
-    public MenorMidia(String midia, String type) {
-        this.midia = midia;
+    public MenorMidia(String type, String descricao, String conteudo) {
+        this.descricao = descricao;
         this.type = type;
+        this.conteudo = conteudo;
     }
 
-    public String getMidia() {
-        return this.midia;
+    public String getDescricao() {
+        return this.descricao;
     }
 
-    public void setMidia(String midia) {
-        this.midia = midia;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getType() {
@@ -31,4 +33,8 @@ public class MenorMidia implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getConteudo() { return this.conteudo; }
+
+    public void setConteudo(String conteudo) { this.conteudo = conteudo; }
 }
