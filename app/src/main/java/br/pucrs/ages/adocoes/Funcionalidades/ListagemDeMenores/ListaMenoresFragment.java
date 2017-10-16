@@ -20,8 +20,6 @@ import java.util.List;
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.Model.MenorMidia;
-import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -146,12 +144,6 @@ public class ListaMenoresFragment extends Fragment {
                 menores = response.body();
                 System.out.println(menores);
                 setItems(true);
-
-                for (Menor menor : menores) {
-
-                }
-
-
             }
 
             @Override

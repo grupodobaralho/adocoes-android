@@ -2,12 +2,15 @@ package br.pucrs.ages.adocoes.Funcionalidades.MenorDetails;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +19,13 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Matheus on 07/09/2017.
@@ -26,16 +35,21 @@ public class ViewPagerFragment extends Fragment {
 
     private static final String ARGUMENT_MIDIAS = "midias";
 
-    private int[] mMidiasMenor;
-
-// TODO: Criar versão do método abaixo que use um Bundle para setar mMenores no fragment
+    private static ArrayList<String> mMidiaIds;
+    private static String menorId;
 
     public static ViewPagerFragment newInstance(Menor menor) {
-        final Bundle args = new Bundle();
-//        args.putStringArrayList(ARGUMENT_MIDIAS, menor.getMidias());
-        final ArrayList<String> stringList = new ArrayList<>();
+        menorId = menor.getId();
 
-        args.putStringArrayList(ARGUMENT_MIDIAS, stringList);
+        final Bundle args = new Bundle();
+
+        mMidiaIds = new ArrayList<>();
+        for (RefMidia refMidia : menor.getRefMidias()) {
+            mMidiaIds.add(refMidia.getId());
+        }
+
+        args.putStringArrayList(ARGUMENT_MIDIAS, mMidiaIds);
+
         final ViewPagerFragment fragment = new ViewPagerFragment();
         fragment.setArguments(args);
         return fragment;
@@ -44,13 +58,6 @@ public class ViewPagerFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
-        // Fazer as paradas do delegate
-
-        //
-
-        // Receive Menores from api here
-
     }
 
     @Nullable
@@ -74,7 +81,7 @@ public class ViewPagerFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 1;
+            return mMidiaIds.size();
         }
 
         @Override
@@ -85,15 +92,34 @@ public class ViewPagerFragment extends Fragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 
-            // TODO: Change layout file to apropriate layout item
             final View view = mLayoutInflater.inflate(R.layout.viewpager_item, container, false);
 
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
             Drawable carta = getResources().getDrawable(R.drawable.carta, null);
 
-            imageView.setImageDrawable(carta);
 
-            // Get view's components here, just like a ViewHolder
+
+//            imageView.setImageDrawable(carta);
+
+
+            // Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
+            RestUtil.getMenoresEndPoint().menorMidia(menorId, mMidiaIds.get(position), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
+                @Override
+                public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                    MenorMidia midia = response.body();
+                    if (midia != null) {
+                        byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                        imageView.setImageBitmap(imgBitmap);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MenorMidia> call, Throwable t) {
+
+                }
+            });
+
 
 
             container.addView(view);
