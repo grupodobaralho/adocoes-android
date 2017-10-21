@@ -31,7 +31,7 @@ import static br.pucrs.ages.adocoes.R.layout;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListaMenoresVerticalFragment extends Fragment {
+public class ListaMenoresFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ListaVerticalAdapter mListaVerticalAdapter;
@@ -40,7 +40,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
     protected MenuItem listagemHorizontal;
     private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
 
-    public ListaMenoresVerticalFragment() {
+    public ListaMenoresFragment() {
         // Required empty public constructor
     }
 
@@ -98,7 +98,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
                 // Boa Roberto ;)
 
                 Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, menor);
+                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
                 startActivity(intent);
             }
         });
@@ -151,6 +151,7 @@ public class ListaMenoresVerticalFragment extends Fragment {
                 Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
             }
         });
+
     }
 
     public void setItems( boolean isListagemVertical) {

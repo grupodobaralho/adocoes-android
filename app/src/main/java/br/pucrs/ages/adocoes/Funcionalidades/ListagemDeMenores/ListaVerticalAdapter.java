@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
@@ -75,23 +75,29 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
             itemView.tvNome.setText(menor.getNome());
         }
 
-        RestUtil.getMenoresEndPoint().midiasMenor("Bearer anonymous", menor.getId()).enqueue(new Callback<MenorMidia>() {
-            @Override
-            public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
-                MenorMidia midia = response.body();
 
-                if (midia != null) {
-                    byte[] imageAsBytes = Base64.decode(midia.getMidia().getBytes(), Base64.DEFAULT);
-                    Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-                    itemView.imgFoto.setImageBitmap(imgBitmap);
-                }
-            }
+        for (RefMidia midia : menor.getMidias()) {
+            if (midia.isPrincipal()) {
+                RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
+                    @Override
+                    public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                        MenorMidia midia = response.body();
 
-            @Override
-            public void onFailure(Call<MenorMidia> call, Throwable t) {
-                Log.e("ListaVerticalAdapter", t.getLocalizedMessage(), t);
+                        if (midia != null) {
+                            byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                            Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                            itemView.imgFoto.setImageBitmap(imgBitmap);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MenorMidia> call, Throwable t) {
+
+                    }
+                });
+                break;
             }
-        });
+        }
     }
 
     @Override

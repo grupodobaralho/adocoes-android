@@ -36,7 +36,7 @@ public class RestUtil {
 //            .build();
 
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://www.homo.ages.pucrs.br/adocoes/")
+            .baseUrl("http://172.20.10.8:8888")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
