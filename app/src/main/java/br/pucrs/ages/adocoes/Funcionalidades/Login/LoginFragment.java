@@ -99,7 +99,7 @@ public class LoginFragment extends Fragment {
             AuthRequest authRquest = new AuthRequest(email, senha);
 
             String APP_KEY = "adocoes.app";
-            String APP_SECRET = "407a4d80fce791751cd83ab1af3d9b26";
+            String APP_SECRET = "a123456";
 
             String str = APP_KEY + ":" + APP_SECRET;
 
