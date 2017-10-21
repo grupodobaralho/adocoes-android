@@ -5,7 +5,6 @@ public class UserBusiness {
     private String accessToken;
     private String userId;
 
-
     private static final UserBusiness ourInstance = new UserBusiness();
 
     public static UserBusiness getInstance() {
@@ -28,8 +27,15 @@ public class UserBusiness {
 
     public String getUserId() {
         if (userId == null) {
-            userId  = SharedPreferencesOperations.loadFromPrefs(SharedPreferencesOperations.ACCESS_TOKEN);
+            userId = SharedPreferencesOperations.loadFromPrefs(SharedPreferencesOperations.ACCESS_TOKEN);
         }
         return userId;
     }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, accessToken);
+    }
+
+
 }

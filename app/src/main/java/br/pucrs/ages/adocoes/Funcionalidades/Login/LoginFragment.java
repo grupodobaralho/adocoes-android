@@ -39,6 +39,8 @@ public class LoginFragment extends Fragment {
     private EditText senhaEditText;
     private TextView esqueceuSenhaTextView;
 
+    private String anonymousToken = "Bearer anonymous";
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +132,9 @@ public class LoginFragment extends Fragment {
      * Entrar com permissão de visitante
      */
     private void doLoginSemCadastro() {
-        //TODO Chamada da tela do restante do aplicativo com perfil de visitante
+        UserBusiness.getInstance().setAccessToken(anonymousToken);
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     public void doForgotPassword() {
