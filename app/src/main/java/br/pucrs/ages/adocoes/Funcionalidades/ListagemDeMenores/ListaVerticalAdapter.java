@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.Model.RefMidia;
@@ -78,7 +79,8 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
 
         for (RefMidia midia : menor.getMidias()) {
             if (midia.isPrincipal()) {
-                RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
+                String token = UserBusiness.getInstance().getAccessToken();
+                RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
                     @Override
                     public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
                         MenorMidia midia = response.body();

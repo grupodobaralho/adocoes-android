@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
@@ -137,8 +138,8 @@ public class ListaMenoresFragment extends Fragment {
         });
 
         mRecyclerView.setAdapter(mListaVerticalAdapter);
-
-        RestUtil.getMenoresEndPoint().menores("Bearer anonymous").enqueue(new Callback<List<Menor>>() {
+        String token = UserBusiness.getInstance().getAccessToken();
+        RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 menores = response.body();

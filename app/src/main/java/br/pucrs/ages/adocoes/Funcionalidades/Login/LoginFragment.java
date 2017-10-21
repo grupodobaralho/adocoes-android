@@ -134,6 +134,7 @@ public class LoginFragment extends Fragment {
     private void doLoginSemCadastro() {
         UserBusiness.getInstance().setAccessToken(anonymousToken);
         Intent intent = new Intent(getContext(), MainActivity.class);
+        getActivity().finish();
         startActivity(intent);
     }
 
