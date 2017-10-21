@@ -7,6 +7,8 @@ public class UserBusiness {
 
     private static final UserBusiness ourInstance = new UserBusiness();
 
+    private static final String anonymousToken = "Bearer anonymous";
+
     public static UserBusiness getInstance() {
         return ourInstance;
     }
@@ -37,5 +39,8 @@ public class UserBusiness {
         SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, accessToken);
     }
 
+    public void setAnonymousToken() {
+        setAccessToken(anonymousToken);
+    }
 
 }

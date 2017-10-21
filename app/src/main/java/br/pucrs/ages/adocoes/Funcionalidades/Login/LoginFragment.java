@@ -1,10 +1,12 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Login;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +40,6 @@ public class LoginFragment extends Fragment {
     private EditText emailEditText;
     private EditText senhaEditText;
     private TextView esqueceuSenhaTextView;
-
-    private String anonymousToken = "Bearer anonymous";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,6 +111,18 @@ public class LoginFragment extends Fragment {
             call.enqueue(new Callback<AuthResponse>() {
                 @Override
                 public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                    if (response.errorBody() != null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage("Usuário não encontrado ou senha incorreta")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                    }
+                                });
+                        builder.create().show();
+                        return;
+                    }
+
                     AccessToken accessToken = response.body().getAccess_token();
                     UserBusiness.getInstance().updateAccessToken(accessToken.getValue(), accessToken.getUserId());
 
@@ -132,7 +144,7 @@ public class LoginFragment extends Fragment {
      * Entrar com permissão de visitante
      */
     private void doLoginSemCadastro() {
-        UserBusiness.getInstance().setAccessToken(anonymousToken);
+        UserBusiness.getInstance().setAnonymousToken();
         Intent intent = new Intent(getContext(), MainActivity.class);
         getActivity().finish();
         startActivity(intent);
