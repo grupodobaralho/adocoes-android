@@ -1,14 +1,13 @@
-package br.pucrs.ages.adocoes.Funcionalidades.Login;
-
-import br.pucrs.ages.adocoes.Database.SharedPreferences.SharedPreferencesOperations;
+package br.pucrs.ages.adocoes.Database.SharedPreferences;
 
 public class UserBusiness {
 
     private String accessToken;
     private String userId;
 
-
     private static final UserBusiness ourInstance = new UserBusiness();
+
+    private static final String anonymousToken = "Bearer anonymous";
 
     public static UserBusiness getInstance() {
         return ourInstance;
@@ -30,8 +29,18 @@ public class UserBusiness {
 
     public String getUserId() {
         if (userId == null) {
-            userId  = SharedPreferencesOperations.loadFromPrefs(SharedPreferencesOperations.ACCESS_TOKEN);
+            userId = SharedPreferencesOperations.loadFromPrefs(SharedPreferencesOperations.ACCESS_TOKEN);
         }
         return userId;
     }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, accessToken);
+    }
+
+    public void setAnonymousToken() {
+        setAccessToken(anonymousToken);
+    }
+
 }
