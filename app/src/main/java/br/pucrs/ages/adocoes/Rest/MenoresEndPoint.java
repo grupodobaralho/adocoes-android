@@ -26,5 +26,5 @@ public interface MenoresEndPoint {
     Call<Menor> updateMenor(@Path("menorId") String portfolioId, @Header("access-token") String accessToken, @Body Menor menor);
 
     @GET("menores/{menorId}/midias/{midiaId}")
-    Call<MenorMidia> menorMidia(@Path("menorId") String menorId, @Path("midiaId") String midiaId, @Header("access-token") String accessToken);
+    Call<MenorMidia> menorMidia(@Path("menorId") String menorId, @Path("midiaId") String midiaId, @Header("Authorization") String accessToken);
 }

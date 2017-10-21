@@ -98,7 +98,7 @@ public class ListaMenoresFragment extends Fragment {
                 // Boa Roberto ;)
 
                 Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, menor);
+                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
                 startActivity(intent);
             }
         });

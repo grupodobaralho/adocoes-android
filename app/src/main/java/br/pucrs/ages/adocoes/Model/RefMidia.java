@@ -2,11 +2,13 @@ package br.pucrs.ages.adocoes.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by matheusvaccaro on 13/10/17.
  */
 
-public class RefMidia {
+public class RefMidia implements Serializable {
 
     @SerializedName("_id")
     private String id;

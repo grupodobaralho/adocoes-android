@@ -44,7 +44,7 @@ public class ViewPagerFragment extends Fragment {
         final Bundle args = new Bundle();
 
         mMidiaIds = new ArrayList<>();
-        for (RefMidia refMidia : menor.getRefMidias()) {
+        for (RefMidia refMidia : menor.getMidias()) {
             mMidiaIds.add(refMidia.getId());
         }
 
@@ -95,6 +95,7 @@ public class ViewPagerFragment extends Fragment {
             final View view = mLayoutInflater.inflate(R.layout.viewpager_item, container, false);
 
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
+
             Drawable carta = getResources().getDrawable(R.drawable.carta, null);
 
 

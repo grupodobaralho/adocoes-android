@@ -72,7 +72,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
 
         }
 
-        for (RefMidia midia : menor.getRefMidias()) {
+        for (RefMidia midia : menor.getMidias()) {
             if (midia.isPrincipal()) {
                 RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
                     @Override
