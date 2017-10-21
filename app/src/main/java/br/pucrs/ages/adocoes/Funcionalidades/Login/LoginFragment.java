@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import java.io.UnsupportedEncodingException;
 
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.MainActivity;
 import br.pucrs.ages.adocoes.Model.dto.AccessToken;
 import br.pucrs.ages.adocoes.Model.dto.Request.AuthRequest;

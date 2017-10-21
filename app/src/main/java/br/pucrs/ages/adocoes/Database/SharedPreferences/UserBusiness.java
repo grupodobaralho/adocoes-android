@@ -1,6 +1,4 @@
-package br.pucrs.ages.adocoes.Funcionalidades.Login;
-
-import br.pucrs.ages.adocoes.Database.SharedPreferences.SharedPreferencesOperations;
+package br.pucrs.ages.adocoes.Database.SharedPreferences;
 
 public class UserBusiness {
 
