@@ -8,6 +8,12 @@
         <item
             android:id="@+id/nav_favoritos"
             android:title="Lista de Favoritos" />
+        <item
+            android:id="@+id/nav_sobre"
+            android:title="Sobre" />
+        <item
+            android:id="@+id/nav_termos"
+            android:title="Termos de Uso" />
     </group>
     <group android:id="@+id/group2" android:checkableBehavior="single">
         <item

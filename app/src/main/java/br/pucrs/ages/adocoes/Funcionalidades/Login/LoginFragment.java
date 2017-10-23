@@ -1,7 +1,6 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Login;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +18,7 @@ import android.widget.TextView;
 import java.io.UnsupportedEncodingException;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
-import br.pucrs.ages.adocoes.MainActivity;
+import br.pucrs.ages.adocoes.Funcionalidades.TermosDeUso.TermosDeUsoActivity;
 import br.pucrs.ages.adocoes.Model.dto.AccessToken;
 import br.pucrs.ages.adocoes.Model.dto.Request.AuthRequest;
 import br.pucrs.ages.adocoes.Model.dto.Response.AuthResponse;
@@ -114,25 +113,23 @@ public class LoginFragment extends Fragment {
                     if (response.errorBody() != null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setMessage("Usuário não encontrado ou senha incorreta")
-                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-
-                                    }
-                                });
+                                .setPositiveButton("Ok", null);
                         builder.create().show();
                         return;
                     }
 
                     AccessToken accessToken = response.body().getAccess_token();
                     UserBusiness.getInstance().updateAccessToken(accessToken.getValue(), accessToken.getUserId());
-
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    Intent intent = new Intent(getActivity(), TermosDeUsoActivity.class);
                     startActivity(intent);
                 }
 
                 @Override
                 public void onFailure(Call<AuthResponse> call, Throwable t) {
-                    //Falha no login do usuário.
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("Sem conexão com a API.")
+                            .setPositiveButton("Ok", null);
+                    builder.create().show();
                 }
             });
         } catch (UnsupportedEncodingException e) {
@@ -145,8 +142,7 @@ public class LoginFragment extends Fragment {
      */
     private void doLoginSemCadastro() {
         UserBusiness.getInstance().setAnonymousToken();
-        Intent intent = new Intent(getContext(), MainActivity.class);
-        getActivity().finish();
+        Intent intent = new Intent(getContext(), TermosDeUsoActivity.class);
         startActivity(intent);
     }
 

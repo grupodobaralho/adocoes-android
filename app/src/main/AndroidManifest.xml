@@ -18,21 +18,19 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Funcionalidades.MenorDetails.MenorDetailsActivity"
-            android:label="Detalhes">
-        </activity>
+            android:label="Detalhes"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Funcionalidades.Login.LoginActivity"
             android:label="@string/title_activity_login">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Settings.SettingsActivity"
@@ -40,6 +38,7 @@
         <activity
             android:name=".Funcionalidades.CadastroCompleto.CadastroCompletoActivity"
             android:label="Cadastro completo" />
+        <activity android:name=".Funcionalidades.TermosDeUso.TermosDeUsoActivity"></activity>
     </application>
 
 </manifest>
