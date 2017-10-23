@@ -1,5 +1,6 @@
 package br.pucrs.ages.adocoes.Funcionalidades.TermosDeUso;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
+import br.pucrs.ages.adocoes.MainActivity;
 import br.pucrs.ages.adocoes.R;
 
 /**
@@ -40,20 +42,14 @@ public class TermosFragment extends Fragment {
 
         final Button btnTermos = (Button) (view.findViewById(R.id.btn_termos));
         btnTermos.setEnabled(false);
-
-//        RadioGroup group = (RadioGroup) view.findViewById(R.id.rg_termos);
-//        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-//                RadioButton selected = (RadioButton) group.findViewById(checkedId);
-//                if(selected.getText().equals("Aceito")){
-//                    btnTermos.setEnabled(true);
-//                }
-//                else {
-//                    btnTermos.setEnabled(false);
-//                }
-//            }
-//        });
+        btnTermos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -67,7 +63,7 @@ public class TermosFragment extends Fragment {
         });
 
 
-        String ohLord = "<table style=\"border:0px\">"+
+        String termosHTML = "<table style=\"border:0px\">"+
                 "<tr>"+
                 "<td width=\"15%\" style=\"vertical-align:middle\"><img src=\"http://www.tools.ages.pucrs.br/AGES-Adocoes/Adocoes/raw/384d25e6e798cff26b06b1f600acd67c13132743/img/adocoes-icone.png?raw=true\" alt=\"Adoções!\"/></td>"+
                 "<td style=\"font-size:18px;vertical-align:middle\">O <b>Projeto Adoções</b> surgiu de convênio firmado entre o Poder Judiciário do Estado do Rio Grande do Sul, o Ministério Público do Estado do Rio Grande do Sul e a PUCRS, através da AGES - Agência Experimental de Engenharia de Software. O objetivo do convênio é o desenvolvimento de uma solução que possibilite o acesso dos usuários tanto a informações sobre adoção quanto a dados sobre crianças e adolescentes em condições de adotabilidade, sendo composta por um aplicativo para dispositivos móveis e uma ferramenta web de gestão.</td>"+
@@ -424,7 +420,7 @@ public class TermosFragment extends Fragment {
 
 
         //Aqui deve ser chamado o conteudo html com o texto de termos de uso:
-        wv.loadData(ohLord, "text/html", null);
+//        wv.loadData(termosHTML, "text/html", null);
 
 
 

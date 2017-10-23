@@ -18,7 +18,6 @@ import br.pucrs.ages.adocoes.Funcionalidades.Favoritos.FavoritosFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Funcionalidades.Sobre.SobreFragment;
-import br.pucrs.ages.adocoes.Funcionalidades.TermosDeUso.TermosFragment;
 import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -39,12 +38,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
@@ -119,9 +117,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_sobre:
                 displayView(4);
                 break;
-            case R.id.nav_termos:
-                displayView(5);
-                break;
             default:
                 break;
         }
@@ -162,10 +157,6 @@ public class MainActivity extends AppCompatActivity
             case 4:
                 fragment = SobreFragment.newInstance();
                 title = "Sobre";
-                break;
-            case 5:
-                fragment = new TermosFragment();
-                title = "Termos de Uso";
                 break;
             default:
                 fragment = new FavoritosFragment();
