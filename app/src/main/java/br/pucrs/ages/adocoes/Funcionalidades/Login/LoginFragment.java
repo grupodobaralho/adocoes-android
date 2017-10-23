@@ -1,7 +1,6 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Login;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -114,18 +113,13 @@ public class LoginFragment extends Fragment {
                     if (response.errorBody() != null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setMessage("Usuário não encontrado ou senha incorreta")
-                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-
-                                    }
-                                });
+                                .setPositiveButton("Ok", null);
                         builder.create().show();
                         return;
                     }
 
                     AccessToken accessToken = response.body().getAccess_token();
                     UserBusiness.getInstance().updateAccessToken(accessToken.getValue(), accessToken.getUserId());
-
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 }

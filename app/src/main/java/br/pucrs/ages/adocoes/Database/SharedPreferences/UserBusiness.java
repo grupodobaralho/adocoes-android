@@ -7,6 +7,7 @@ public class UserBusiness {
 
     private static final UserBusiness ourInstance = new UserBusiness();
 
+    private static final String prefix = "Bearer ";
     private static final String anonymousToken = "Bearer anonymous";
 
     public static UserBusiness getInstance() {
@@ -16,7 +17,7 @@ public class UserBusiness {
     public void updateAccessToken(String accessToken, String userId) {
         this.accessToken = accessToken;
         this.userId = userId;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, this.accessToken);
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, prefix + this.accessToken);
         SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.USER_ID, this.userId);
     }
 
