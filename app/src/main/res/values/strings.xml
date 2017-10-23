@@ -95,4 +95,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sobre_descricao">O Projeto Adoções surgiu de convênio firmado entre o Poder Judiciário do Estado do Rio Grande do Sul, o Ministério Público do Estado do Rio Grande do Sul e a PUCRS, através da AGES - Agência Experimental de Engenharia de Software. O objetivo do convênio é o desenvolvimento de uma solução que possibilite o acesso dos usuários tanto a informações sobre adoção quanto a dados sobre crianças e adolescentes em condições de adotabilidade, sendo composta por um aplicativo para dispositivos móveis e uma ferramenta web de gestão.</string>
+    <string name="time">Arquitetura de Software + DevOps\n Eduardo Lima de Oliveira\n Matheus Mello Vaccaro    \nRest API\n Gabriel Franzoni Gabriel Weich Gregory Silveira Lagranha Guilherme Henrique Draghetti Matheus Guzinski Haas Ramiro Araujo Gonçalves de Lima Thiago Rocha    Aplicativo Android   Eduardo Lima de Oliveira Hercilio Martins Ortiz Homero Junior Leitte de Oliveira Santos Israel Deorce Vieira Junior Joao Octavio Freitas Bitelo Juan Lucas Gauto Collin Matheus Mello Vaccaro</string>
 </resources>
