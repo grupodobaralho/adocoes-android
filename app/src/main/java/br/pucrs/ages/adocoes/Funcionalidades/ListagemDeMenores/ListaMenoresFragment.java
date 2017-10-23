@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
@@ -142,9 +143,17 @@ public class ListaMenoresFragment extends Fragment {
         RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
-                menores = response.body();
-                System.out.println(menores);
-                setItems(true);
+                if (response.body() != null) {
+                    menores = response.body();
+                    System.out.println(menores);
+                    setItems(true);
+                }else {
+                    try {
+                        Log.e("ListagemDeMenores", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
             @Override
