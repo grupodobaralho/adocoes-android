@@ -1,0 +1,14 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucional.ConteudoInstitucionalFragment">
+
+    <android.support.v7.widget.RecyclerView
+        tools:listitem="@layout/conteudo_institucional_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+</FrameLayout>
