@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tv_titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -15,29 +15,29 @@
         android:layout_marginTop="8dp"
         android:lines="2"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintBottom_toTopOf="@+id/tv_conteudo"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/textView16"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_conteudo"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tv_conteudo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="TextView"
         android:lines="5"
-        app:layout_constraintLeft_toRightOf="@+id/imageView6"
+        app:layout_constraintLeft_toRightOf="@+id/iv_conteudo"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_conteudo"
         android:layout_marginBottom="-168dp" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/iv_conteudo"
         android:layout_width="110dp"
         android:layout_height="135dp"
         app:srcCompat="@drawable/boy"

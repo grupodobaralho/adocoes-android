@@ -29,20 +29,22 @@ public class ConteudoRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     public void setData(ArrayList<String> items) {
-        this.items = items;
-        notifyDataSetChanged();
+        if (items != null) {
+            this.items = items;
+            notifyDataSetChanged();
+        }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menor_item_holder, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.conteudo_institucional_item, parent, false);
         return new ConteudoItemView(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ConteudoItemView itemView = (ConteudoItemView) holder;
-        itemView.textView.setText(items.get(position));
+        itemView.tvConteudo.setText(items.get(position));
     }
 
     @Override
@@ -52,15 +54,15 @@ public class ConteudoRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     private class ConteudoItemView extends RecyclerView.ViewHolder {
 
-        TextView textView;
-        ImageView imageView;
-        Button button;
+        TextView tvConteudo;
+        TextView tvTitulo;
+        ImageView ivConteudo;
 
         ConteudoItemView(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.text_view);
-            imageView = (ImageView) view.findViewById(R.id.image_view);
-            button = (Button) view.findViewById(R.id.button);
+            tvConteudo = (TextView) view.findViewById(R.id.tv_conteudo);
+            tvTitulo = (TextView) view.findViewById(R.id.tv_titulo);
+            ivConteudo = (ImageView) view.findViewById(R.id.image_view);
         }
     }
 
