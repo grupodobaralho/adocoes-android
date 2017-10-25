@@ -3,6 +3,7 @@ package br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ public class ListagemConteudoInstitucionalFragment extends Fragment {
     public static ListagemConteudoInstitucionalFragment newInstance() {
         ListagemConteudoInstitucionalFragment fragment = new ListagemConteudoInstitucionalFragment();
 
+
         return fragment;
     }
 
@@ -49,6 +51,12 @@ public class ListagemConteudoInstitucionalFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_conteudo_institucional, container, false);
 
         recyclerView = ((RecyclerView) view.findViewById(R.id.recycler_view));
+
+        ConteudoRecyclerAdapter conteudoRecyclerAdapter = new ConteudoRecyclerAdapter(getActivity());
+        recyclerView.setAdapter(conteudoRecyclerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        conteudoRecyclerAdapter.setMockData();
+
         return view;
     }
 

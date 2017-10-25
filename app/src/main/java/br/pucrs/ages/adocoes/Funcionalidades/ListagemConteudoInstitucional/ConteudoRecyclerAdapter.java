@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import br.pucrs.ages.adocoes.Model.Conteudo;
 import br.pucrs.ages.adocoes.R;
@@ -33,6 +34,21 @@ public class ConteudoRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
             this.items = items;
             notifyDataSetChanged();
         }
+    }
+
+    public void setMockData() {
+        items = new ArrayList<>();
+        items.add(new Conteudo("Pepo ijcsiojacjiaoicjas aisjioasji aosijcioasjcioaj asiojiaijsioa aisojciosajcoia aoijsciojasioj oiasjcoiajsc oasijciojsa oaijscoiasj aiosjcoiajsc asoijciasocjaois oaiscjiosac oaijscoiasj aiosjcoiajsc asoijciasocjaois oaiscjiosa oaijscoiasj aiosjcoiajsc asoijciasocjaois oaiscjiosa         items.add(new Conteudo(\"Pepo ijcsiojacjiaoicjas aisjioasji aosijcioasjcioaj asiojiaijsioa aisojciosajcoia aoijsciojasioj oiasjcoiajsc oasijciojsa oaijscoiasj aiosjcoiajsc asoijciasocjaois oaiscjiosac oaijscoiasj aiosjcoiajsc asoijciasocjaois oaiscjiosa oaijscoiasj aiosjcoiajsc asoijciasocjaois oaiscjiosa \", \"Pepo\", new ArrayList<String>(), new Date(), new Date(), new Date(), true));\n", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        items.add(new Conteudo("Pepo", "Pepo", new ArrayList<String>(), new Date(), new Date(), new Date(), true));
+        setData(items);
     }
 
     @Override

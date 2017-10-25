@@ -17,6 +17,16 @@ public class Conteudo implements Serializable {
     private Date timestampFim;
     private boolean ativo;
 
+    public Conteudo(String nome, String pagina, List<String> midia, Date timestampCriacao, Date timestampInicio, Date timestampFim, boolean ativo) {
+        this.nome = nome;
+        this.pagina = pagina;
+        this.midia = midia;
+        this.timestampCriacao = timestampCriacao;
+        this.timestampInicio = timestampInicio;
+        this.timestampFim = timestampFim;
+        this.ativo = ativo;
+    }
+
     public String getNome() {
         return nome;
     }
