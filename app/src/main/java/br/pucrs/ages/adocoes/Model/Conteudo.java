@@ -16,4 +16,60 @@ public class Conteudo implements Serializable {
     private Date timestampInicio;
     private Date timestampFim;
     private boolean ativo;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getPagina() {
+        return pagina;
+    }
+
+    public void setPagina(String pagina) {
+        this.pagina = pagina;
+    }
+
+    public List<String> getMidia() {
+        return midia;
+    }
+
+    public void setMidia(List<String> midia) {
+        this.midia = midia;
+    }
+
+    public Date getTimestampCriacao() {
+        return timestampCriacao;
+    }
+
+    public void setTimestampCriacao(Date timestampCriacao) {
+        this.timestampCriacao = timestampCriacao;
+    }
+
+    public Date getTimestampInicio() {
+        return timestampInicio;
+    }
+
+    public void setTimestampInicio(Date timestampInicio) {
+        this.timestampInicio = timestampInicio;
+    }
+
+    public Date getTimestampFim() {
+        return timestampFim;
+    }
+
+    public void setTimestampFim(Date timestampFim) {
+        this.timestampFim = timestampFim;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
 }
