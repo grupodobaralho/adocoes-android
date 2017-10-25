@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucional.ConteudoInstitucionalFragment">
+    tools:context="br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional.ListagemConteudoInstitucionalFragment">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         tools:listitem="@layout/conteudo_institucional_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

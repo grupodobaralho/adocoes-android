@@ -1,4 +1,4 @@
-package br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucional;
+package br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional;
 
 
 import android.os.Bundle;
@@ -12,14 +12,14 @@ import br.pucrs.ages.adocoes.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ConteudoInstitucionalFragment#newInstance} factory method to
+ * Use the {@link ListagemConteudoInstitucionalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConteudoInstitucionalFragment extends Fragment {
+public class ListagemConteudoInstitucionalFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    public ConteudoInstitucionalFragment() {
+    public ListagemConteudoInstitucionalFragment() {
         // Required empty public constructor
     }
 
@@ -27,13 +27,11 @@ public class ConteudoInstitucionalFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ConteudoInstitucionalFragment.
+     * @return A new instance of fragment ListagemConteudoInstitucionalFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ConteudoInstitucionalFragment newInstance(String param1, String param2) {
-        ConteudoInstitucionalFragment fragment = new ConteudoInstitucionalFragment();
+    public static ListagemConteudoInstitucionalFragment newInstance() {
+        ListagemConteudoInstitucionalFragment fragment = new ListagemConteudoInstitucionalFragment();
 
         return fragment;
     }
@@ -50,7 +48,7 @@ public class ConteudoInstitucionalFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_conteudo_institucional, container, false);
 
-
+        recyclerView = ((RecyclerView) view.findViewById(R.id.recycler_view));
         return view;
     }
 

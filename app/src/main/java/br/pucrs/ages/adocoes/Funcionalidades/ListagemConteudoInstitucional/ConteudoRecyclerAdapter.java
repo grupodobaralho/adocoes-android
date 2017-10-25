@@ -1,16 +1,16 @@
-package br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucional;
+package br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.Model.Conteudo;
 import br.pucrs.ages.adocoes.R;
 
 
@@ -22,13 +22,13 @@ public class ConteudoRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 
     private Activity activity;
-    private ArrayList<String> items;
+    private ArrayList<Conteudo> items;
 
     public ConteudoRecyclerAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setData(ArrayList<String> items) {
+    public void setData(ArrayList<Conteudo> items) {
         if (items != null) {
             this.items = items;
             notifyDataSetChanged();
@@ -44,7 +44,7 @@ public class ConteudoRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ConteudoItemView itemView = (ConteudoItemView) holder;
-        itemView.tvConteudo.setText(items.get(position));
+        itemView.tvConteudo.setText(items.get(position).getNome());
     }
 
     @Override
