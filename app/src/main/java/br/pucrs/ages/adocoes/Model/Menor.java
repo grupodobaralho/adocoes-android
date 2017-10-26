@@ -214,6 +214,7 @@ public class Menor implements Serializable {
 
     public Menor(String nome) {
         this.nome = nome;
+
     }
 
     public List<RefMidia> getMidias() {

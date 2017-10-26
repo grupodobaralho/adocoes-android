@@ -27,7 +27,7 @@ public class ParentesAdapter extends RecyclerView.Adapter<ParentesAdapter.ViewHo
     }
 
     private OnClickParente onClickParente;
-    private ArrayList<Menor> mMenores;
+    private ArrayList<Menor> mMenores = new ArrayList<>();
 
     public void setOnClickParente(OnClickParente onClickParente) {
         this.onClickParente = onClickParente;
