@@ -1,6 +1,7 @@
 package br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucionalDetails.ConteudoInstitucionalDetails;
+import br.pucrs.ages.adocoes.Model.Conteudo;
 import br.pucrs.ages.adocoes.R;
 
 /**
@@ -19,6 +22,8 @@ import br.pucrs.ages.adocoes.R;
 public class ListagemConteudoInstitucionalFragment extends Fragment {
 
     private RecyclerView recyclerView;
+
+    public static String EXTRA = "EXTRA";
 
     public ListagemConteudoInstitucionalFragment() {
         // Required empty public constructor
@@ -56,6 +61,15 @@ public class ListagemConteudoInstitucionalFragment extends Fragment {
         recyclerView.setAdapter(conteudoRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         conteudoRecyclerAdapter.setMockData();
+
+        conteudoRecyclerAdapter.setListener(new ConteudoRecyclerAdapter.OnSelectedListener() {
+            @Override
+            public void onItemSelected(Conteudo conteudo) {
+                Intent intent = new Intent(getActivity(), ConteudoInstitucionalDetails.class);
+                intent.putExtra(EXTRA, conteudo);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

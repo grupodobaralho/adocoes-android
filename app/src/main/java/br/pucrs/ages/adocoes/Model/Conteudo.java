@@ -9,17 +9,17 @@ import java.util.List;
  */
 
 public class Conteudo implements Serializable {
-    private String nome;
-    private String pagina;
+    private String titulo;
+    private String conteudo;
     private List<String> midia;
     private Date timestampCriacao;
     private Date timestampInicio;
     private Date timestampFim;
     private boolean ativo;
 
-    public Conteudo(String nome, String pagina, List<String> midia, Date timestampCriacao, Date timestampInicio, Date timestampFim, boolean ativo) {
-        this.nome = nome;
-        this.pagina = pagina;
+    public Conteudo(String titulo, String conteudo, List<String> midia, Date timestampCriacao, Date timestampInicio, Date timestampFim, boolean ativo) {
+        this.titulo = titulo;
+        this.conteudo = conteudo;
         this.midia = midia;
         this.timestampCriacao = timestampCriacao;
         this.timestampInicio = timestampInicio;
@@ -27,20 +27,20 @@ public class Conteudo implements Serializable {
         this.ativo = ativo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getPagina() {
-        return pagina;
+    public String getConteudo() {
+        return conteudo;
     }
 
-    public void setPagina(String pagina) {
-        this.pagina = pagina;
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
     }
 
     public List<String> getMidia() {
