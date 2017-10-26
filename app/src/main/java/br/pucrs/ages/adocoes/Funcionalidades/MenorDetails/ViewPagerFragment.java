@@ -2,7 +2,7 @@ package br.pucrs.ages.adocoes.Funcionalidades.MenorDetails;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,11 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.github.chrisbanes.photoview.PhotoView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
@@ -25,7 +25,7 @@ import br.pucrs.ages.adocoes.R;
 
 public class ViewPagerFragment extends Fragment {
 
-    private static final String ARGUMENT_MIDIAS = "midias";
+    public static final String ARGUMENT_MIDIAS = "midias";
 
     private static ArrayList<String> mMidiaIds;
     private static String menorId;
@@ -43,6 +43,16 @@ public class ViewPagerFragment extends Fragment {
         args.putStringArrayList(ARGUMENT_MIDIAS, mMidiaIds);
 
         final ViewPagerFragment fragment = new ViewPagerFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static ViewPagerFragment newInstance(ArrayList<String> refMidias) {
+
+        Bundle args = new Bundle();
+        mMidiaIds = new ArrayList<>();
+        args.putStringArrayList(ARGUMENT_MIDIAS, refMidias);
+        ViewPagerFragment fragment = new ViewPagerFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -83,15 +93,23 @@ public class ViewPagerFragment extends Fragment {
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(ViewGroup container, final int position) {
 
             final View view = mLayoutInflater.inflate(R.layout.viewpager_item, container, false);
 
-            final PhotoView imageView = (PhotoView) view.findViewById(R.id.item_image);
-
-            Drawable carta = getResources().getDrawable(R.drawable.carta, null);
+            final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
 
 
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
+
+                    intent.putStringArrayListExtra(ARGUMENT_MIDIAS, mMidiaIds);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_POSITION, position);
+                    startActivity(intent);
+                }
+            });
 
 //            imageView.setImageDrawable(carta);
 
