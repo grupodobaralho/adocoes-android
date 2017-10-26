@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.Favoritos.FavoritosFragment;
+import br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional.ListagemConteudoInstitucionalFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Funcionalidades.Sobre.SobreFragment;
@@ -79,12 +80,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
-//            case R.id.troca_para_vertical:
-//                ListaMenoresFragment myFragment = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista Vertical");
-//                if (myFragment != null && myFragment.isVisible()) {
-//                    myFragment.setItems(true);
-//                }
-//                return true;
             case R.id.troca_para_horizontal:
                 ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
                 if (myFragment1 != null && myFragment1.isVisible()) {
@@ -111,11 +106,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_listagem_vertical:
                 displayView(2);
                 break;
-            case R.id.nav_logout:
+            case R.id.nav_conteudo_institucional:
                 displayView(3);
                 break;
-            case R.id.nav_sobre:
+            case R.id.nav_logout:
                 displayView(4);
+                break;
+            case R.id.nav_sobre:
+                displayView(5);
                 break;
             default:
                 break;
@@ -149,12 +147,16 @@ public class MainActivity extends AppCompatActivity
                 mostraTrocaParaHorizontal.setVisible(true);
                 break;
             case 3:
+                fragment = ListagemConteudoInstitucionalFragment.newInstance();
+                title = "Conteúdo Institucional";
+                break;
+            case 4:
                 finish();
                 Intent intent = new Intent(this, LoginActivity.class);
                 UserBusiness.getInstance().setAnonymousToken();
                 startActivity(intent);
                 break;
-            case 4:
+            case 5:
                 fragment = SobreFragment.newInstance();
                 title = "Sobre";
                 break;
