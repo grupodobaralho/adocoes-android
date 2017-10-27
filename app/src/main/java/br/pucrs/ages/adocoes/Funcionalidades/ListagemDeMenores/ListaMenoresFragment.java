@@ -162,6 +162,14 @@ public class ListaMenoresFragment extends Fragment {
             }
         });
 
+        // For testing purpose only!
+//        menores = new ArrayList<>();
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        setItems(true);
+
     }
 
     public void setItems( boolean isListagemVertical) {

@@ -2,9 +2,9 @@ package br.pucrs.ages.adocoes.Funcionalidades.MenorDetails;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.Model.RefMidia;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 
 public class ViewPagerFragment extends Fragment {
 
-    private static final String ARGUMENT_MIDIAS = "midias";
+    public static final String ARGUMENT_MIDIAS = "midias";
 
     private static ArrayList<String> mMidiaIds;
     private static String menorId;
@@ -51,6 +52,16 @@ public class ViewPagerFragment extends Fragment {
         args.putStringArrayList(ARGUMENT_MIDIAS, mMidiaIds);
 
         final ViewPagerFragment fragment = new ViewPagerFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static ViewPagerFragment newInstance(ArrayList<String> refMidias) {
+
+        Bundle args = new Bundle();
+        mMidiaIds = new ArrayList<>();
+        args.putStringArrayList(ARGUMENT_MIDIAS, refMidias);
+        ViewPagerFragment fragment = new ViewPagerFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -90,20 +101,13 @@ public class ViewPagerFragment extends Fragment {
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(ViewGroup container, final int position) {
 
             final View view = mLayoutInflater.inflate(R.layout.viewpager_item, container, false);
 
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
 
-            Drawable carta = getResources().getDrawable(R.drawable.carta, null);
-
-
-
-//            imageView.setImageDrawable(carta);
-
-
-            // Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
+            //Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
             RestUtil.getMenoresEndPoint().menorMidia(menorId, mMidiaIds.get(position), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
                 @Override
                 public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
@@ -121,9 +125,24 @@ public class ViewPagerFragment extends Fragment {
                 }
             });
 
-
+            // For testing purpose only!
+//            final Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.boy);
+//            imageView.setImageBitmap(image);
 
             container.addView(view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
+
+                    intent.putStringArrayListExtra(ARGUMENT_MIDIAS, mMidiaIds);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_POSITION, position);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_IMAGE, R.drawable.boy);
+                    startActivity(intent);
+                }
+            });
+
             return view;
         }
 

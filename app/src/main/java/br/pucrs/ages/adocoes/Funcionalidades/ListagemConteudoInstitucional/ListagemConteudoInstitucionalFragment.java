@@ -23,7 +23,7 @@ public class ListagemConteudoInstitucionalFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    public static String EXTRA = "EXTRA";
+    public static String EXTRA = "EXTRA_IMAGES";
 
     public ListagemConteudoInstitucionalFragment() {
         // Required empty public constructor

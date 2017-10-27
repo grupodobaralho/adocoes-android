@@ -57,8 +57,10 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
     }
 
     public void setData(List<Menor> items) {
-        this.items = items;
-        notifyDataSetChanged();
+        if (items != null) {
+            this.items = items;
+            notifyDataSetChanged();
+        }
     }
 
     @Override
