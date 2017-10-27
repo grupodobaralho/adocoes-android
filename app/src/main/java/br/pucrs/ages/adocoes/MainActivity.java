@@ -19,7 +19,6 @@ import br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional.Lista
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Funcionalidades.Sobre.SobreFragment;
-import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +42,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Fragment fragment = new ListaMenoresFragment();
+        String title = "Lista de Menores";
+        
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment, title);
+        ft.commit();
+
+        // set the toolbar title
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
     }
 
     @Override
@@ -74,10 +86,6 @@ public class MainActivity extends AppCompatActivity
 
         //Faz as transações
         switch (id) {
-            case R.id.action_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
             case R.id.troca_para_horizontal:
                 ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
                 if (myFragment1 != null && myFragment1.isVisible()) {
