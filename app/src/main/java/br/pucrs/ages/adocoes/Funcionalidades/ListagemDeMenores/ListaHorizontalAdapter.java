@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
@@ -47,15 +48,17 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
 
     private Activity activity;
     //Title, Image
-    private List<Menor> items;
+    private List<Menor> items = new ArrayList<>();
 
     public ListaHorizontalAdapter(Activity activity) {
         this.activity = activity;
     }
 
     public void setData(List<Menor> items) {
-        this.items = items;
-        notifyDataSetChanged();
+        if (items != null) {
+            this.items = items;
+            notifyDataSetChanged();
+        }
     }
 
     @Override

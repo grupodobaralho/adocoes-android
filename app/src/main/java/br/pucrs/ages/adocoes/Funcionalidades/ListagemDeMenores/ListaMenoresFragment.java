@@ -8,19 +8,24 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static br.pucrs.ages.adocoes.R.id;
 import static br.pucrs.ages.adocoes.R.layout;
@@ -135,33 +140,35 @@ public class ListaMenoresFragment extends Fragment {
 
         mRecyclerView.setAdapter(mListaVerticalAdapter);
         String token = UserBusiness.getInstance().getAccessToken();
-//        RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
-//            @Override
-//            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
-//                if (response.body() != null) {
-//                    menores = response.body();
-//                    System.out.println(menores);
-//                    setItems(true);
-//                }else {
-//                    try {
-//                        Log.e("ListagemDeMenores", response.errorBody().string());
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Menor>> call, Throwable t) {
-//                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
-//            }
-//        });
-        menores = new ArrayList<>();
-        menores.add(new Menor("Homerinho"));
-        menores.add(new Menor("Homerinho"));
-        menores.add(new Menor("Homerinho"));
-        menores.add(new Menor("Homerinho"));
-        setItems(true);
+        RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
+            @Override
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+                if (response.body() != null) {
+                    menores = response.body();
+                    System.out.println(menores);
+                    setItems(true);
+                }else {
+                    try {
+                        Log.e("ListagemDeMenores", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
+                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+            }
+        });
+
+        // For testing purpose only!
+//        menores = new ArrayList<>();
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        setItems(true);
 
     }
 

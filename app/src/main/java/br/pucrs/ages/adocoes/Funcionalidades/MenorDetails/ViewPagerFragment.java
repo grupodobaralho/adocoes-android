@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,13 @@ import java.util.ArrayList;
 
 import br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
-
-import static br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity.EXTRA_IMAGE;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Matheus on 07/09/2017.
@@ -40,9 +45,9 @@ public class ViewPagerFragment extends Fragment {
         final Bundle args = new Bundle();
 
         mMidiaIds = new ArrayList<>();
-//        for (RefMidia refMidia : menor.getMidias()) {
-//            mMidiaIds.add(refMidia.getId());
-//        }
+        for (RefMidia refMidia : menor.getMidias()) {
+            mMidiaIds.add(refMidia.getId());
+        }
 
         args.putStringArrayList(ARGUMENT_MIDIAS, mMidiaIds);
 
@@ -87,8 +92,7 @@ public class ViewPagerFragment extends Fragment {
 
         @Override
         public int getCount() {
-            /*return mMidiaIds.size();*/
-            return 3;
+            return mMidiaIds.size();
         }
 
         @Override
@@ -103,30 +107,27 @@ public class ViewPagerFragment extends Fragment {
 
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
 
+            //Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
+            RestUtil.getMenoresEndPoint().menorMidia(menorId, mMidiaIds.get(position), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
+                @Override
+                public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                    MenorMidia midia = response.body();
+                    if (midia != null) {
+                        byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                        imageView.setImageBitmap(imgBitmap);
+                    }
+                }
 
-//            imageView.setImageDrawable(carta);
+                @Override
+                public void onFailure(Call<MenorMidia> call, Throwable t) {
 
+                }
+            });
 
-            // Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
-//            RestUtil.getMenoresEndPoint().menorMidia(menorId, mMidiaIds.get(position), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
-//                @Override
-//                public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
-//                    MenorMidia midia = response.body();
-//                    if (midia != null) {
-//                        byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
-//                        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-//                        imageView.setImageBitmap(imgBitmap);
-//                    }
-//                }
-//
-//                @Override
-//                public void onFailure(Call<MenorMidia> call, Throwable t) {
-//
-//                }
-//            });
-
-            final Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.boy);
-            imageView.setImageBitmap(image);
+            // For testing purpose only!
+//            final Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.boy);
+//            imageView.setImageBitmap(image);
 
             container.addView(view);
 
