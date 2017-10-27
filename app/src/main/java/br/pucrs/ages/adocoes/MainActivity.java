@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     //Variável responsável por receber a referência dos intens de menu.
-    private MenuItem mostraTrocaParaHorizontal;
-    private MenuItem mostraTrocaParaVertical;
+    private MenuItem iconTrocaModoDeVisualizacao;
     private  boolean isListaVertical = true;
 
     @Override
@@ -61,8 +60,7 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         //Instanciação das referências.
-        mostraTrocaParaHorizontal = menu.findItem(R.id.troca_para_horizontal);
-        mostraTrocaParaVertical = menu.findItem(R.id.troca_para_vertical);
+        iconTrocaModoDeVisualizacao = menu.findItem(R.id.troca_para_horizontal);
         return true;
     }
 
@@ -85,6 +83,11 @@ public class MainActivity extends AppCompatActivity
                 if (myFragment1 != null && myFragment1.isVisible()) {
                     isListaVertical = !isListaVertical;
                     myFragment1.setItems(isListaVertical);
+                    if (isListaVertical) {
+                        iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_array_white_48dp);
+                    } else {
+                        iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_list_white_48dp);
+                    }
                 }
                 return true;
             default:
@@ -131,8 +134,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         //Apaga as opções de troca.
-        mostraTrocaParaHorizontal.setVisible(false);
-        mostraTrocaParaVertical.setVisible(false);
+        iconTrocaModoDeVisualizacao.setVisible(false);
 
 
         switch (viewId) {
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new ListaMenoresFragment();
                 title = "Lista de Menores";
                 //Mostra a opção de troca
-                mostraTrocaParaHorizontal.setVisible(true);
+                iconTrocaModoDeVisualizacao.setVisible(true);
                 break;
             case 3:
                 fragment = ListagemConteudoInstitucionalFragment.newInstance();

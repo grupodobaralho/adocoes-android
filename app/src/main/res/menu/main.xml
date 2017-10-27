@@ -8,18 +8,10 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/troca_para_vertical"
-        android:title="TrocaV"
-        android:orderInCategory="100"
-        android:icon="@drawable/boy_9"
-        app:showAsAction="ifRoom"
-        android:visible="false"/>
-
-    <item
         android:id="@+id/troca_para_horizontal"
-        android:title="TrocaH"
+        android:title=""
         android:orderInCategory="100"
-        android:icon="@drawable/girl_24"
+        android:icon="@drawable/ic_view_array_white_48dp"
         app:showAsAction="ifRoom"
         android:visible="false"/>
 
