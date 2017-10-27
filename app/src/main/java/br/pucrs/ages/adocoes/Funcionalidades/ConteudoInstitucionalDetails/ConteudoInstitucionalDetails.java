@@ -1,6 +1,7 @@
 package br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucionalDetails;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,9 @@ public class ConteudoInstitucionalDetails extends AppCompatActivity {
             titleTextView.setText(conteudo.getTitulo());
             conteudoTextView.setText(conteudo.getConteudo());
             // TODO: Set image here!
+            Drawable drawable = getResources().getDrawable(R.drawable.imagemconteudo1, null);
+            imageView.setImageDrawable(drawable);
+
         }
     }
     
