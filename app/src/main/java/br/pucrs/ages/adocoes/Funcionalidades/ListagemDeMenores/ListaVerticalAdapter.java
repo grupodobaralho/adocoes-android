@@ -76,6 +76,7 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
 
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
+            itemView.tvDetalhe.setText(menor.getSexo().toString());
         }
 
 
