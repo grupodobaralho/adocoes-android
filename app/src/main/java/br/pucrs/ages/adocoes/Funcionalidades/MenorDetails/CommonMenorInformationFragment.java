@@ -40,9 +40,9 @@ public class CommonMenorInformationFragment extends Fragment {
         final Menor menor = (Menor) args.getSerializable(ARGUMENT_MENOR);
 
         nameTextView.setText(menor.getNome());
-//        ageTextView.setText(menor.getCertidaoNascimento());
-//        healthTextView.setText(menor.getDescricaoSaude());
-//        genderTextView.setText(menor.getSexo().toString());
+        ageTextView.setText("8");
+        healthTextView.setText(menor.getDescricaoSaude());
+        genderTextView.setText(menor.getSexo().toString());
         return view;
     }
 
