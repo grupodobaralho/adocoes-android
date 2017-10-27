@@ -3,6 +3,8 @@ package br.pucrs.ages.adocoes.Funcionalidades.MenorDetails;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 import br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
+
+import static br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity.EXTRA_IMAGE;
 
 /**
  * Created by Matheus on 07/09/2017.
@@ -100,17 +104,6 @@ public class ViewPagerFragment extends Fragment {
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
 
 
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
-
-                    intent.putStringArrayListExtra(ARGUMENT_MIDIAS, mMidiaIds);
-                    intent.putExtra(ImagePreviewActivity.EXTRA_POSITION, position);
-                    startActivity(intent);
-                }
-            });
-
 //            imageView.setImageDrawable(carta);
 
 
@@ -132,9 +125,23 @@ public class ViewPagerFragment extends Fragment {
 //                }
 //            });
 
-            imageView.setImageResource(R.drawable.boy);
+            final Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.boy);
+            imageView.setImageBitmap(image);
 
             container.addView(view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
+
+                    intent.putStringArrayListExtra(ARGUMENT_MIDIAS, mMidiaIds);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_POSITION, position);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_IMAGE, R.drawable.boy);
+                    startActivity(intent);
+                }
+            });
+
             return view;
         }
 

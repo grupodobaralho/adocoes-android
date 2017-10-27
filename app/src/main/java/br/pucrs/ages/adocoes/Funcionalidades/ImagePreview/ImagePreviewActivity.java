@@ -16,6 +16,7 @@ import br.pucrs.ages.adocoes.R;
 public class ImagePreviewActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
+    public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,10 @@ public class ImagePreviewActivity extends AppCompatActivity {
         if (intent != null) {
             final ArrayList<String> midiasIds = intent.getStringArrayListExtra(ViewPagerFragment.ARGUMENT_MIDIAS);
             final int position = intent.getIntExtra(EXTRA_POSITION, -1);
+            final int imageResource = intent.getIntExtra(EXTRA_IMAGE, -1);
 
             final PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
+            photoView.setImageResource(imageResource);
         }
     }
 
