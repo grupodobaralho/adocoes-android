@@ -4,8 +4,8 @@
 
     <item
         android:id="@+id/troca_listagem"
-        android:title="Troca"
+        android:title=""
         android:orderInCategory="1"
-        android:icon="@drawable/boy_9"
+        android:icon="@drawable/ic_view_array_white_48dp"
         app:showAsAction="ifRoom" />
 </menu>

@@ -3,7 +3,11 @@ package br.pucrs.ages.adocoes.Model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.types.Sexo;
@@ -19,7 +23,7 @@ public class Menor implements Serializable {
     private String nome;
     private Sexo sexo;
     private String certidaoNascimento;
-    private Date dataNascimento;
+    private String dataNascimento;
     private List<String> familiares;
     private List<String> menoresVinculados;
     private String refRaca;
@@ -40,7 +44,7 @@ public class Menor implements Serializable {
 
     }
 
-    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, Date dataNascimento, List<String> familiares, List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude, boolean curavel, boolean deficienciaFisica, boolean deficienciaMental, String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar, List<String> interessados, List<RefMidia> midias, boolean ativo) {
+    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, String dataNascimento, List<String> familiares, List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude, boolean curavel, boolean deficienciaFisica, boolean deficienciaMental, String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar, List<String> interessados, List<RefMidia> midias, boolean ativo) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -79,7 +83,7 @@ public class Menor implements Serializable {
         this.certidaoNascimento = certidaoNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -147,7 +151,7 @@ public class Menor implements Serializable {
         return certidaoNascimento;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
@@ -224,4 +228,47 @@ public class Menor implements Serializable {
     public void setMidias(List<RefMidia> midias) {
         this.midias = midias;
     }
+
+    public  int getAge() {
+
+        int age = 0;
+        try {
+
+            Calendar now = Calendar.getInstance();
+            Calendar dob = toCalendar(dataNascimento);
+
+            int year1 = now.get(Calendar.YEAR);
+            int year2 = dob.get(Calendar.YEAR);
+            age = year1 - year2;
+            int month1 = now.get(Calendar.MONTH);
+            int month2 = dob.get(Calendar.MONTH);
+            if (month2 > month1) {
+                age--;
+            } else if (month1 == month2) {
+                int day1 = now.get(Calendar.DAY_OF_MONTH);
+                int day2 = dob.get(Calendar.DAY_OF_MONTH);
+                if (day2 > day1) {
+                    age--;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return age ;
+    }
+
+    public static Calendar toCalendar(final String iso8601string)
+            throws ParseException {
+        Calendar calendar = GregorianCalendar.getInstance();
+        String s = iso8601string.replace("Z", "+00:00");
+        try {
+            s = s.substring(0, 22) + s.substring(23);  // to get rid of the ":"
+        } catch (IndexOutOfBoundsException e) {
+            throw new ParseException("Invalid length", 0);
+        }
+        Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(s);
+        calendar.setTime(date);
+        return calendar;
+    }
+
 }

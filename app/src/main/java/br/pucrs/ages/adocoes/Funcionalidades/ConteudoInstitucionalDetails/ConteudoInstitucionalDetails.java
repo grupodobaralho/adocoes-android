@@ -1,13 +1,16 @@
 package br.pucrs.ages.adocoes.Funcionalidades.ConteudoInstitucionalDetails;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity;
 import br.pucrs.ages.adocoes.Model.Conteudo;
 import br.pucrs.ages.adocoes.R;
 
@@ -36,7 +39,18 @@ public class ConteudoInstitucionalDetails extends AppCompatActivity {
 
             titleTextView.setText(conteudo.getTitulo());
             conteudoTextView.setText(conteudo.getConteudo());
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ConteudoInstitucionalDetails.this, ImagePreviewActivity.class);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_IMAGE, R.drawable.imagemconteudo1);
+                    startActivity(intent);
+                }
+            });
             // TODO: Set image here!
+            Drawable drawable = getResources().getDrawable(R.drawable.imagemconteudo1, null);
+            imageView.setImageDrawable(drawable);
+
         }
     }
     

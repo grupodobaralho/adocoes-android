@@ -11,7 +11,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        getSupportActionBar().hide();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container,new LoginFragment())

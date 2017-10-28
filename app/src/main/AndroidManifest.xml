@@ -38,9 +38,15 @@
         <activity
             android:name=".Funcionalidades.CadastroCompleto.CadastroCompletoActivity"
             android:label="Cadastro completo" />
-        <activity android:name=".Funcionalidades.TermosDeUso.TermosDeUsoActivity" />
-        <activity android:name=".Funcionalidades.ConteudoInstitucionalDetails.ConteudoInstitucionalDetails" />
-        <activity android:name=".Funcionalidades.ImagePreview.ImagePreviewActivity"></activity>
+        <activity
+            android:name=".Funcionalidades.TermosDeUso.TermosDeUsoActivity"
+            android:label="Termos de Uso" />
+        <activity
+            android:name=".Funcionalidades.ConteudoInstitucionalDetails.ConteudoInstitucionalDetails"
+            android:label="Novidades"/>
+        <activity
+            android:name=".Funcionalidades.ImagePreview.ImagePreviewActivity"
+            android:label="Detalhes"/>
     </application>
 
 </manifest>

@@ -4,12 +4,12 @@
     <group android:id="@+id/group" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_listagem_vertical"
-            android:title="Lista de Menores"/>
+            android:title="Crianças e Adolescentes"/>
         <item
             android:id="@+id/nav_favoritos"
-            android:title="Lista de Favoritos" />
+            android:title="Lista de Interesses" />
         <item android:id="@+id/nav_conteudo_institucional"
-            android:title="Lista de Conteúdo Institucional" />
+            android:title="Novidades" />
         <item
             android:id="@+id/nav_sobre"
             android:title="Sobre" />

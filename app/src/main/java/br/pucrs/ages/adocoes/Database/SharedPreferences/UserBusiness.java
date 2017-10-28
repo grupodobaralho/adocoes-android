@@ -15,7 +15,7 @@ public class UserBusiness {
     }
 
     public void updateAccessToken(String accessToken, String userId) {
-        this.accessToken = accessToken;
+        this.accessToken = prefix + accessToken;
         this.userId = userId;
         SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, prefix + this.accessToken);
         SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.USER_ID, this.userId);

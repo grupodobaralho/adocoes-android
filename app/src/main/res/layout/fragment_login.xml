@@ -20,23 +20,10 @@
         android:paddingTop="?attr/actionBarSize"
         android:weightSum="1">
 
-        <ImageView
-            android:id="@+id/logo_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
-            android:src="@android:drawable/ic_menu_gallery" />
-
-        <TextView
-            android:id="@+id/projeto_adocoes_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Projeto Adoções"
-            android:textAlignment="center"
-            android:textSize="24dp" />
 
         <EditText
+            android:textColorHint="@color/White"
+            android:textColor="@color/White"
             android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,6 +36,8 @@
 
 
         <EditText
+            android:textColorHint="@color/White"
+            android:textColor="@color/White"
             android:id="@+id/senha_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,6 +48,8 @@
             android:hint="Senha" />
 
         <TextView
+            android:textColorHint="@color/White"
+            android:textColor="@color/White"
             android:id="@+id/esqueceu_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

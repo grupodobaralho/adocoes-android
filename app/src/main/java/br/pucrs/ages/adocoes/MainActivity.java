@@ -19,14 +19,12 @@ import br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional.Lista
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Login.LoginActivity;
 import br.pucrs.ages.adocoes.Funcionalidades.Sobre.SobreFragment;
-import br.pucrs.ages.adocoes.Settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     //Variável responsável por receber a referência dos intens de menu.
-    private MenuItem mostraTrocaParaHorizontal;
-    private MenuItem mostraTrocaParaVertical;
+    private MenuItem iconTrocaModoDeVisualizacao;
     private  boolean isListaVertical = true;
 
     @Override
@@ -44,6 +42,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Fragment fragment = new ListaMenoresFragment();
+        String title = "Crianças e Adolescentes";
+        
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment, title);
+        ft.commit();
+
+        // set the toolbar title
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
     }
 
     @Override
@@ -61,8 +72,7 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         //Instanciação das referências.
-        mostraTrocaParaHorizontal = menu.findItem(R.id.troca_para_horizontal);
-        mostraTrocaParaVertical = menu.findItem(R.id.troca_para_vertical);
+        iconTrocaModoDeVisualizacao = menu.findItem(R.id.troca_para_horizontal);
         return true;
     }
 
@@ -76,15 +86,16 @@ public class MainActivity extends AppCompatActivity
 
         //Faz as transações
         switch (id) {
-            case R.id.action_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
             case R.id.troca_para_horizontal:
                 ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
                 if (myFragment1 != null && myFragment1.isVisible()) {
                     isListaVertical = !isListaVertical;
                     myFragment1.setItems(isListaVertical);
+                    if (isListaVertical) {
+                        iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_array_white_48dp);
+                    } else {
+                        iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_list_white_48dp);
+                    }
                 }
                 return true;
             default:
@@ -131,24 +142,23 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         //Apaga as opções de troca.
-        mostraTrocaParaHorizontal.setVisible(false);
-        mostraTrocaParaVertical.setVisible(false);
+        iconTrocaModoDeVisualizacao.setVisible(false);
 
 
         switch (viewId) {
             case 1:
                 fragment = new FavoritosFragment();
-                title = "Lista de Favoritos";
+                title = "Lista de Interesses";
                 break;
             case 2:
                 fragment = new ListaMenoresFragment();
-                title = "Lista de Menores";
+                title = "Crianças e Adolescentes";
                 //Mostra a opção de troca
-                mostraTrocaParaHorizontal.setVisible(true);
+                iconTrocaModoDeVisualizacao.setVisible(true);
                 break;
             case 3:
                 fragment = ListagemConteudoInstitucionalFragment.newInstance();
-                title = "Conteúdo Institucional";
+                title = "Novidades";
                 break;
             case 4:
                 finish();
@@ -162,7 +172,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             default:
                 fragment = new FavoritosFragment();
-                title = "Lista de Favoritos";
+                title = "Lista de Interesses";
                 break;
         }
 
