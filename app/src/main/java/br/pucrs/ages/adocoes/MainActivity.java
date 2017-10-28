@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         Fragment fragment = new ListaMenoresFragment();
-        String title = "Lista de Menores";
+        String title = "Crianças e Adolescentes";
         
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -148,17 +148,17 @@ public class MainActivity extends AppCompatActivity
         switch (viewId) {
             case 1:
                 fragment = new FavoritosFragment();
-                title = "Lista de Favoritos";
+                title = "Lista de Interesses";
                 break;
             case 2:
                 fragment = new ListaMenoresFragment();
-                title = "Lista de Menores";
+                title = "Crianças e Adolescentes";
                 //Mostra a opção de troca
                 iconTrocaModoDeVisualizacao.setVisible(true);
                 break;
             case 3:
                 fragment = ListagemConteudoInstitucionalFragment.newInstance();
-                title = "Conteúdo Institucional";
+                title = "Novidades";
                 break;
             case 4:
                 finish();
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             default:
                 fragment = new FavoritosFragment();
-                title = "Lista de Favoritos";
+                title = "Lista de Interesses";
                 break;
         }
 
