@@ -16,7 +16,7 @@ import br.pucrs.ages.adocoes.Model.Menor;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    //Informacoes da DB
+    //Informacoes da DBF
     public static final String DATABASE_NAME = "AdocoesLocal.db";
     public static final int DATABASE_VERSION = 1;
 
@@ -54,6 +54,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    /** Chamado quando a conexao do banco esta sendo estabelecida
+     * Configura as opcoes do banco de ados como suporte foreign key, escrita antes de loggar, etc.
+     */
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        db.setForeignKeyConstraintsEnabled(true);
+    }
+
     /**
      * Chamado quando o db eh criado pela PRIMEIRA vez
      * Script de Insercao de tabelas e colunas no Banco de Dados Local     *
@@ -86,8 +95,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int versaoAntiga, int versaoNova) {
         //Dropa tudo e recria
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITOS);
-        onCreate(db);
+        System.out.println("antiga: "+ versaoAntiga + " nova: "+ versaoNova);
+        if(versaoNova != versaoAntiga) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITOS);
+            onCreate(db);
+        }
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int versaoAntiga, int versaoNova) {
+        onUpgrade(db, versaoAntiga, versaoNova);
     }
 
     /**
@@ -105,7 +122,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Coluna a qual queremos inserir, e o valor que queremos inserir
         contentValues.put(COL_2, menor.getNome());
 
-        contentValues.put(COL_3, menor.getId());
+        //contentValues.put(COL_3, meno;r.getId());
 
         long result = db.insert(TABLE_FAVORITOS, null, contentValues);
 
@@ -117,6 +134,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Este metodo remove valores da tabela.
+     * @param menor
+     * @return
+     */
     public boolean removeFavorito(Menor menor) {
 
         SQLiteDatabase db = this.getWritableDatabase();
