@@ -26,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Colunas das Tabelas
     public static final String COL_1 = "id"; //REMOVER ESTE FUTURAMENTE
     public static final String COL_2 = "nome";
+    public static final String COL_3 = "id_menor";
 
 
     /**
@@ -39,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (sInstance == null) {
             sInstance = new DatabaseHelper(context.getApplicationContext());
         }
+
         return sInstance;
     }
 
@@ -59,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String SQL_String = "CREATE TABLE " + TABLE_FAVORITOS + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_2 + " TEXT" + ")";
+        String SQL_String = "CREATE TABLE " + TABLE_FAVORITOS + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_2 + " TEXT," + COL_3 + " TEXT"+")";
         db.execSQL(SQL_String);
 
         /*
@@ -102,6 +104,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //Coluna a qual queremos inserir, e o valor que queremos inserir
         contentValues.put(COL_2, menor.getNome());
+
+        contentValues.put(COL_3, menor.getId());
 
         long result = db.insert(TABLE_FAVORITOS, null, contentValues);
 

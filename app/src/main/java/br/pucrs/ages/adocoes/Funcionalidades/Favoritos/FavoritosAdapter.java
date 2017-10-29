@@ -1,7 +1,10 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Favoritos;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +15,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by israeldeorce on 20/09/17.
@@ -60,11 +70,62 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
 
     @Override
     public void onBindViewHolder(FavoritosAdapter.MenorItemView holder, int position) {
-        FavoritosAdapter.MenorItemView itemView = holder;
+        final FavoritosAdapter.MenorItemView itemView = holder;
         final Menor menor = items.get(position);
+        System.out.println("--MENOR--");
         if (menor != null) {
+            System.out.println("--MENOR NOT NULL--");
+            final String token = UserBusiness.getInstance().getAccessToken();
+
+            RestUtil.getMenoresEndPoint().menor(menor.getId(),token).enqueue(new Callback<Menor>() {
+                @Override
+                public void onResponse(Call<Menor> call, Response<Menor> response) {
+
+
+
+                    Menor m1 = response.body();
+
+
+
+                    for (RefMidia midia : m1.getMidias()) {
+                        if (midia.isPrincipal()) {
+                            RestUtil.getMenoresEndPoint().menorMidia(m1.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
+                                @Override
+                                public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                                    MenorMidia midia = response.body();
+
+                                    if (midia != null) {
+                                        byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                                        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                                        itemView.imgFoto.setImageBitmap(imgBitmap);
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<MenorMidia> call, Throwable t) {
+                                    System.out.println("--PROBLEMA NA IMG--");
+                                }
+                            });
+                            break;
+                        }
+                    }
+
+
+
+                }
+
+                @Override
+                public void onFailure(Call<Menor> call, Throwable t) {
+                    System.out.println("--PROBLEMA NO MENOR--");
+                }
+            });
+
+
+
+
             itemView.tvNome.setText(menor.getNome());
         }
+
     }
 
     @Override

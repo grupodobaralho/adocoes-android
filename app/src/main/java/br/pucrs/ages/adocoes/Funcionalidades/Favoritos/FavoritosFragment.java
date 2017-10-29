@@ -75,7 +75,9 @@ public class FavoritosFragment extends Fragment {
             Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
         } else {
             while (mListaFavoritos.moveToNext()) {
-                items.add(new Menor(mListaFavoritos.getString(1)));
+                Menor menor = new Menor(mListaFavoritos.getString(1));
+                menor.setId(mListaFavoritos.getString(2));
+                items.add(menor);
             }
         }
         /*
@@ -89,6 +91,8 @@ public class FavoritosFragment extends Fragment {
 
         mListAdapter = new FavoritosAdapter(getActivity());
         mListAdapter.setData(items);
+
+
 
         mListAdapter.setOnMenorDesfavoritarListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override

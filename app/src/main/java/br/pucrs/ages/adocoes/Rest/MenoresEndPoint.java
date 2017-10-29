@@ -20,10 +20,10 @@ public interface MenoresEndPoint {
     Call<List<Menor>> menores(@Header("Authorization") String accessToken);
 
     @GET("menores/{menorId}")
-    Call<Menor> menor(@Path("menorId") String portfolioId, @Header("access-token") String accessToken);
+    Call<Menor> menor(@Path("menorId") String portfolioId, @Header("Authorization") String accessToken);
 
     @POST("menores/{menorId}")
-    Call<Menor> updateMenor(@Path("menorId") String portfolioId, @Header("access-token") String accessToken, @Body Menor menor);
+    Call<Menor> updateMenor(@Path("menorId") String portfolioId, @Header("Authorization") String accessToken, @Body Menor menor);
 
     @GET("menores/{menorId}/midias/{midiaId}")
     Call<MenorMidia> menorMidia(@Path("menorId") String menorId, @Path("midiaId") String midiaId, @Header("Authorization") String accessToken);
