@@ -44,6 +44,16 @@ public class Menor implements Serializable {
 
     }
 
+    public Menor(String nome) {
+        this.nome = nome;
+
+    }
+
+    public Menor(String nome, String id){
+        this.nome = nome;
+        this.id = id;
+    }
+
     public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, String dataNascimento, List<String> familiares, List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude, boolean curavel, boolean deficienciaFisica, boolean deficienciaMental, String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar, List<String> interessados, List<RefMidia> midias, boolean ativo) {
         this.id = id;
         this.nome = nome;
@@ -215,11 +225,6 @@ public class Menor implements Serializable {
         return nome;
     }
     public String getId() { return this.id; }
-
-    public Menor(String nome) {
-        this.nome = nome;
-
-    }
 
     public List<RefMidia> getMidias() {
         return midias;

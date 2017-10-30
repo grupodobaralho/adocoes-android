@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Informacoes da DBF
     public static final String DATABASE_NAME = "AdocoesLocal.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3; //deve ser alterado sempre que houver novo run
 
     //Nome das tabelas
     public static final String TABLE_FAVORITOS = "Menores_Favoritos";
@@ -70,7 +70,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String SQL_String = "CREATE TABLE " + TABLE_FAVORITOS + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_2 + " TEXT," + COL_3 + " TEXT"+")";
+        String SQL_String =
+                "CREATE TABLE " + TABLE_FAVORITOS + "(" +
+                COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COL_2 + " TEXT," +
+                COL_3 + " TEXT" +
+                ")";
+
         db.execSQL(SQL_String);
 
         /*
@@ -121,8 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //Coluna a qual queremos inserir, e o valor que queremos inserir
         contentValues.put(COL_2, menor.getNome());
-
-        //contentValues.put(COL_3, meno;r.getId());
+        contentValues.put(COL_3, menor.getId());
 
         long result = db.insert(TABLE_FAVORITOS, null, contentValues);
 

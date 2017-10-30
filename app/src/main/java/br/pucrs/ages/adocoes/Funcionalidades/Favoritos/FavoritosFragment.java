@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,8 +76,9 @@ public class FavoritosFragment extends Fragment {
             Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
         } else {
             while (mListaFavoritos.moveToNext()) {
+                Log.d("um bug", mListaFavoritos.getString(1));
+                Log.d("um bug", mListaFavoritos.getString(2));
                 Menor menor = new Menor(mListaFavoritos.getString(1));
-                menor.setId(mListaFavoritos.getString(2));
                 items.add(menor);
             }
         }
@@ -115,7 +117,7 @@ public class FavoritosFragment extends Fragment {
                             mListAdapter.setData(items);
 
                         } else {
-                            Toast.makeText(getActivity(), "deu ruim " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Erro " + menor.getNome(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
