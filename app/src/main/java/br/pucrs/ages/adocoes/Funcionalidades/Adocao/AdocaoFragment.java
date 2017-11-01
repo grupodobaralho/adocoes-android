@@ -35,7 +35,7 @@ import java.io.PrintWriter;
 public class AdocaoFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
-//    private ListaInteresseAdotarAdapter mListAdapter;
+    private AdocaoAdapter mListAdapter;
     private Cursor mListaInteresseAdotar;
     private ArrayList<Menor> items = new ArrayList<>();
     //private ProgressBar mProgressBar;
@@ -54,38 +54,38 @@ public class AdocaoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_listagem_interesse_adotar, container, false);
+        return inflater.inflate(R.layout.fragment_adocao, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_interesse_adotar);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_adocao);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
 //        mListaInteresseAdotar = DatabaseHelper.getInstance(getActivity()).getAllInteressesAdotar();
 
-        if (mListaInteresseAdotar.getCount() == 0) {
-            Toast.makeText(getActivity(), "A sua lista de interesses de adotar está vazia!", Toast.LENGTH_SHORT).show();
-        } else {
-            while (mListaInteresseAdotar.moveToNext()) {
-                items.add(new Menor(mListaInteresseAdotar.getString(1)));
-            }
-        }
+//        if (mListaInteresseAdotar.getCount() == 0) {
+//            Toast.makeText(getActivity(), "A sua lista de interesses de adotar está vazia!", Toast.LENGTH_SHORT).show();
+//        } else {
+//            while (mListaInteresseAdotar.moveToNext()) {
+//                items.add(new Menor(mListaInteresseAdotar.getString(1)));
+//            }
+//        }
 
-//        items.add(new Menor("Israel Lixo"));
-//        items.add(new Menor("Hercilio Lindo"));
-//        items.add(new Menor("Tonio Lanu"));
-//        items.add(new Menor("Vaxxaro MAt"));
-//        items.add(new Menor("Homero Greco"));
-//        items.add(new Menor("Eduardo Pistola"));
+        items.add(new Menor("Hercilinho Primeiro"));
+        items.add(new Menor("Hercilinho Segundo"));
+        items.add(new Menor("Hercilinho Terceiro"));
+        items.add(new Menor("Hercilinho Quarto"));
+        items.add(new Menor("Hercilinho Quinto"));
+        items.add(new Menor("Hercilinho Sexto"));
 
-        //Usa-se:
-//        mListAdapter = new ListaInteresseAdotarAdapter(getActivity());
-//        mListAdapter.setData(items);
+
+        mListAdapter = new AdocaoAdapter(getActivity());
+        mListAdapter.setData(items);
 
         //FAZER FUNÇÃO SEMELHANTE PARA DELETE INTERESSE...
 
@@ -126,18 +126,18 @@ public class AdocaoFragment extends Fragment {
 //            }
 //        });
 
-        //Usa-se:
-//        mListAdapter.setListener(new ListaInteresseAdotarAdapter.OnMenorSelectedListener() {
-//            @Override
-//            public void OnMenorItemSelected(Menor menor, int position) {
-//                // Coloque aqui a ação de ir para tela de detalhes :)
-//
-//                Toast.makeText(getActivity(), "selecionou " + menor.getNome(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
-        //Usa-se:
-//        mRecyclerView.setAdapter(mListAdapter);
-//        //mRecyclerView.setVisibility(View.VISIBLE);
+        mListAdapter.setListener(new AdocaoAdapter.OnMenorSelectedListener() {
+            @Override
+            public void OnMenorItemSelected(Menor menor, int position) {
+                // Coloque aqui a ação de ir para tela de detalhes :)
+
+                Toast.makeText(getActivity(), "selecionou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        mRecyclerView.setAdapter(mListAdapter);
+        //mRecyclerView.setVisibility(View.VISIBLE);
     }
 }
