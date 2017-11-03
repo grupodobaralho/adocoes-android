@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -37,7 +38,7 @@ public class ViewPagerFragment extends Fragment {
 
     public static final String ARGUMENT_MIDIAS = "midias";
 
-    private static ArrayList<String> mMidiaIds;
+    private static ArrayList<RefMidia> mMidiaIds = new ArrayList<>();
     private static String menorId;
 
     public static ViewPagerFragment newInstance(Menor menor) {
@@ -45,24 +46,9 @@ public class ViewPagerFragment extends Fragment {
 
         final Bundle args = new Bundle();
 
-        mMidiaIds = new ArrayList<>();
-        for (RefMidia refMidia : menor.getMidias()) {
-            mMidiaIds.add(refMidia.getId());
-        }
-
-        args.putStringArrayList(ARGUMENT_MIDIAS, mMidiaIds);
+        args.putParcelableArrayList(ARGUMENT_MIDIAS, new ArrayList<RefMidia>(menor.getMidias()));
 
         final ViewPagerFragment fragment = new ViewPagerFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public static ViewPagerFragment newInstance(ArrayList<String> refMidias) {
-
-        Bundle args = new Bundle();
-        mMidiaIds = new ArrayList<>();
-        args.putStringArrayList(ARGUMENT_MIDIAS, refMidias);
-        ViewPagerFragment fragment = new ViewPagerFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -76,6 +62,12 @@ public class ViewPagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_view_pager, container, false);
+
+        final ArrayList<RefMidia> midias = getArguments().getParcelableArrayList(ARGUMENT_MIDIAS);
+
+        if (midias != null) {
+            mMidiaIds = midias;
+        }
 
         final Activity activity = getActivity();
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.view_pager);
@@ -110,15 +102,28 @@ public class ViewPagerFragment extends Fragment {
 
             final String token = UserBusiness.getInstance().getAccessToken();
             //Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
-            final String midiaId = mMidiaIds.get(position);
-            RestUtil.getMenoresEndPoint().menorMidia(menorId, midiaId, token).enqueue(new Callback<MenorMidia>() {
+            final RefMidia midiaId = mMidiaIds.get(position);
+            RestUtil.getMenoresEndPoint().menorMidia(menorId, midiaId.getId(), token).enqueue(new Callback<MenorMidia>() {
                 @Override
                 public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+
                     MenorMidia midia = response.body();
+
                     if (midia != null) {
-                        byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
-                        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-                        imageView.setImageBitmap(imgBitmap);
+                        switch (midiaId.getType()) {
+                            case "foto":
+                                byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                                Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                                imageView.setImageBitmap(imgBitmap);
+                                break;
+                            case "video":
+                                imageView.setImageResource(R.drawable.boy_7);
+                                break;
+                            default:
+                                imageView.setImageResource(R.drawable.boy_1);
+                                break;
+                        }
+
                     }
                 }
 
@@ -137,8 +142,9 @@ public class ViewPagerFragment extends Fragment {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
-                    intent.putExtra(ImagePreviewActivity.EXTRA_MIDIA, midiaId);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_MIDIA, (Parcelable) midiaId);
                     intent.putExtra(ImagePreviewActivity.EXTRA_MENOR_ID, menorId);
                     startActivity(intent);
                 }

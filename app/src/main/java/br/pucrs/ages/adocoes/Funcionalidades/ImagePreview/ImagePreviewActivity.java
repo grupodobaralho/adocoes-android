@@ -14,6 +14,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
@@ -41,7 +42,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
 
-            final String midiaId = intent.getStringExtra(EXTRA_MIDIA);
+            final RefMidia midia = intent.getParcelableExtra(EXTRA_MIDIA);
             final String menorId = intent.getStringExtra(EXTRA_MENOR_ID);
 
             photoView = (PhotoView) findViewById(R.id.photo_view);
@@ -49,7 +50,7 @@ public class ImagePreviewActivity extends AppCompatActivity {
 
             final String token = UserBusiness.getInstance().getAccessToken();
             //Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
-            RestUtil.getMenoresEndPoint().menorMidia(menorId, midiaId, token).enqueue(new Callback<MenorMidia>() {
+            RestUtil.getMenoresEndPoint().menorMidia(menorId, midia.getId(), token).enqueue(new Callback<MenorMidia>() {
                 @Override
                 public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
                     MenorMidia midia = response.body();
