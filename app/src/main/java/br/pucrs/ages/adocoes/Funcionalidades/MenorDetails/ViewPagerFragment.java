@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.ImagePreview.ImagePreviewActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
@@ -107,8 +108,10 @@ public class ViewPagerFragment extends Fragment {
 
             final ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
 
+            final String token = UserBusiness.getInstance().getAccessToken();
             //Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
-            RestUtil.getMenoresEndPoint().menorMidia(menorId, mMidiaIds.get(position), "Bearer anonymous").enqueue(new Callback<MenorMidia>() {
+            final String midiaId = mMidiaIds.get(position);
+            RestUtil.getMenoresEndPoint().menorMidia(menorId, midiaId, token).enqueue(new Callback<MenorMidia>() {
                 @Override
                 public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
                     MenorMidia midia = response.body();
@@ -135,10 +138,8 @@ public class ViewPagerFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
-
-                    intent.putStringArrayListExtra(ARGUMENT_MIDIAS, mMidiaIds);
-                    intent.putExtra(ImagePreviewActivity.EXTRA_POSITION, position);
-                    intent.putExtra(ImagePreviewActivity.EXTRA_IMAGE, R.drawable.boy);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_MIDIA, midiaId);
+                    intent.putExtra(ImagePreviewActivity.EXTRA_MENOR_ID, menorId);
                     startActivity(intent);
                 }
             });

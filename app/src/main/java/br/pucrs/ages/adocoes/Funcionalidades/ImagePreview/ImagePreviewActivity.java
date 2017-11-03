@@ -1,23 +1,30 @@
 package br.pucrs.ages.adocoes.Funcionalidades.ImagePreview;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
-import java.util.ArrayList;
-
-import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.ViewPagerFragment;
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ImagePreviewActivity extends AppCompatActivity {
 
-    public static final String EXTRA_POSITION = "EXTRA_POSITION";
     public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
+    public static final String EXTRA_MIDIA = "EXTRA_MIDIA";
+    public static final String EXTRA_MENOR_ID = "EXTRA_MENOR_ID";
     private PhotoView photoView;
     private boolean isShowingSystemUI;
 
@@ -33,12 +40,31 @@ public class ImagePreviewActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            final ArrayList<String> midiasIds = intent.getStringArrayListExtra(ViewPagerFragment.ARGUMENT_MIDIAS);
-            final int position = intent.getIntExtra(EXTRA_POSITION, -1);
-            final int imageResource = intent.getIntExtra(EXTRA_IMAGE, -1);
+
+            final String midiaId = intent.getStringExtra(EXTRA_MIDIA);
+            final String menorId = intent.getStringExtra(EXTRA_MENOR_ID);
 
             photoView = (PhotoView) findViewById(R.id.photo_view);
-            photoView.setImageResource(imageResource);
+            photoView.setImageResource(R.drawable.boy);
+
+            final String token = UserBusiness.getInstance().getAccessToken();
+            //Talvez seja preciso fazer um filter em mMidiaIds para pegar apenas as fotos. Provavelmente virão refs de vídeos, cartas, etc, junto no campo midias.
+            RestUtil.getMenoresEndPoint().menorMidia(menorId, midiaId, token).enqueue(new Callback<MenorMidia>() {
+                @Override
+                public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                    MenorMidia midia = response.body();
+                    if (midia != null) {
+                        byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                        photoView.setImageBitmap(imgBitmap);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MenorMidia> call, Throwable t) {
+
+                }
+            });
         }
 
         photoView.setOnClickListener(new View.OnClickListener() {
