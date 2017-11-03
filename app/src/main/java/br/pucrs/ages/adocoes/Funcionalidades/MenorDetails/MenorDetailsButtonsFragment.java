@@ -35,7 +35,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menor_details_buttons, container, false);
 
         Button btnAdotar = (Button) view.findViewById(R.id.btnAdotar);
-        Button btnApadrinhar = (Button) view.findViewById(R.id.btnApadrinhar);
+//        Button btnApadrinhar = (Button) view.findViewById(R.id.btnApadrinhar);
 
         btnAdotar.setOnClickListener(new OnClickListener() {
             public void onClick(View v)  {
@@ -64,33 +64,33 @@ public class MenorDetailsButtonsFragment extends Fragment {
             }
         });
 
-        btnApadrinhar.setOnClickListener(new OnClickListener() {
-            public void onClick(View v)  {
-
-                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-
-                alert.setTitle("Atenção");
-                alert.setMessage("Você realmente deseja apadrinhar este menor?");
-
-                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                        Toast.makeText(getActivity(),  "Sim" , Toast.LENGTH_SHORT ).show();
-                    }
-                });
-
-                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                        Toast.makeText(getActivity(),  "Não" , Toast.LENGTH_SHORT ).show();
-                    }
-                });
-
-                AlertDialog dialog = alert.create();
-                alert.show();
-            }
-        });
-
+//        btnApadrinhar.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v)  {
+//
+//                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+//
+//                alert.setTitle("Atenção");
+//                alert.setMessage("Você realmente deseja apadrinhar este menor?");
+//
+//                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        // User clicked OK button
+//                        Toast.makeText(getActivity(),  "Sim" , Toast.LENGTH_SHORT ).show();
+//                    }
+//                });
+//
+//                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        // User clicked OK button
+//                        Toast.makeText(getActivity(),  "Não" , Toast.LENGTH_SHORT ).show();
+//                    }
+//                });
+//
+//                AlertDialog dialog = alert.create();
+//                alert.show();
+//            }
+//        });
+//
         return view;
     }
 
