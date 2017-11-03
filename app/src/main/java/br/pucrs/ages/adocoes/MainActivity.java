@@ -23,7 +23,6 @@ import br.pucrs.ages.adocoes.Funcionalidades.Sobre.SobreFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    //Variável responsável por receber a referência dos intens de menu.
     private MenuItem iconTrocaModoDeVisualizacao;
     private  boolean isListaVertical = true;
 
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         //Faz as transações
         switch (id) {
             case R.id.troca_para_horizontal:
-                ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Lista de Menores");
+                ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Crianças e Adolescentes");
                 if (myFragment1 != null && myFragment1.isVisible()) {
                     isListaVertical = !isListaVertical;
                     myFragment1.setItems(isListaVertical);
