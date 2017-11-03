@@ -10,34 +10,32 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:padding="1dp"
-        android:weightSum="1">
+        android:gravity="center"
+        android:padding="1dp">
 
         <TextView
             android:id="@+id/tv_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.26"
             android:text="Gostaria de"
-            android:visibility="invisible"
             android:textAlignment="center" />
 
         <Button
             android:id="@+id/btnAdotar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.30"
-            android:text="Adotar"
-            android:textSize="10sp" />
+            android:text="Manifestar Interesse em Adotar"
+            android:lines="3"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-        <!--<Button-->
-            <!--android:id="@+id/btnApadrinhar"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="0.30"-->
-            <!--android:visibility="invisible"-->
-            <!--android:text="Apadrinhar"-->
-            <!--android:textSize="10sp" />-->
+        <Button
+            android:id="@+id/btnFavoritar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manifestar Interesse"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
