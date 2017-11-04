@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -19,7 +20,8 @@ public class FilterActivity extends AppCompatActivity {
     // Target center
     private float xTargetCenter;
     private float yTargetCenter;
-    // Target touch offset;
+    // Target touch offset
+    // These are properties to avoid recalculation everytime the user' touch position moves a pixel
     private int xDifference;
     private int yDifference;
 
@@ -39,6 +41,7 @@ public class FilterActivity extends AppCompatActivity {
     private final class TargetTouchListener implements View.OnTouchListener {
 
         public boolean onTouch(View view, MotionEvent event) {
+            // Gets raw screen touch position
             int rawX = (int) event.getRawX();
             int rawY = (int) event.getRawY();
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -66,14 +69,37 @@ public class FilterActivity extends AppCompatActivity {
                     yDifference = (int) (yTargetTouch - yTargetCenter);
 
                 case MotionEvent.ACTION_MOVE:
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-                    layoutParams.leftMargin = rawX + xDifference - x;
-                    layoutParams.topMargin = rawY + yDifference - y;
+                    FrameLayout.LayoutParams targetLayoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
+                    final ViewGroup.LayoutParams preferenceAreaLayoutParams = preferenceArea.getLayoutParams();
 
-//                    System.out.println("LEFT MARGIN -> " + layoutParams.leftMargin);
-//                    System.out.println("TOP MARGIN -> " + layoutParams.topMargin);
+                    // Gets screen dimensions
+                    // TODO FIX WIDTH AND HEIGHT, RETURNING 1
+                    int screenWidth = preferenceAreaLayoutParams.width;
+                    int screenHeight = preferenceAreaLayoutParams.height;
 
-                    view.setLayoutParams(layoutParams);
+                    // We create the following properties because the screen's anchor point is (0.5, 0.5)
+                    int screenMaxWidth = screenWidth / 2;
+                    int screenMinWidth = screenWidth / -2;
+                    int screenMaxHeight = screenHeight / 2;
+                    int screenMinHeight = screenHeight / -2;
+
+                    // New margin target position
+                    int newTargetLeftMargin = rawX + xDifference - x;
+                    int newTargetTopMargin = rawY + yDifference - y;
+
+                    System.out.println("Screen Height -> " + screenHeight);
+                    System.out.println("Screen Width -> " + screenWidth);
+
+                    System.out.println("LEFT MARGIN -> " + newTargetLeftMargin);
+                    System.out.println("TOP MARGIN -> " + newTargetTopMargin);
+
+                    // Sets new target position if it's inside the allowed view
+                    if (newTargetLeftMargin >= screenMinWidth && newTargetLeftMargin <= screenMaxWidth && newTargetTopMargin >= screenMinHeight && newTargetTopMargin <= screenMaxHeight) {
+                        targetLayoutParams.leftMargin = rawX + xDifference - x;
+                        targetLayoutParams.topMargin = rawY + yDifference - y;
+                    }
+
+                    view.setLayoutParams(targetLayoutParams);
                     break;
             }
             preferenceArea.invalidate();
