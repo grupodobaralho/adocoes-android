@@ -12,6 +12,6 @@ import retrofit2.http.POST;
  */
 
 public interface AuthEndPoint {
-    @POST("/adocoes/oauth")
+    @POST("oauth")
     Call<AuthResponse> authUser(@Header("Authorization") String authorization, @Body AuthRequest request);
 }
