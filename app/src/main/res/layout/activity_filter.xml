@@ -39,8 +39,8 @@
         <ImageView
             android:id="@+id/blueHeart"
             android:layout_gravity="center"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/target_width"
+            android:layout_height="@dimen/target_height"
             android:src="@drawable/boy_20">
         </ImageView>
 
