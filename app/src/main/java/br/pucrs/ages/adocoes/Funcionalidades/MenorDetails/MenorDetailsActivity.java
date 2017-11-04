@@ -38,7 +38,7 @@ public class MenorDetailsActivity extends AppCompatActivity {
                         .add(R.id.menor_details_layout, ViewPagerFragment.newInstance(menor), "ViewPager")
                         .add(R.id.menor_details_layout, CommonMenorInformationFragment.newInstance(menor), "CommonInformation")
                         .add(R.id.menor_details_layout, ParentesListFragment.newInstance(), "ParentesList")
-                        .add(R.id.menor_details_layout, MenorDetailsButtonsFragment.newInstance(), "Buttons")
+                        .add(R.id.menor_details_layout, MenorDetailsButtonsFragment.newInstance(menor), "Buttons")
                         .commit();
             }
         }
