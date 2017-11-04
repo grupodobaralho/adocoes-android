@@ -12,18 +12,33 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
+import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
+
+import static br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity.EXTRA_MENOR;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MenorDetailsButtonsFragment extends Fragment {
 
+    private Menor mMenor;
+
     public MenorDetailsButtonsFragment() {
         // Required empty public constructor
     }
 
-    public static MenorDetailsButtonsFragment newInstance() { return new MenorDetailsButtonsFragment(); }
+    public static MenorDetailsButtonsFragment newInstance(Menor menor) {
+
+        final Bundle args = new Bundle();
+
+        args.putSerializable(EXTRA_MENOR, menor);
+
+        final MenorDetailsButtonsFragment fragment = new MenorDetailsButtonsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
 
 
@@ -33,6 +48,8 @@ public class MenorDetailsButtonsFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menor_details_buttons, container, false);
+
+        mMenor = (Menor) getArguments().getSerializable(EXTRA_MENOR);
 
         Button btnAdotar = (Button) view.findViewById(R.id.btnAdotar);
         Button btnFavoritar = (Button) view.findViewById(R.id.btnFavoritar);
@@ -67,27 +84,21 @@ public class MenorDetailsButtonsFragment extends Fragment {
         btnFavoritar.setOnClickListener(new OnClickListener() {
             public void onClick(View v)  {
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                // Coloque aqui a ação de favoritar :)
 
-                alert.setTitle("Atenção");
-                alert.setMessage("Você realmente deseja apadrinhar este menor?");
+                // Chama o Banco e verifica se o menor já é um favorito
+                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(mMenor);
+                if(isFavorite) {
+                    Toast.makeText(getActivity(), ";) Já favoritou " + mMenor.getNome(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                        Toast.makeText(getActivity(),  "Sim" , Toast.LENGTH_SHORT ).show();
-                    }
-                });
-
-                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                        Toast.makeText(getActivity(),  "Não" , Toast.LENGTH_SHORT ).show();
-                    }
-                });
-
-                AlertDialog dialog = alert.create();
-                alert.show();
+                // Chama o Banco e tenta inserir um novo favorito
+                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(mMenor);
+                if(result)
+                    Toast.makeText(getActivity(), "favoritou " + mMenor.getNome(), Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
             }
         });
 
