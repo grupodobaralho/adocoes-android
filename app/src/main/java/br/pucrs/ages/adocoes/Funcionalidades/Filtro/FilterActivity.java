@@ -52,7 +52,6 @@ public class FilterActivity extends AppCompatActivity {
     }
 
 
-
     private final class TargetTouchListener implements View.OnTouchListener {
 
         public boolean onTouch(View view, MotionEvent event) {
@@ -61,11 +60,11 @@ public class FilterActivity extends AppCompatActivity {
             int rawY = (int) event.getRawY();
 
             // Gets permited movable area in dp
-            float preferenceAreaHeight = convertPixelsToDp(preferenceArea.getHeight(), FilterActivity.this);
-            float preferenceAreaWidth = convertPixelsToDp(preferenceArea.getWidth(), FilterActivity.this);
+            float preferenceAreaHeight = preferenceArea.getHeight();
+            float preferenceAreaWidth = preferenceArea.getWidth();
 
-//            System.out.println("Screen Height: " + preferenceAreaHeight);
-//            System.out.println("Screen Width:" + preferenceAreaWidth);
+            System.out.println("Screen Height: " + preferenceAreaHeight);
+            System.out.println("Screen Width:" + preferenceAreaWidth);
 
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
@@ -83,18 +82,32 @@ public class FilterActivity extends AppCompatActivity {
                     float xWithParenteOffset = rawX - preferenceArea.getX();
                     float yWithParenteOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
 
-//                    System.out.println("Final X: " +xWithParenteOffset);
-//                    System.out.println("Final Y: " + yWithParenteOffset);
+                    // These 4 "ifs" make sure the target's coordinates stay inside the allowed area
+                    if (xWithParenteOffset > preferenceAreaWidth) {
+                        xWithParenteOffset = preferenceAreaWidth;
+                    }
+                    if (xWithParenteOffset < 0) {
+                        xWithParenteOffset = 0;
+                    }
+                    if (yWithParenteOffset > preferenceAreaHeight) {
+                        yWithParenteOffset = preferenceAreaHeight;
+                    }
+                    if (yWithParenteOffset < 0) {
+                        yWithParenteOffset = 0;
+                    }
 
                     // This will make the target snap to its center when touched
                     float xSnapedToCenter = xWithParenteOffset - xTargetCenter;
                     float ySnapedToCenter = yWithParenteOffset - yTargetCenter;
 
-//                    System.out.println("Centralized X: " + xSnapedToCenter);
-//                    System.out.println("Centralized Y: " + ySnapedToCenter);
-
+                    // Sets target's new coordinates
                     target.setX(xSnapedToCenter);
                     target.setY(ySnapedToCenter);
+
+//                    System.out.println("X: " + xWithParenteOffset);
+//                    System.out.println("Y: " + yWithParenteOffset);
+//                    System.out.println("Snap with Offset X: " + xSnapedToCenter);
+//                    System.out.println("Snap with Offset Y: " + ySnapedToCenter);
 
                     break;
 
@@ -105,6 +118,8 @@ public class FilterActivity extends AppCompatActivity {
             return true;
         }
     }
+
+    // Utility methods
 
     public float getStatusBarHeight() {
         float result = 0;
