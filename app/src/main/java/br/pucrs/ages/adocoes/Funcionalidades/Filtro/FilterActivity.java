@@ -33,6 +33,9 @@ public class FilterActivity extends AppCompatActivity {
     private float actionBarHeight;
     private float statusBarHeight;
 
+    private float targetX;
+    private float targetY;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,33 +82,34 @@ public class FilterActivity extends AppCompatActivity {
 
                 case MotionEvent.ACTION_MOVE:
                     // Values that represent the target's center
-                    float xWithParenteOffset = rawX - preferenceArea.getX();
-                    float yWithParenteOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
+                    float xWithParentOffset = rawX - preferenceArea.getX();
+                    float yWithParentOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
 
                     // These 4 "ifs" make sure the target's coordinates stay inside the allowed area
-                    if (xWithParenteOffset > preferenceAreaWidth) {
-                        xWithParenteOffset = preferenceAreaWidth;
+                    if (xWithParentOffset > preferenceAreaWidth) {
+                        xWithParentOffset = preferenceAreaWidth;
                     }
-                    if (xWithParenteOffset < 0) {
-                        xWithParenteOffset = 0;
+                    if (xWithParentOffset < 0) {
+                        xWithParentOffset = 0;
                     }
-                    if (yWithParenteOffset > preferenceAreaHeight) {
-                        yWithParenteOffset = preferenceAreaHeight;
+                    if (yWithParentOffset > preferenceAreaHeight) {
+                        yWithParentOffset = preferenceAreaHeight;
                     }
-                    if (yWithParenteOffset < 0) {
-                        yWithParenteOffset = 0;
+                    if (yWithParentOffset < 0) {
+                        yWithParentOffset = 0;
                     }
 
                     // This will make the target snap to its center when touched
-                    float xSnapedToCenter = xWithParenteOffset - xTargetCenter;
-                    float ySnapedToCenter = yWithParenteOffset - yTargetCenter;
+                    float xSnapedToCenter = xWithParentOffset - xTargetCenter;
+                    float ySnapedToCenter = yWithParentOffset - yTargetCenter;
 
                     // Sets target's new coordinates
                     target.setX(xSnapedToCenter);
                     target.setY(ySnapedToCenter);
-
-//                    System.out.println("X: " + xWithParenteOffset);
-//                    System.out.println("Y: " + yWithParenteOffset);
+                    targetX = xWithParentOffset;
+                    targetY = yWithParentOffset;
+//                    System.out.println("X: " + xWithParentOffset);
+//                    System.out.println("Y: " + yWithParentOffset);
 //                    System.out.println("Snap with Offset X: " + xSnapedToCenter);
 //                    System.out.println("Snap with Offset Y: " + ySnapedToCenter);
 
@@ -121,7 +125,7 @@ public class FilterActivity extends AppCompatActivity {
 
     // Utility methods
 
-    public float getStatusBarHeight() {
+    private float getStatusBarHeight() {
         float result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
@@ -130,7 +134,7 @@ public class FilterActivity extends AppCompatActivity {
         return result;
     }
 
-    public float getActionBarHeight() {
+    private float getActionBarHeight() {
         TypedValue tv = new TypedValue();
         float actionBarHeight = 0;
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
@@ -146,7 +150,7 @@ public class FilterActivity extends AppCompatActivity {
      * @param context Context to get resources and device specific display metrics
      * @return A float value to represent px equivalent to dp depending on device density
      */
-    public static float convertDpToPixel(float dp, Context context){
+    private static float convertDpToPixel(float dp, Context context){
         Resources resources = context.getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();
         float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
@@ -160,7 +164,7 @@ public class FilterActivity extends AppCompatActivity {
      * @param context Context to get resources and device specific display metrics
      * @return A float value to represent dp equivalent to px value
      */
-    public static float convertPixelsToDp(float px, Context context){
+    private static float convertPixelsToDp(float px, Context context){
         Resources resources = context.getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();
         float dp = px / ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
