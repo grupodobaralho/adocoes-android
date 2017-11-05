@@ -1,7 +1,12 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Filtro;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,33 +15,43 @@ import android.widget.ImageView;
 
 import br.pucrs.ages.adocoes.R;
 
+
 public class FilterActivity extends AppCompatActivity {
 
     private FrameLayout preferenceArea;
     private ImageView target;
-    // Screen touch coordinates
-    private int x;
-    private int y;
+
     // Target center
     private float xTargetCenter;
     private float yTargetCenter;
+
     // Target touch offset
     // These are properties to avoid recalculation everytime the user' touch position moves a pixel
-    private int xDifference;
-    private int yDifference;
+    private float xDifference;
+    private float yDifference;
+
+    private float actionBarHeight;
+    private float statusBarHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
         setTitle("Child Preference");
+
         this.preferenceArea = (FrameLayout) findViewById(R.id.preferenceArea);
         this.target = (ImageView) findViewById(R.id.blueHeart);
-        xTargetCenter = (float) getResources().getDimension(R.dimen.target_width) / 2;
-        yTargetCenter = (float) getResources().getDimension(R.dimen.target_height) / 2;
+
+        xTargetCenter = getResources().getDimensionPixelSize(R.dimen.target_width) / 2;
+        yTargetCenter = getResources().getDimensionPixelSize(R.dimen.target_height) / 2;
+
+        actionBarHeight = getActionBarHeight();
+        statusBarHeight = getStatusBarHeight();
 
         this.target.setOnTouchListener(new TargetTouchListener());
     }
+
+
 
     private final class TargetTouchListener implements View.OnTouchListener {
 
@@ -44,66 +59,96 @@ public class FilterActivity extends AppCompatActivity {
             // Gets raw screen touch position
             int rawX = (int) event.getRawX();
             int rawY = (int) event.getRawY();
+
+            // Gets permited movable area in dp
+            float preferenceAreaHeight = convertPixelsToDp(preferenceArea.getHeight(), FilterActivity.this);
+            float preferenceAreaWidth = convertPixelsToDp(preferenceArea.getWidth(), FilterActivity.this);
+
+//            System.out.println("Screen Height: " + preferenceAreaHeight);
+//            System.out.println("Screen Width:" + preferenceAreaWidth);
+
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
-                case MotionEvent.ACTION_UP:
-                    break;
-
-                case MotionEvent.ACTION_POINTER_DOWN:
-                    break;
-
-                case MotionEvent.ACTION_POINTER_UP:
-                    break;
 
                 case MotionEvent.ACTION_DOWN:
-                    FrameLayout.LayoutParams layoutParamsOnActionDown = (FrameLayout.LayoutParams) view.getLayoutParams();
-                    // X and Y represent the click position
-                    x = rawX - layoutParamsOnActionDown.leftMargin;
-                    y = rawY - layoutParamsOnActionDown.topMargin;
-
                     // Gets target touch position
                     float xTargetTouch = event.getX();
                     float yTargetTouch = event.getY();
 
                     // Calculates difference between touch position and center position
-                    xDifference = (int) (xTargetTouch - xTargetCenter);
-                    yDifference = (int) (yTargetTouch - yTargetCenter);
+                    xDifference = xTargetTouch - xTargetCenter;
+                    yDifference = yTargetTouch - yTargetCenter;
 
                 case MotionEvent.ACTION_MOVE:
-                    FrameLayout.LayoutParams targetLayoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-                    final ViewGroup.LayoutParams preferenceAreaLayoutParams = preferenceArea.getLayoutParams();
+                    // Values that represent the target's center
+                    float xWithParenteOffset = rawX - preferenceArea.getX();
+                    float yWithParenteOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
 
-                    // Gets screen dimensions
-                    // TODO FIX WIDTH AND HEIGHT, RETURNING 1
-                    int screenWidth = preferenceAreaLayoutParams.width;
-                    int screenHeight = preferenceAreaLayoutParams.height;
+//                    System.out.println("Final X: " +xWithParenteOffset);
+//                    System.out.println("Final Y: " + yWithParenteOffset);
 
-                    // We create the following properties because the screen's anchor point is (0.5, 0.5)
-                    int screenMaxWidth = screenWidth / 2;
-                    int screenMinWidth = screenWidth / -2;
-                    int screenMaxHeight = screenHeight / 2;
-                    int screenMinHeight = screenHeight / -2;
+                    // This will make the target snap to its center when touched
+                    float xSnapedToCenter = xWithParenteOffset - xTargetCenter;
+                    float ySnapedToCenter = yWithParenteOffset - yTargetCenter;
 
-                    // New margin target position
-                    int newTargetLeftMargin = rawX + xDifference - x;
-                    int newTargetTopMargin = rawY + yDifference - y;
+//                    System.out.println("Centralized X: " + xSnapedToCenter);
+//                    System.out.println("Centralized Y: " + ySnapedToCenter);
 
-                    System.out.println("Screen Height -> " + screenHeight);
-                    System.out.println("Screen Width -> " + screenWidth);
+                    target.setX(xSnapedToCenter);
+                    target.setY(ySnapedToCenter);
 
-                    System.out.println("LEFT MARGIN -> " + newTargetLeftMargin);
-                    System.out.println("TOP MARGIN -> " + newTargetTopMargin);
+                    break;
 
-                    // Sets new target position if it's inside the allowed view
-                    if (newTargetLeftMargin >= screenMinWidth && newTargetLeftMargin <= screenMaxWidth && newTargetTopMargin >= screenMinHeight && newTargetTopMargin <= screenMaxHeight) {
-                        targetLayoutParams.leftMargin = rawX + xDifference - x;
-                        targetLayoutParams.topMargin = rawY + yDifference - y;
-                    }
-
-                    view.setLayoutParams(targetLayoutParams);
+                default:
                     break;
             }
             preferenceArea.invalidate();
             return true;
         }
+    }
+
+    public float getStatusBarHeight() {
+        float result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    public float getActionBarHeight() {
+        TypedValue tv = new TypedValue();
+        float actionBarHeight = 0;
+        if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+        }
+        return actionBarHeight;
+    }
+
+    /**
+     * This method converts dp unit to equivalent pixels, depending on device density.
+     *
+     * @param dp A value in dp (density independent pixels) unit. Which we need to convert into pixels
+     * @param context Context to get resources and device specific display metrics
+     * @return A float value to represent px equivalent to dp depending on device density
+     */
+    public static float convertDpToPixel(float dp, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        return px;
+    }
+
+    /**
+     * This method converts device specific pixels to density independent pixels.
+     *
+     * @param px A value in px (pixels) unit. Which we need to convert into db
+     * @param context Context to get resources and device specific display metrics
+     * @return A float value to represent dp equivalent to px value
+     */
+    public static float convertPixelsToDp(float px, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float dp = px / ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        return dp;
     }
 }
