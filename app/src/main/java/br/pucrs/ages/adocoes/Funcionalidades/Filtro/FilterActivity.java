@@ -33,8 +33,16 @@ public class FilterActivity extends AppCompatActivity {
     private float actionBarHeight;
     private float statusBarHeight;
 
-    private float targetX;
-    private float targetY;
+    // Default algorithm inputs
+    // -1 means a touch event has no occured yet, see getIdadePonto() and getSexoPonto()
+    private double targetX = -1;
+    private double targetY = -1;
+
+    // Base algorithm measures
+    private final double minSexo = 0.0;     // related to X
+    private final double maxSexo = 1.0;     // related to X
+    private final double minIdade = 0.0;    // related to Y
+    private final double maxIdade = 18.0;   // related to Y
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +59,16 @@ public class FilterActivity extends AppCompatActivity {
         actionBarHeight = getActionBarHeight();
         statusBarHeight = getStatusBarHeight();
 
+//        System.out.println("Default Ponto Idade " + getPontoIdade());
+//        System.out.println("Default Ponto Sexo " + getPontoSexo());
+
         this.target.setOnTouchListener(new TargetTouchListener());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     private final class TargetTouchListener implements View.OnTouchListener {
 
@@ -62,12 +77,13 @@ public class FilterActivity extends AppCompatActivity {
             int rawX = (int) event.getRawX();
             int rawY = (int) event.getRawY();
 
-            // Gets permited movable area in dp
+            // Gets permited movable area
+            // This is done here because the preference area measures are not available in onCreate method
             float preferenceAreaHeight = preferenceArea.getHeight();
             float preferenceAreaWidth = preferenceArea.getWidth();
 
-            System.out.println("Screen Height: " + preferenceAreaHeight);
-            System.out.println("Screen Width:" + preferenceAreaWidth);
+//            System.out.println("Screen Height: " + preferenceAreaHeight);
+//            System.out.println("Screen Width:" + preferenceAreaWidth);
 
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
@@ -118,9 +134,28 @@ public class FilterActivity extends AppCompatActivity {
                 default:
                     break;
             }
+//            System.out.println("SEXO -> " + getPontoSexo());
+//            System.out.println("IDADE -> " + getPontoIdade());
             preferenceArea.invalidate();
             return true;
         }
+    }
+
+    // Methods to get filter algorithm input
+
+    public double getPontoSexo() {
+        if (targetX == -1) return maxSexo / 2;
+        float preferenceAreaWidth = preferenceArea.getWidth();
+        double sexoPercentage = targetX / preferenceAreaWidth;
+        return maxSexo * sexoPercentage;
+    }
+
+    public double getPontoIdade() {
+        if (targetY == -1) return maxIdade / 2;
+        float preferenceAreaHeight = preferenceArea.getHeight();
+        double flippedTargetY = Math.abs(targetY - preferenceAreaHeight);
+        double idadePercentage = flippedTargetY / preferenceAreaHeight;
+        return maxIdade * idadePercentage;
     }
 
     // Utility methods
