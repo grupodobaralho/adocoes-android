@@ -3,13 +3,12 @@ package br.pucrs.ages.adocoes.Funcionalidades.Filtro;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -20,6 +19,7 @@ public class FilterActivity extends AppCompatActivity {
 
     private FrameLayout preferenceArea;
     private ImageView target;
+    private Button button;
 
     // Target center
     private float xTargetCenter;
@@ -52,6 +52,7 @@ public class FilterActivity extends AppCompatActivity {
 
         this.preferenceArea = (FrameLayout) findViewById(R.id.preferenceArea);
         this.target = (ImageView) findViewById(R.id.blueHeart);
+        this.button = (Button) findViewById(R.id.filtrar);
 
         xTargetCenter = getResources().getDimensionPixelSize(R.dimen.target_width) / 2;
         yTargetCenter = getResources().getDimensionPixelSize(R.dimen.target_height) / 2;
@@ -63,6 +64,16 @@ public class FilterActivity extends AppCompatActivity {
 //        System.out.println("Default Ponto Sexo " + getPontoSexo());
 
         this.target.setOnTouchListener(new TargetTouchListener());
+        this.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double pontoIdade = getPontoIdade();
+                double pontoSexo = getPontoSexo();
+                System.out.println(pontoIdade);
+                System.out.println(pontoSexo);
+                
+            }
+        });
     }
 
     @Override

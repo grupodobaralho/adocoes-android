@@ -5,36 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@android:color/holo_blue_dark"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Header"
-            android:textColor="@android:color/white"
-            android:textSize="30dp">
-        </TextView>
-
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/preferenceArea"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-
-
-        <View
-            android:layout_gravity="center"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_dark">
-        </View>
 
         <ImageView
             android:id="@+id/blueHeart"
@@ -48,18 +24,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_dark"
         android:orientation="vertical"
         android:gravity="center">
 
-        <TextView
+        <Button
+            android:id="@+id/filtrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Footer"
-            android:textColor="@android:color/white"
-            android:textSize="30dp">
-        </TextView>
+            android:layout_margin="20dp"
+            android:width="160dp"
+            android:height="60dp"
+            android:text="FILTRAR" />
 
     </LinearLayout>
 
