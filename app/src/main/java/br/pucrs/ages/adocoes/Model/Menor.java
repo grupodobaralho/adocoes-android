@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -36,7 +37,7 @@ public class Menor implements Serializable {
     private String refCidade;
     private String refAbrigo;
     private String processoPoderFamiliar;
-    private List<String> interessados;
+    private List<Usuario> interessados;
     private List<RefMidia> midias;
     private boolean ativo;
 
@@ -54,7 +55,7 @@ public class Menor implements Serializable {
         this.id = id;
     }
 
-    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, String dataNascimento, List<String> familiares, List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude, boolean curavel, boolean deficienciaFisica, boolean deficienciaMental, String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar, List<String> interessados, List<RefMidia> midias, boolean ativo) {
+    public Menor(String id, String nome, Sexo sexo, String certidaoNascimento, String dataNascimento, List<String> familiares, List<String> menoresVinculados, String refRaca, boolean saudavel, String descricaoSaude, boolean curavel, boolean deficienciaFisica, boolean deficienciaMental, String guiaAcolhimento, String refCidade, String refAbrigo, String processoPoderFamiliar, List<Usuario> interessados, List<RefMidia> midias, boolean ativo) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -145,7 +146,7 @@ public class Menor implements Serializable {
         this.processoPoderFamiliar = processoPoderFamiliar;
     }
 
-    public void setInteressados(List<String> interessados) {
+    public void setInteressados(List<Usuario> interessados) {
         this.interessados = interessados;
     }
 
@@ -213,7 +214,7 @@ public class Menor implements Serializable {
         return processoPoderFamiliar;
     }
 
-    public List<String> getInteressados() {
+    public List<Usuario> getInteressados() {
         return interessados;
     }
 

@@ -44,4 +44,15 @@ public class UserBusiness {
         setAccessToken(anonymousToken);
     }
 
+    /**
+     * Verifica se o Usuário está logado
+     * @return
+     */
+    public boolean isLogged(){
+        if(getAccessToken() == null || getAccessToken().equals("Bearer anonymous"))
+            return false;
+        else
+            return true;
+    }
+
 }
