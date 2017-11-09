@@ -142,8 +142,9 @@ public class FavoritosFragment extends Fragment {
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
         String id_interessado = UserBusiness.getInstance().getUserId();
-        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
-            @Override
+        //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
+        RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
+        @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
                     items = response.body();
