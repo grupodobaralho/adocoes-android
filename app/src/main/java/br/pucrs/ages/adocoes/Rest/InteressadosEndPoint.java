@@ -41,6 +41,6 @@ public interface InteressadosEndPoint {
     //favorito|apadrinhamento|adocao
     //vale a pena transformar o tipoInteresse em Enum (pesquisar)
     @GET("interessados/{id_interessado}/menores")
-    Call<List<Menor>> getMenoresInteressado(@Path("id_interessado") String interessadoId, @Query("tipo") String tipoInteresse, @Header("Authorization") String accessToken);
+    Call<List<Menor>> getMenoresInteressadoInteresse(@Path("id_interessado") String interessadoId, @Query("tipo") String tipoInteresse, @Header("Authorization") String accessToken);
 
 }
