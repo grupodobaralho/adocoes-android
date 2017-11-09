@@ -155,8 +155,29 @@ public class ListaMenoresFragment extends Fragment {
 
     }
 
-    private void demonstraInteresseApi(Menor menor){
-        Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
+    private void demonstraInteresseApi(final Menor menor){
+        String token = UserBusiness.getInstance().getAccessToken();
+        RestUtil.getMenoresEndPoint().postMenorInteresse(menor.getId(), token, menor).enqueue(new Callback<Menor>() {
+            @Override
+            public void onResponse(Call<Menor> call, Response<Menor> response) {
+                if (response.body() != null) {
+                    Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                }else {
+                    try {
+                        Log.e("ListagemDeMenores", response.errorBody().string());
+                        Toast.makeText(getActivity(), "Erro em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Menor> call, Throwable t) {
+                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+            }
+        });
+        //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
     }
 
     private void demonstraInteresseLocal(Menor menor){
