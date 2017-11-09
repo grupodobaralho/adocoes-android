@@ -74,6 +74,8 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
         final MenorItemView itemView = holder;
         final Menor menor = items.get(position);
 
+        isLogged = UserBusiness.getInstance().isLogged();
+
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
             //itemView.tvDetalhe.setText(menor.getSexo().toString());
