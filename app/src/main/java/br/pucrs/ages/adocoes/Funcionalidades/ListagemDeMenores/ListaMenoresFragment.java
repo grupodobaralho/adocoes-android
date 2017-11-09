@@ -41,6 +41,7 @@ public class ListaMenoresFragment extends Fragment {
     private List<Menor> menores ;
     protected MenuItem listagemHorizontal;
     private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+    private boolean isLogged;
 
     public ListaMenoresFragment() {
         // Required empty public constructor
@@ -67,7 +68,7 @@ public class ListaMenoresFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
-
+        isLogged = UserBusiness.getInstance().isLogged();
 
         mListaVerticalAdapter = new ListaVerticalAdapter(getActivity());
         mListaHorizontalAdapter = new ListaHorizontalAdapter(getActivity());
@@ -76,20 +77,10 @@ public class ListaMenoresFragment extends Fragment {
             @Override
             public void OnMenorItemSelected(Menor menor) {
                 // Coloque aqui a ação de favoritar :)
-
-                // Chama o Banco e verifica se o menor já é um favorito
-                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
-                if(isFavorite) {
-                    Toast.makeText(getActivity(), ";) Já favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // Chama o Banco e tenta inserir um novo favorito
-                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(menor);
-                if(result)
-                    Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                if(isLogged)
+                    demonstraInteresseApi(menor);
                 else
-                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
+                    demonstraInteresseLocal(menor);
             }
         });
 
@@ -114,18 +105,10 @@ public class ListaMenoresFragment extends Fragment {
                 // Coloque aqui a ação de favoritar :)
 
                 // Chama o Banco e verifica se o menor já é um favorito
-                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
-                if(isFavorite) {
-                    Toast.makeText(getActivity(), ";) Já favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // Chama o Banco e tenta inserir um novo favorito
-                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(menor);
-                if(result)
-                    Toast.makeText(getActivity(), "favoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                if(isLogged)
+                    demonstraInteresseApi(menor);
                 else
-                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
+                    demonstraInteresseLocal(menor);
             }
         });
 
@@ -172,6 +155,25 @@ public class ListaMenoresFragment extends Fragment {
 
     }
 
+    private void demonstraInteresseApi(Menor menor){
+        Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
+    }
+
+    private void demonstraInteresseLocal(Menor menor){
+        // Chama o Banco e verifica se o menor já é um favorito
+        boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(menor);
+        if(isFavorite) {
+            Toast.makeText(getActivity(), "Já é um interessado em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Chama o Banco e tenta inserir um novo favorito
+        boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(menor);
+        if(result)
+            Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getActivity(), "Não foi possível demonstrar interesse em ", Toast.LENGTH_SHORT).show();
+    }
     public void setItems( boolean isListagemVertical) {
         if (isListagemVertical){
             pagerSnapHelper.attachToRecyclerView(null);

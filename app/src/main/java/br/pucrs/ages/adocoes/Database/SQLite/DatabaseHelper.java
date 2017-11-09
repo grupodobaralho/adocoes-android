@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Informacoes da DBF
     public static final String DATABASE_NAME = "AdocoesLocal.db";
-    public static final int DATABASE_VERSION = 3; //deve ser alterado sempre que houver novo run
+    public static final int DATABASE_VERSION = 1; //deve ser alterado sempre que houver novo run
 
     //Nome das tabelas
     public static final String TABLE_FAVORITOS = "Menores_Favoritos";

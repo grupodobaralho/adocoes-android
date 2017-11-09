@@ -29,6 +29,7 @@ import java.util.ArrayList;
 
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 
@@ -42,6 +43,7 @@ public class FavoritosFragment extends Fragment {
     private FavoritosAdapter mListAdapter;
     private Cursor mListaFavoritos;
     private ArrayList<Menor> items = new ArrayList<>();
+    private boolean isLogged;
     //private ProgressBar mProgressBar;
 
     public FavoritosFragment() {
@@ -70,55 +72,34 @@ public class FavoritosFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
+        isLogged = UserBusiness.getInstance().isLogged();
 
-        if (mListaFavoritos.getCount() == 0) {
-            Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
-        } else {
-            while (mListaFavoritos.moveToNext()) {
-                Log.d("um bug", mListaFavoritos.getString(1));
-                Log.d("um bug", mListaFavoritos.getString(2));
-                Menor menor = new Menor(mListaFavoritos.getString(1));
-                items.add(menor);
-            }
-        }
-        /*
-        items.add(new Menor("Israelzinho1"));
-        items.add(new Menor("Israelzinho2"));
-        items.add(new Menor("Israelzinho3"));
-        items.add(new Menor("Israelzinho4"));
-        items.add(new Menor("Israelzinho5"));
-        items.add(new Menor("Israelzinho6"));
-        */
+        if(isLogged){
+            listaMenoresApi();
+        } else if(!UserBusiness.getInstance().isLogged()){
+            listaMenoresLocal();
+        } else
+            Log.d("um bug", mListaFavoritos.getString(1));
 
         mListAdapter = new FavoritosAdapter(getActivity());
         mListAdapter.setData(items);
-
-
 
         mListAdapter.setOnMenorDesfavoritarListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(final Menor menor, final int position) {
                 // Coloque aqui a ação de desfavoritar :)
-
-
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
                 alert.setTitle("Atenção");
-                alert.setMessage("Deseja realmente desfavoritar " + menor.getNome() + "?");
+                alert.setMessage("Deseja realmente desfazer interesse em " + menor.getNome() + "?");
 
                 alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
-                        boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);
-                        if (result) {
-                            Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                            items.remove(position);
-                            mListAdapter.setData(items);
-
-                        } else {
-                            Toast.makeText(getActivity(), "Erro " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                        }
+                        if(isLogged)
+                            Toast.makeText(getActivity(), "Não implementado!", Toast.LENGTH_SHORT).show();
+                        else
+                            desfazerInteresseLocal(menor, position);
                     }
                 });
 
@@ -144,5 +125,41 @@ public class FavoritosFragment extends Fragment {
 
         mRecyclerView.setAdapter(mListAdapter);
         //mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    private void listaMenoresApi(){
+        items.add(new Menor("Israelzinho1"));
+        items.add(new Menor("Israelzinho2"));
+        items.add(new Menor("Israelzinho3"));
+        items.add(new Menor("Israelzinho4"));
+        items.add(new Menor("Israelzinho5"));
+        items.add(new Menor("Israelzinho6"));
+    }
+    private void listaMenoresLocal(){
+        mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
+
+        if (mListaFavoritos.getCount() == 0) {
+            Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
+        } else {
+            while (mListaFavoritos.moveToNext()) {
+                Menor menor = new Menor(mListaFavoritos.getString(1));
+                items.add(menor);
+            }
+        }
+    }
+
+    private void desfazerInteresseApi(Menor menor, int position){
+        Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
+    }
+    private void desfazerInteresseLocal(Menor menor, int position){
+        boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);
+        if (result) {
+            Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+            items.remove(position);
+            mListAdapter.setData(items);
+
+        } else {
+            Toast.makeText(getActivity(), "Erro " + menor.getNome(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
