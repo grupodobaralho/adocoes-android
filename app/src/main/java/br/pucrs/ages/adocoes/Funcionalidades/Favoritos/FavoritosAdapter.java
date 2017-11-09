@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
@@ -31,12 +32,15 @@ import retrofit2.Response;
 
 public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.MenorItemView> {
 
+    private Activity activity;
+    private List<Menor> items = new ArrayList<>();
+    private OnMenorSelectedListener mOnMenorSelectedListener;
+    private OnMenorSelectedListener mOnMenorDesfavoritarListener;
+    private boolean isLogged;
+
     public interface OnMenorSelectedListener {
         void OnMenorItemSelected(Menor menor, int position);
     }
-
-    private OnMenorSelectedListener mOnMenorSelectedListener;
-    private OnMenorSelectedListener mOnMenorDesfavoritarListener;
 
     public void setListener(OnMenorSelectedListener selectListener) {
         this.mOnMenorSelectedListener = selectListener;
@@ -46,16 +50,11 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
         mOnMenorDesfavoritarListener = favoritarListener;
     }
 
-
-    private Activity activity;
-    //Title, Image
-    private ArrayList<Menor> items;
-
     public FavoritosAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setData(ArrayList<Menor> items) {
+    public void setData(List<Menor> items) {
         if(items != null) {
             this.items = items;
             notifyDataSetChanged();
@@ -72,10 +71,37 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
 
     @Override
     public void onBindViewHolder(FavoritosAdapter.MenorItemView holder, int position) {
-        FavoritosAdapter.MenorItemView itemView = holder;
+        final MenorItemView itemView = holder;
         final Menor menor = items.get(position);
+
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
+            //itemView.tvDetalhe.setText(menor.getSexo().toString());
+        }
+        if(isLogged) {
+            for (RefMidia midia : menor.getMidias()) {
+                if (midia.isPrincipal()) {
+                    String token = UserBusiness.getInstance().getAccessToken();
+                    RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
+                        @Override
+                        public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                            MenorMidia midia = response.body();
+
+                            if (midia != null) {
+                                byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                                Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                                itemView.imgFoto.setImageBitmap(imgBitmap);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<MenorMidia> call, Throwable t) {
+
+                        }
+                    });
+                    break;
+                }
+            }
         }
 
     }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +27,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 */
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
@@ -34,6 +37,10 @@ import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by israeldeorce on 20/09/17.
@@ -44,14 +51,14 @@ public class FavoritosFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private FavoritosAdapter mListAdapter;
     private Cursor mListaFavoritos;
-    private ArrayList<Menor> items = new ArrayList<>();
+    private List<Menor> items = new ArrayList<>();
     private boolean isLogged;
+    private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
     //private ProgressBar mProgressBar;
 
     public FavoritosFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,12 +83,10 @@ public class FavoritosFragment extends Fragment {
 
         isLogged = UserBusiness.getInstance().isLogged();
 
-        if(isLogged){
+        if(isLogged)
             listaMenoresApi();
-        } else if(!UserBusiness.getInstance().isLogged()){
+        else
             listaMenoresLocal();
-        } else
-            Log.d("um bug", mListaFavoritos.getString(1));
 
         mListAdapter = new FavoritosAdapter(getActivity());
         mListAdapter.setData(items);
@@ -135,12 +140,40 @@ public class FavoritosFragment extends Fragment {
     }
 
     private void listaMenoresApi(){
-        items.add(new Menor("Israelzinho1"));
+        String token = UserBusiness.getInstance().getAccessToken();
+        String id_interessado = UserBusiness.getInstance().getUserId();
+        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
+            @Override
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+                if (response.body() != null) {
+                    items = response.body();
+                    System.out.println(items);
+                    pagerSnapHelper.attachToRecyclerView(null);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setAdapter(mListAdapter);
+                    mListAdapter.setData(items);
+                }else {
+                    try {
+                        Log.e("ListagemDeMenores", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
+                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+            }
+        });
+        /*items.add(new Menor("Israelzinho1"));
         items.add(new Menor("Israelzinho2"));
         items.add(new Menor("Israelzinho3"));
         items.add(new Menor("Israelzinho4"));
         items.add(new Menor("Israelzinho5"));
         items.add(new Menor("Israelzinho6"));
+        */
     }
     private void listaMenoresLocal(){
         mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();

@@ -31,7 +31,7 @@ public interface MenoresEndPoint {
     Call<MenorMidia> menorMidia(@Path("menorId") String menorId, @Path("midiaId") String midiaId, @Header("Authorization") String accessToken);
 
     @POST("menores/{menorId}/interessados")
-    Call<Menor> postInteresse(@Path("menorId") String menorId, @Header("Authorization") String accessToken, @Body Menor menor);
+    Call<Menor> postMenorInteresse(@Path("menorId") String menorId, @Header("Authorization") String accessToken, @Body Menor menor);
 
     @GET("menores/{menorId}/interessados")
     Call<List<Usuario>> getMenoresInteressadoInteresse(@Path("menorId") String interessadoId, @Query("interesse") String tipoInteresse, @Header("Authorization") String accessToken);
