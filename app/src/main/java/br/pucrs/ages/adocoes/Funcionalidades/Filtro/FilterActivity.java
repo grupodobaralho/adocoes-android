@@ -12,7 +12,15 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import java.util.List;
+
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class FilterActivity extends AppCompatActivity {
@@ -20,6 +28,8 @@ public class FilterActivity extends AppCompatActivity {
     private FrameLayout preferenceArea;
     private ImageView target;
     private Button button;
+
+    private List<Menor> menores;
 
     // Target center
     private float xTargetCenter;
@@ -71,7 +81,21 @@ public class FilterActivity extends AppCompatActivity {
                 double pontoSexo = getPontoSexo();
                 System.out.println(pontoIdade);
                 System.out.println(pontoSexo);
-                
+                String token = UserBusiness.getInstance().getAccessToken();
+                RestUtil.getMenoresEndPoint().menores(token, pontoIdade, pontoSexo).enqueue(new Callback<List<Menor>>() {
+                    @Override
+                    public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+                        menores = response.body();
+                        for(Menor menor : menores) {
+                            System.out.println(menor);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Menor>> call, Throwable t) {
+
+                    }
+                });
             }
         });
     }
