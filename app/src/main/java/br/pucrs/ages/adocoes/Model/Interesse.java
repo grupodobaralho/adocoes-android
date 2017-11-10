@@ -1,17 +1,22 @@
 package br.pucrs.ages.adocoes.Model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.security.InvalidParameterException;
 
 /**
- * Created by kuquert on 03/06/17.
+ * Created by Israel Deorce on 10/11/2017.
  */
 
 public class Interesse implements Serializable {
+    final String tipoInteresse;
 
-    private String refInteressado;
-    private String refMenor;
-    private String tipoInteresse;
-    private Date timeStamp;
+    public Interesse(String tipoInteresse) {
+
+        if (tipoInteresse.equals("favoritar") || tipoInteresse.equals("adotar") || tipoInteresse.equals("apadrinhar"))
+            this.tipoInteresse = tipoInteresse;
+        else
+            throw new InvalidParameterException("Erro: Tipo de interesse deve ser: favoritar|adotar|apadrinhar");
+    }
 
 }
+

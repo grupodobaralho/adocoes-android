@@ -142,8 +142,7 @@ public class FavoritosFragment extends Fragment {
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
         String id_interessado = UserBusiness.getInstance().getUserId();
-        //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
+        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
         @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
@@ -168,13 +167,6 @@ public class FavoritosFragment extends Fragment {
                 Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
             }
         });
-        /*items.add(new Menor("Israelzinho1"));
-        items.add(new Menor("Israelzinho2"));
-        items.add(new Menor("Israelzinho3"));
-        items.add(new Menor("Israelzinho4"));
-        items.add(new Menor("Israelzinho5"));
-        items.add(new Menor("Israelzinho6"));
-        */
     }
     private void listaMenoresLocal(){
         mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
