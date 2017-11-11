@@ -15,22 +15,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Toast;
-/*
-import java.io.BufferedReader;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-*/
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
@@ -41,6 +30,17 @@ import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+/*
+import java.io.BufferedReader;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+*/
 
 /**
  * Created by israeldeorce on 20/09/17.
@@ -141,8 +141,10 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
-        String id_interessado = UserBusiness.getInstance().getUserId();
-        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
+        final String id_interessado = UserBusiness.getInstance().getUserId();
+        //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
+        //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresInteressado(token, "favoritar").enqueue(new Callback<List<Menor>>() {
         @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
@@ -153,7 +155,10 @@ public class FavoritosFragment extends Fragment {
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mListAdapter);
                     mListAdapter.setData(items);
+                    Toast.makeText(getActivity(), "Erro: qtn de menores: "+items.size() , Toast.LENGTH_SHORT).show();
                 }else {
+
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde " + id_interessado, Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("ListagemDeMenores", response.errorBody().string());
                     } catch (IOException e) {
@@ -182,7 +187,38 @@ public class FavoritosFragment extends Fragment {
     }
 
     private void desfazerInteresseApi(Menor menor, int position){
-        Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
+        String token = UserBusiness.getInstance().getAccessToken();
+        final String id_interessado = UserBusiness.getInstance().getUserId();
+        //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
+        //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresInteressado(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+            @Override
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+                if (response.body() != null) {
+                    items = response.body();
+                    System.out.println(items);
+                    pagerSnapHelper.attachToRecyclerView(null);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setAdapter(mListAdapter);
+                    mListAdapter.setData(items);
+                    Toast.makeText(getActivity(), "Erro: qtn de menores: "+items.size() , Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde " + id_interessado, Toast.LENGTH_SHORT).show();
+                    try {
+                        Log.e("ListagemDeMenores", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
+                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+            }
+        });
+        //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
     }
     private void desfazerInteresseLocal(Menor menor, int position){
         boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);

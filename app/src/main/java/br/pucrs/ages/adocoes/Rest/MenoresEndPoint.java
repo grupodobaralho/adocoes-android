@@ -25,6 +25,9 @@ public interface MenoresEndPoint {
     @GET("menores/{menorId}")
     Call<Menor> menor(@Path("menorId") String portfolioId, @Header("Authorization") String accessToken);
 
+    //@DELETE("menores/{menorId}")
+    //Call<Menor> menor(@Path("menorId") String portfolioId, @Header("Authorization") String accessToken);
+
     @POST("menores/{menorId}")
     Call<Menor> updateMenor(@Path("menorId") String portfolioId, @Header("Authorization") String accessToken, @Body Menor menor);
 
@@ -35,7 +38,7 @@ public interface MenoresEndPoint {
     Call<Menor> postMenorInteresse(@Path("menorId") String menorId, @Header("Authorization") String accessToken, @Body Interesse body);
 
     @GET("menores/{menorId}/interessados")
-    Call<List<Usuario>> getMenoresInteressadoInteresse(@Path("menorId") String interessadoId, @Query("interesse") String tipoInteresse, @Header("Authorization") String accessToken);
+    Call<List<Usuario>> getMenoresInteressadoInteresse(@Path("menorId") String interessadoId, @Header("Authorization") String accessToken, @Query("interesse") String tipoInteresse);
 
 
 }
