@@ -144,7 +144,7 @@ public class FavoritosFragment extends Fragment {
         final String id_interessado = UserBusiness.getInstance().getUserId();
         //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
         //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresInteressado(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
         @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
@@ -191,7 +191,7 @@ public class FavoritosFragment extends Fragment {
         final String id_interessado = UserBusiness.getInstance().getUserId();
         //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
         //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresInteressado(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {

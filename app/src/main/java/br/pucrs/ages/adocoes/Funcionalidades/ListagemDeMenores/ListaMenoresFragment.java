@@ -21,7 +21,7 @@ import java.util.List;
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
-import br.pucrs.ages.adocoes.Model.Interesse;
+import br.pucrs.ages.adocoes.Model.Body.Interesse;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
@@ -158,7 +158,8 @@ public class ListaMenoresFragment extends Fragment {
 
     private void demonstraInteresseApi(final Menor menor){
         String token = UserBusiness.getInstance().getAccessToken();
-        RestUtil.getMenoresEndPoint().postMenorInteresse(menor.getId(), token, new Interesse("favoritar")).enqueue(new Callback<Menor>() {
+        System.out.println(menor.getId());
+        RestUtil.getEuEndPoint().postMenorInteresse(token, new Interesse(menor.getId(), "favoritar")).enqueue(new Callback<Menor>() {
             @Override
             public void onResponse(Call<Menor> call, Response<Menor> response) {
                 if (response.body() != null) {

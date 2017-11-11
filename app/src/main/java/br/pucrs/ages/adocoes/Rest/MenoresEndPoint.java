@@ -2,7 +2,6 @@ package br.pucrs.ages.adocoes.Rest;
 
 import java.util.List;
 
-import br.pucrs.ages.adocoes.Model.Interesse;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.Model.Usuario;
@@ -34,8 +33,9 @@ public interface MenoresEndPoint {
     @GET("menores/{menorId}/midias/{midiaId}")
     Call<MenorMidia> menorMidia(@Path("menorId") String menorId, @Path("midiaId") String midiaId, @Header("Authorization") String accessToken);
 
-    @POST("menores/{menorId}/interessados")
-    Call<Menor> postMenorInteresse(@Path("menorId") String menorId, @Header("Authorization") String accessToken, @Body Interesse body);
+    //Esta rota foi trocada pela rota POST /eu/menores e não mais deverá ser utilizada
+    //@POST("menores/{menorId}/interessados")
+    //Call<Menor> postMenorInteresse(@Path("menorId") String menorId, @Header("Authorization") String accessToken, @Body Interesse body);
 
     @GET("menores/{menorId}/interessados")
     Call<List<Usuario>> getMenoresInteressadoInteresse(@Path("menorId") String interessadoId, @Header("Authorization") String accessToken, @Query("interesse") String tipoInteresse);
