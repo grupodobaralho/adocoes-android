@@ -141,24 +141,22 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
-        final String id_interessado = UserBusiness.getInstance().getUserId();
-        //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
-        //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+        //RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
+        //BUG, POIS ESTÃO VOLTANDO MENORES NULOS
+        RestUtil.getEuEndPoint().getMenoresEu(token).enqueue(new Callback<List<Menor>>() {
         @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
                     items = response.body();
-                    System.out.println(items);
+                    //Log.d("Olha o erro: ", "esse erro: "+ items.toString());
                     pagerSnapHelper.attachToRecyclerView(null);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mListAdapter);
                     mListAdapter.setData(items);
-                    Toast.makeText(getActivity(), "Erro: qtn de menores: "+items.size() , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Erro: qtn de menores: "+items.size() , Toast.LENGTH_SHORT).show();
                 }else {
-
-                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde " + id_interessado, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("ListagemDeMenores", response.errorBody().string());
                     } catch (IOException e) {
@@ -190,8 +188,8 @@ public class FavoritosFragment extends Fragment {
         String token = UserBusiness.getInstance().getAccessToken();
         final String id_interessado = UserBusiness.getInstance().getUserId();
         //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
-        //RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
+        //RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
