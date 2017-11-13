@@ -17,10 +17,6 @@ import java.util.List;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
-import br.pucrs.ages.adocoes.Rest.RestUtil;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class FilterActivity extends AppCompatActivity {
@@ -70,9 +66,6 @@ public class FilterActivity extends AppCompatActivity {
         actionBarHeight = getActionBarHeight();
         statusBarHeight = getStatusBarHeight();
 
-//        System.out.println("Default Ponto Idade " + getPontoIdade());
-//        System.out.println("Default Ponto Sexo " + getPontoSexo());
-
         this.target.setOnTouchListener(new TargetTouchListener());
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,23 +74,21 @@ public class FilterActivity extends AppCompatActivity {
                 double pontoSexo = getPontoSexo();
                 System.out.println(pontoIdade);
                 System.out.println(pontoSexo);
-                String token = UserBusiness.getInstance().getAccessToken();
-                RestUtil.getMenoresEndPoint().menores(token, pontoIdade, pontoSexo).enqueue(new Callback<List<Menor>>() {
-                    @Override
-                    public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
-                        menores = response.body();
-                        for(Menor menor : menores) {
-                            System.out.println(menor);
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(Call<List<Menor>> call, Throwable t) {
 
-                    }
-                });
+                setResult(RESULT_OK);
+                finish();
             }
         });
+
+        final int rawIdade = UserBusiness.getInstance().getRawIdade();
+        final int rawSexo = UserBusiness.getInstance().getRawSexo();
+
+        if (rawIdade != -1 && rawSexo != -1) {
+            target.setX(rawSexo);
+            target.setY(rawIdade);
+            preferenceArea.invalidate();
+        }
     }
 
     @Override
@@ -111,6 +102,9 @@ public class FilterActivity extends AppCompatActivity {
             // Gets raw screen touch position
             int rawX = (int) event.getRawX();
             int rawY = (int) event.getRawY();
+
+            System.out.println(rawX);
+            System.out.println(rawY);
 
             // Gets permited movable area
             // This is done here because the preference area measures are not available in onCreate method
@@ -132,40 +126,14 @@ public class FilterActivity extends AppCompatActivity {
                     yDifference = yTargetTouch - yTargetCenter;
 
                 case MotionEvent.ACTION_MOVE:
-                    // Values that represent the target's center
-                    float xWithParentOffset = rawX - preferenceArea.getX();
-                    float yWithParentOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
+                    setAdjustedTargetPosition(rawX, rawY, preferenceAreaHeight, preferenceAreaWidth);
 
-                    // These 4 "ifs" make sure the target's coordinates stay inside the allowed area
-                    if (xWithParentOffset > preferenceAreaWidth) {
-                        xWithParentOffset = preferenceAreaWidth;
-                    }
-                    if (xWithParentOffset < 0) {
-                        xWithParentOffset = 0;
-                    }
-                    if (yWithParentOffset > preferenceAreaHeight) {
-                        yWithParentOffset = preferenceAreaHeight;
-                    }
-                    if (yWithParentOffset < 0) {
-                        yWithParentOffset = 0;
-                    }
-
-                    // This will make the target snap to its center when touched
-                    float xSnapedToCenter = xWithParentOffset - xTargetCenter;
-                    float ySnapedToCenter = yWithParentOffset - yTargetCenter;
-
-                    // Sets target's new coordinates
-                    target.setX(xSnapedToCenter);
-                    target.setY(ySnapedToCenter);
-                    targetX = xWithParentOffset;
-                    targetY = yWithParentOffset;
-//                    System.out.println("X: " + xWithParentOffset);
-//                    System.out.println("Y: " + yWithParentOffset);
-//                    System.out.println("Snap with Offset X: " + xSnapedToCenter);
-//                    System.out.println("Snap with Offset Y: " + ySnapedToCenter);
 
                     break;
-
+                case MotionEvent.ACTION_UP:
+                    UserBusiness.getInstance().setRawIdade(rawY);
+                    UserBusiness.getInstance().setRawSexo(rawX);
+                    break;
                 default:
                     break;
             }
@@ -174,6 +142,41 @@ public class FilterActivity extends AppCompatActivity {
             preferenceArea.invalidate();
             return true;
         }
+    }
+
+    public void setAdjustedTargetPosition(int rawX, int rawY, float preferenceAreaHeight, float preferenceAreaWidth) {
+        // Values that represent the target's center
+        float xWithParentOffset = rawX - preferenceArea.getX();
+        float yWithParentOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
+
+        // These 4 "ifs" make sure the target's coordinates stay inside the allowed area
+        if (xWithParentOffset > preferenceAreaWidth) {
+            xWithParentOffset = preferenceAreaWidth;
+        }
+        if (xWithParentOffset < 0) {
+            xWithParentOffset = 0;
+        }
+        if (yWithParentOffset > preferenceAreaHeight) {
+            yWithParentOffset = preferenceAreaHeight;
+        }
+        if (yWithParentOffset < 0) {
+            yWithParentOffset = 0;
+        }
+
+        // This will make the target snap to its center when touched
+        float xSnapedToCenter = xWithParentOffset - xTargetCenter;
+        float ySnapedToCenter = yWithParentOffset - yTargetCenter;
+
+        // Sets target's new coordinates
+        target.setX(xSnapedToCenter);
+        target.setY(ySnapedToCenter);
+        targetX = xWithParentOffset;
+        targetY = yWithParentOffset;
+                    System.out.println("X: " + xWithParentOffset);
+                    System.out.println("Y: " + yWithParentOffset);
+                    System.out.println("Snap with Offset X: " + xSnapedToCenter);
+                    System.out.println("Snap with Offset Y: " + ySnapedToCenter);
+        preferenceArea.invalidate();
     }
 
     // Methods to get filter algorithm input
@@ -191,6 +194,14 @@ public class FilterActivity extends AppCompatActivity {
         double flippedTargetY = Math.abs(targetY - preferenceAreaHeight);
         double idadePercentage = flippedTargetY / preferenceAreaHeight;
         return maxIdade * idadePercentage;
+    }
+
+    public void setCoordinate(double pontoSexo, double pontoIdade) {
+        float widthMultiplier = (float)(pontoSexo / maxSexo);
+        float heightMultiplier = (float)(pontoIdade / maxIdade);
+
+        target.setX(preferenceArea.getWidth() * widthMultiplier);
+        target.setY(preferenceArea.getHeight() * heightMultiplier);
     }
 
     // Utility methods

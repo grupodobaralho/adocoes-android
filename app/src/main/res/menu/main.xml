@@ -9,4 +9,13 @@
         app:showAsAction="ifRoom"
         android:visible="true"/>
 
+    <item
+        android:id="@+id/filtro"
+        android:title=""
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_filter_list_white_48dp"
+        app:showAsAction="ifRoom"
+        android:visible="true"/>
+
+
 </menu>

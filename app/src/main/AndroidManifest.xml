@@ -48,6 +48,8 @@
             android:name=".Funcionalidades.ImagePreview.ImagePreviewActivity"
             android:label="Detalhes" />
         <activity android:name=".Funcionalidades.MenorDetails.StreamActivity"></activity>
+        <activity android:name=".Funcionalidades.Filtro.FilterActivity">"
+        </activity>
     </application>
 
 </manifest>

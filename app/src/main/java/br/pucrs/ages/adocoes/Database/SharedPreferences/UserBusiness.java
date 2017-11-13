@@ -20,15 +20,19 @@ public class UserBusiness {
 
     private static final String prefix = "Bearer ";
     private static final String anonymousToken = "Bearer anonymous";
+    private double pontoIdade;
+    private double pontoSexo;
+    private int rawIdade;
+    private int rawSexo;
 
     public static UserBusiness getInstance() {
         return ourInstance;
     }
 
     public void updateAccessToken(String accessToken, String userId) {
-        this.accessToken = prefix + accessToken;
+        this.accessToken = prefix  + accessToken;
         this.userId = userId;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, prefix + this.accessToken);
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, this.accessToken);
         SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.USER_ID, this.userId);
     }
 
@@ -93,4 +97,39 @@ public class UserBusiness {
     }
 
 
+    public void setPontoIdade(double pontoIdade) {
+        this.pontoIdade = pontoIdade;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_IDADE, (float) pontoIdade);
+    }
+
+    public double getPontoIdade() {
+        return SharedPreferencesOperations.loadDoubleFromPrefs(SharedPreferencesOperations.PONTO_IDADE, 9);
+    }
+
+    public void setPontoSexo(double pontoSexo) {
+        this.pontoSexo = pontoSexo;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_SEXO, (float) pontoSexo);
+    }
+
+    public double getPontoSexo() {
+        return SharedPreferencesOperations.loadDoubleFromPrefs(SharedPreferencesOperations.PONTO_SEXO, 0.5f);
+    }
+
+    public void setRawIdade(int pontoIdade) {
+        this.rawIdade = pontoIdade;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_IDADE, pontoIdade);
+    }
+
+    public int getRawIdade() {
+        return SharedPreferencesOperations.loadIntFromPrefs(SharedPreferencesOperations.RAW_IDADE, -1);
+    }
+
+    public void setRawSexo(int pontoSexo) {
+        this.rawSexo = pontoSexo;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_SEXO, pontoSexo);
+    }
+
+    public int getRawSexo() {
+        return SharedPreferencesOperations.loadIntFromPrefs(SharedPreferencesOperations.RAW_SEXO, -1);
+    }
 }

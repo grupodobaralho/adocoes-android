@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
-import br.pucrs.ages.adocoes.Model.Usuario;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -43,5 +42,5 @@ public interface MenoresEndPoint {
 
 
     @GET("menores")
-    Call<List<Menor>> menores(@Header("Authorization") String accessToken, @Body Double pontoIdade, @Body Double pontoSexo);
+    Call<List<Menor>> menores(@Header("Authorization") String accessToken, @Query("pontoIdade") double pontoIdade, @Query("pontoSexo") double pontoSexo);
 }
