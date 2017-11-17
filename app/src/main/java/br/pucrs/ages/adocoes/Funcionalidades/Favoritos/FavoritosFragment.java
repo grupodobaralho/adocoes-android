@@ -145,7 +145,7 @@ public class FavoritosFragment extends Fragment {
         // @GET("eu/menores")
         //Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
         //RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresEu(token, "apadrinhar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
