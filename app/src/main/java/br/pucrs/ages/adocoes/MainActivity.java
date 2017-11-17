@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Funcionalidades.Adocao.AdocaoFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Favoritos.FavoritosFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional.ListagemConteudoInstitucionalFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
@@ -113,17 +114,20 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_favoritos:
                 displayView(1);
                 break;
-            case R.id.nav_listagem_vertical:
+            case R.id.nav_adocoes:
                 displayView(2);
                 break;
-            case R.id.nav_conteudo_institucional:
+            case R.id.nav_listagem_vertical:
                 displayView(3);
                 break;
-            case R.id.nav_logout:
+            case R.id.nav_conteudo_institucional:
                 displayView(4);
                 break;
-            case R.id.nav_sobre:
+            case R.id.nav_logout:
                 displayView(5);
+                break;
+            case R.id.nav_sobre:
+                displayView(6);
                 break;
             default:
                 break;
@@ -150,22 +154,26 @@ public class MainActivity extends AppCompatActivity
                 title = "Lista de Interesses";
                 break;
             case 2:
+                fragment = new AdocaoFragment();
+                title = "Adoções em Andamento";
+                break;
+            case 3:
                 fragment = new ListaMenoresFragment();
                 title = "Crianças e Adolescentes";
                 //Mostra a opção de troca
                 iconTrocaModoDeVisualizacao.setVisible(true);
                 break;
-            case 3:
+            case 4:
                 fragment = ListagemConteudoInstitucionalFragment.newInstance();
                 title = "Novidades";
                 break;
-            case 4:
+            case 5:
                 finish();
                 Intent intent = new Intent(this, LoginActivity.class);
                 UserBusiness.getInstance().setAnonymousToken();
                 startActivity(intent);
                 break;
-            case 5:
+            case 6:
                 fragment = SobreFragment.newInstance();
                 title = "Sobre";
                 break;

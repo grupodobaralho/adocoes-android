@@ -8,6 +8,9 @@
         <item
             android:id="@+id/nav_favoritos"
             android:title="Lista de Interesses" />
+        <item
+            android:id="@+id/nav_adocoes"
+            android:title="Adoções em Andamento" />
         <item android:id="@+id/nav_conteudo_institucional"
             android:title="Novidades" />
         <item
