@@ -75,19 +75,17 @@ public class FilterActivity extends AppCompatActivity {
                 System.out.println(pontoIdade);
                 System.out.println(pontoSexo);
 
-
                 setResult(RESULT_OK);
                 finish();
             }
         });
 
-        final int rawIdade = UserBusiness.getInstance().getRawIdade();
-        final int rawSexo = UserBusiness.getInstance().getRawSexo();
+        final float sexoCoordinate = UserBusiness.getInstance().getTargetCoordinateX();
+        final float idadeCoordinate = UserBusiness.getInstance().getTargetCoordinateY();
 
-        if (rawIdade != -1 && rawSexo != -1) {
-            target.setX(rawSexo);
-            target.setY(rawIdade);
-            preferenceArea.invalidate();
+        if (sexoCoordinate != -1 && idadeCoordinate != -1) {
+            target.setX(sexoCoordinate);
+            target.setY(idadeCoordinate);
         }
     }
 
@@ -97,7 +95,8 @@ public class FilterActivity extends AppCompatActivity {
     }
 
     private final class TargetTouchListener implements View.OnTouchListener {
-
+        float coordinateX = 0;
+        float coordinateY = 0;
         public boolean onTouch(View view, MotionEvent event) {
             // Gets raw screen touch position
             int rawX = (int) event.getRawX();
@@ -111,11 +110,9 @@ public class FilterActivity extends AppCompatActivity {
             float preferenceAreaHeight = preferenceArea.getHeight();
             float preferenceAreaWidth = preferenceArea.getWidth();
 
-//            System.out.println("Screen Height: " + preferenceAreaHeight);
-//            System.out.println("Screen Width:" + preferenceAreaWidth);
+
 
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
-
                 case MotionEvent.ACTION_DOWN:
                     // Gets target touch position
                     float xTargetTouch = event.getX();
@@ -126,57 +123,49 @@ public class FilterActivity extends AppCompatActivity {
                     yDifference = yTargetTouch - yTargetCenter;
 
                 case MotionEvent.ACTION_MOVE:
-                    setAdjustedTargetPosition(rawX, rawY, preferenceAreaHeight, preferenceAreaWidth);
+                    // Values that represent the target's center
+                    float xWithParentOffset = rawX - preferenceArea.getX();
+                    float yWithParentOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
 
+                    // These 4 "ifs" make sure the target's coordinates stay inside the allowed area
+                    if (xWithParentOffset > preferenceAreaWidth) {
+                        xWithParentOffset = preferenceAreaWidth;
+                    }
+                    if (xWithParentOffset < 0) {
+                        xWithParentOffset = 0;
+                    }
+                    if (yWithParentOffset > preferenceAreaHeight) {
+                        yWithParentOffset = preferenceAreaHeight;
+                    }
+                    if (yWithParentOffset < 0) {
+                        yWithParentOffset = 0;
+                    }
+
+                    // This will make the target snap to its center when touched
+                    float xSnapedToCenter = xWithParentOffset - xTargetCenter;
+                    float ySnapedToCenter = yWithParentOffset - yTargetCenter;
+
+                    // Sets target's new coordinates
+                    target.setX(xSnapedToCenter);
+                    target.setY(ySnapedToCenter);
+                    targetX = xWithParentOffset;
+                    targetY = yWithParentOffset;
+                    coordinateX = xSnapedToCenter - preferenceAreaWidth / 2 + xTargetCenter;
+                    coordinateY = ySnapedToCenter - preferenceAreaHeight / 2 + yTargetCenter;
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    UserBusiness.getInstance().setRawIdade(rawY);
-                    UserBusiness.getInstance().setRawSexo(rawX);
+                    UserBusiness.getInstance().setTargetCoordinateX(coordinateX);
+                    UserBusiness.getInstance().setPontoSexo((float)getPontoSexo());
+                    UserBusiness.getInstance().setTargetCoordinateY(coordinateY);
+                    UserBusiness.getInstance().setPontoIdade((float)getPontoIdade());
                     break;
                 default:
                     break;
             }
-//            System.out.println("SEXO -> " + getPontoSexo());
-//            System.out.println("IDADE -> " + getPontoIdade());
             preferenceArea.invalidate();
             return true;
         }
-    }
-
-    public void setAdjustedTargetPosition(int rawX, int rawY, float preferenceAreaHeight, float preferenceAreaWidth) {
-        // Values that represent the target's center
-        float xWithParentOffset = rawX - preferenceArea.getX();
-        float yWithParentOffset = rawY - preferenceArea.getY() - actionBarHeight - statusBarHeight;
-
-        // These 4 "ifs" make sure the target's coordinates stay inside the allowed area
-        if (xWithParentOffset > preferenceAreaWidth) {
-            xWithParentOffset = preferenceAreaWidth;
-        }
-        if (xWithParentOffset < 0) {
-            xWithParentOffset = 0;
-        }
-        if (yWithParentOffset > preferenceAreaHeight) {
-            yWithParentOffset = preferenceAreaHeight;
-        }
-        if (yWithParentOffset < 0) {
-            yWithParentOffset = 0;
-        }
-
-        // This will make the target snap to its center when touched
-        float xSnapedToCenter = xWithParentOffset - xTargetCenter;
-        float ySnapedToCenter = yWithParentOffset - yTargetCenter;
-
-        // Sets target's new coordinates
-        target.setX(xSnapedToCenter);
-        target.setY(ySnapedToCenter);
-        targetX = xWithParentOffset;
-        targetY = yWithParentOffset;
-                    System.out.println("X: " + xWithParentOffset);
-                    System.out.println("Y: " + yWithParentOffset);
-                    System.out.println("Snap with Offset X: " + xSnapedToCenter);
-                    System.out.println("Snap with Offset Y: " + ySnapedToCenter);
-        preferenceArea.invalidate();
     }
 
     // Methods to get filter algorithm input

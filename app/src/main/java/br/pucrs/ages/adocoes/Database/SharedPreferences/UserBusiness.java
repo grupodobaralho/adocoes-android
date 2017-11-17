@@ -20,10 +20,10 @@ public class UserBusiness {
 
     private static final String prefix = "Bearer ";
     private static final String anonymousToken = "Bearer anonymous";
-    private double pontoIdade;
-    private double pontoSexo;
-    private int rawIdade;
-    private int rawSexo;
+    private float pontoIdade;
+    private float pontoSexo;
+    private float targetCoordinateX;
+    private float targetCoordinateY;
 
     public static UserBusiness getInstance() {
         return ourInstance;
@@ -97,39 +97,39 @@ public class UserBusiness {
     }
 
 
-    public void setPontoIdade(double pontoIdade) {
+    public void setPontoIdade(float pontoIdade) {
         this.pontoIdade = pontoIdade;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_IDADE, (float) pontoIdade);
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_IDADE, pontoIdade);
     }
 
     public double getPontoIdade() {
-        return SharedPreferencesOperations.loadDoubleFromPrefs(SharedPreferencesOperations.PONTO_IDADE, 9);
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.PONTO_IDADE, 9);
     }
 
-    public void setPontoSexo(double pontoSexo) {
+    public void setPontoSexo(float pontoSexo) {
         this.pontoSexo = pontoSexo;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_SEXO, (float) pontoSexo);
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_SEXO, pontoSexo);
     }
 
     public double getPontoSexo() {
-        return SharedPreferencesOperations.loadDoubleFromPrefs(SharedPreferencesOperations.PONTO_SEXO, 0.5f);
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.PONTO_SEXO, 0.5f);
     }
 
-    public void setRawIdade(int pontoIdade) {
-        this.rawIdade = pontoIdade;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_IDADE, pontoIdade);
+    public void setTargetCoordinateX(float coordinateX) {
+        this.targetCoordinateX = coordinateX;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_SEXO, coordinateX);
     }
 
-    public int getRawIdade() {
-        return SharedPreferencesOperations.loadIntFromPrefs(SharedPreferencesOperations.RAW_IDADE, -1);
+    public float getTargetCoordinateX() {
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.RAW_SEXO, -1);
     }
 
-    public void setRawSexo(int pontoSexo) {
-        this.rawSexo = pontoSexo;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_SEXO, pontoSexo);
+    public void setTargetCoordinateY(float coordinateY) {
+        this.targetCoordinateY = coordinateY;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_IDADE, coordinateY);
     }
 
-    public int getRawSexo() {
-        return SharedPreferencesOperations.loadIntFromPrefs(SharedPreferencesOperations.RAW_SEXO, -1);
+    public float getTargetCoordinateY() {
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.RAW_IDADE, -1);
     }
 }

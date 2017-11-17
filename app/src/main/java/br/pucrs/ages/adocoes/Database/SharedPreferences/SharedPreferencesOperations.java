@@ -61,10 +61,9 @@ public class  SharedPreferencesOperations {
         return settings.getInt(key,defaultValue);
     }
 
-    public static double loadDoubleFromPrefs(String key, float defaultValue){
+    public static float loadFloatFromPrefs(String key, float defaultValue){
 
         SharedPreferences settings = AdocoesApplication.getAdocoesApplicationContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-
         return settings.getFloat(key, defaultValue);
     }
 
