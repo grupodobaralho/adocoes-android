@@ -27,6 +27,7 @@ import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -104,7 +105,7 @@ public class FavoritosFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
                         if(isLogged)
-                            Toast.makeText(getActivity(), "Não implementado!", Toast.LENGTH_SHORT).show();
+                            desfazerInteresseApi(menor, position);
                         else
                             desfazerInteresseLocal(menor, position);
                     }
@@ -141,35 +142,34 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
+        // @GET("eu/menores")
+        //Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
         //RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
-        //BUG, POIS ESTÃO VOLTANDO MENORES NULOS
-        RestUtil.getEuEndPoint().getMenoresEu(token).enqueue(new Callback<List<Menor>>() {
-        @Override
+        RestUtil.getEuEndPoint().getMenoresEu(token, "apadrinhar").enqueue(new Callback<List<Menor>>() {
+            @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
                     items = response.body();
-                    //Log.d("Olha o erro: ", "esse erro: "+ items.toString());
                     pagerSnapHelper.attachToRecyclerView(null);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mListAdapter);
                     mListAdapter.setData(items);
-                    //Toast.makeText(getActivity(), "Erro: qtn de menores: "+items.size() , Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
                     try {
-                        Log.e("ListagemDeMenores", response.errorBody().string());
+                        Log.e("ListagemDeInteresses", response.errorBody().string());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<List<Menor>> call, Throwable t) {
-                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+                Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
             }
         });
+
     }
     private void listaMenoresLocal(){
         mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
@@ -184,36 +184,31 @@ public class FavoritosFragment extends Fragment {
         }
     }
 
-    private void desfazerInteresseApi(Menor menor, int position){
+    private void desfazerInteresseApi(final Menor menor, final int position){
         String token = UserBusiness.getInstance().getAccessToken();
-        final String id_interessado = UserBusiness.getInstance().getUserId();
         //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
-        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favoritar", token).enqueue(new Callback<List<Menor>>() {
-        //RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().deleteMenorEu(token, menor.getId(), "favoritar").enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.body() != null) {
-                    items = response.body();
-                    System.out.println(items);
+                    items.remove(position);
                     pagerSnapHelper.attachToRecyclerView(null);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mListAdapter);
                     mListAdapter.setData(items);
-                    Toast.makeText(getActivity(), "Erro: qtn de menores: "+items.size() , Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde " + id_interessado, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponse " + menor.getId(), Toast.LENGTH_SHORT).show();
                     try {
-                        Log.e("ListagemDeMenores", response.errorBody().string());
+                        Log.e("Desfazer Interesse", response.errorBody().string());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-
             @Override
-            public void onFailure(Call<List<Menor>> call, Throwable t) {
-                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Desfazer Interesse", t.getLocalizedMessage(), t);
             }
         });
         //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
