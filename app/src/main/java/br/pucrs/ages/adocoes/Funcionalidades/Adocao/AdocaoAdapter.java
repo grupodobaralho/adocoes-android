@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
@@ -21,33 +22,33 @@ import br.pucrs.ages.adocoes.R;
 
 public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemView> {
 
+    private Activity activity;
+    private List<Menor> items = new ArrayList<>();
+    private AdocaoAdapter.OnMenorSelectedListener mOnMenorSelectedListener;
+    private AdocaoAdapter.OnMenorSelectedListener mOnMenorDesfavoritarListener;
+    private boolean isLogged;
+
     public interface OnMenorSelectedListener {
         void OnMenorItemSelected(Menor menor, int position);
     }
 
-    private OnMenorSelectedListener mOnMenorSelectedListener;
-    private OnMenorSelectedListener mOnMenorDeleteInteresseListener;
-
-    public void setListener(OnMenorSelectedListener selectListener) {
+    public void setListener(AdocaoAdapter.OnMenorSelectedListener selectListener) {
         this.mOnMenorSelectedListener = selectListener;
     }
 
-//    public void setOnMenorDeleteInteresseListener(OnMenorSelectedListener interesseAdotarListener) {
-//        mOnMenorDeleteInteresseListener = interesseAdotarListener;
-//    }
-
-
-    private Activity activity;
-    //Title, Image
-    private ArrayList<Menor> items;
+    public void setOnMenorDesfavoritarListener(AdocaoAdapter.OnMenorSelectedListener favoritarListener) {
+        mOnMenorDesfavoritarListener = favoritarListener;
+    }
 
     public AdocaoAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setData(ArrayList<Menor> items) {
-        this.items = items;
-        notifyDataSetChanged();
+    public void setData(List<Menor> items) {
+        if(items != null) {
+            this.items = items;
+            notifyDataSetChanged();
+        }
     }
 
     @Override
