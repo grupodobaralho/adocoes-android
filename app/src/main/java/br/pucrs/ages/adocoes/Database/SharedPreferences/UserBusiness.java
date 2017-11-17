@@ -1,9 +1,20 @@
 package br.pucrs.ages.adocoes.Database.SharedPreferences;
 
+import android.util.Log;
+
+import java.io.IOException;
+
+import br.pucrs.ages.adocoes.Model.Eu;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class UserBusiness {
 
     private String accessToken;
     private String userId;
+    private Eu eu;
 
     private static final UserBusiness ourInstance = new UserBusiness();
 
@@ -54,5 +65,32 @@ public class UserBusiness {
         else
             return true;
     }
+
+    public String getIdInteressado(){
+        String token = getAccessToken();
+        //Call<Eu> getEu(@Header("Authorization") String accessToken);
+        eu = new Eu();
+        RestUtil.getEuEndPoint().getEu(token).enqueue(new Callback<Eu>() {
+            @Override
+            public void onResponse(Call<Eu> call, Response<Eu> response) {
+                if (response.body() != null) {
+                    eu = response.body();
+                }else {
+                    try {
+                        Log.e("Erro no getEu", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Eu> call, Throwable t) {
+                Log.e("Erro no getEu", t.getLocalizedMessage(), t);
+            }
+        });
+        return "59b341db82ed24d7e1d8dd32";
+    }
+
 
 }

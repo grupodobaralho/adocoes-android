@@ -166,7 +166,7 @@ public class ListaMenoresFragment extends Fragment {
                     Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
                     try {
-                        Log.e("ListagemDeMenores", response.errorBody().string());
+                        Log.e("Demonstra interesse", response.errorBody().string());
                         Toast.makeText(getActivity(), "Erro em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -176,7 +176,7 @@ public class ListaMenoresFragment extends Fragment {
 
             @Override
             public void onFailure(Call<Menor> call, Throwable t) {
-                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+                Log.e("Demonstra interesse", t.getLocalizedMessage(), t);
             }
         });
         //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
