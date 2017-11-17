@@ -143,10 +143,35 @@ public class ViewPagerFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
-                    intent.putExtra(ImagePreviewActivity.EXTRA_MIDIA, (Parcelable) midiaId);
-                    intent.putExtra(ImagePreviewActivity.EXTRA_MENOR_ID, menorId);
-                    startActivity(intent);
+                    if(midiaId.getType().equals("foto")) {
+                        Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
+                        intent.putExtra(ImagePreviewActivity.EXTRA_MIDIA, (Parcelable) midiaId);
+                        intent.putExtra(ImagePreviewActivity.EXTRA_MENOR_ID, menorId);
+                        startActivity(intent);
+
+                    } else {
+                        Intent intent = new Intent(getActivity(), StreamActivity.class);
+                        intent.putExtra(ImagePreviewActivity.EXTRA_MIDIA, (Parcelable) midiaId);
+                        intent.putExtra(ImagePreviewActivity.EXTRA_MENOR_ID, menorId);
+                        startActivity(intent);
+                    }
+
+//                    if midia.getType() == video {
+//                        Intent intent = new Intent(getActivity(), StreamActivity.class);
+//                        String midiaURL = midia.getURL();
+//                        intent.putExtra(StreamActivity.videoURL, (midiaURL));
+//                        startActivity(intent);
+//                    }
+
+//                        Intent intent = new Intent(getActivity(), StreamActivity.class);
+//                        startActivity(intent);
+
+//                    Intent intent = new Intent(getActivity(), ImagePreviewActivity.class);
+//
+//                    intent.putStringArrayListExtra(ARGUMENT_MIDIAS, mMidiaIds);
+//                    intent.putExtra(ImagePreviewActivity.EXTRA_POSITION, position);
+//                    intent.putExtra(ImagePreviewActivity.EXTRA_IMAGE, R.drawable.boy);
+//                    startActivity(intent);
                 }
             });
 

@@ -43,10 +43,11 @@
             android:label="Termos de Uso" />
         <activity
             android:name=".Funcionalidades.ConteudoInstitucionalDetails.ConteudoInstitucionalDetails"
-            android:label="Novidades"/>
+            android:label="Novidades" />
         <activity
             android:name=".Funcionalidades.ImagePreview.ImagePreviewActivity"
-            android:label="Detalhes"/>
+            android:label="Detalhes" />
+        <activity android:name=".Funcionalidades.MenorDetails.StreamActivity"></activity>
     </application>
 
 </manifest>
