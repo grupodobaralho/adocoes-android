@@ -10,14 +10,15 @@
         android:id="@+id/preferenceArea"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@drawable/tela_de_busca_vertical_black">
 
         <ImageView
             android:id="@+id/blueHeart"
             android:layout_gravity="center"
             android:layout_width="@dimen/target_width"
             android:layout_height="@dimen/target_height"
-            android:src="@drawable/boy_20">
+            android:src="@drawable/target">
         </ImageView>
 
     </FrameLayout>

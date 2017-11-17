@@ -54,7 +54,6 @@ public class FilterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
-        setTitle("Child Preference");
 
         this.preferenceArea = (FrameLayout) findViewById(R.id.preferenceArea);
         this.target = (ImageView) findViewById(R.id.blueHeart);
@@ -240,4 +239,6 @@ public class FilterActivity extends AppCompatActivity {
         float dp = px / ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
         return dp;
     }
+
+
 }
