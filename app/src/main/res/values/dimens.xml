@@ -6,4 +6,6 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="pager_view_height">200dp</dimen>
+    <dimen name="target_height">100dp</dimen>
+    <dimen name="target_width">100dp</dimen>
 </resources>

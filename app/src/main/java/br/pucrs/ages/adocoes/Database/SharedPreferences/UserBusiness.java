@@ -20,15 +20,19 @@ public class UserBusiness {
 
     private static final String prefix = "Bearer ";
     private static final String anonymousToken = "Bearer anonymous";
+    private float pontoIdade;
+    private float pontoSexo;
+    private float targetCoordinateX;
+    private float targetCoordinateY;
 
     public static UserBusiness getInstance() {
         return ourInstance;
     }
 
     public void updateAccessToken(String accessToken, String userId) {
-        this.accessToken = prefix + accessToken;
+        this.accessToken = prefix  + accessToken;
         this.userId = userId;
-        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, prefix + this.accessToken);
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.ACCESS_TOKEN, this.accessToken);
         SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.USER_ID, this.userId);
     }
 
@@ -93,4 +97,39 @@ public class UserBusiness {
     }
 
 
+    public void setPontoIdade(float pontoIdade) {
+        this.pontoIdade = pontoIdade;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_IDADE, pontoIdade);
+    }
+
+    public double getPontoIdade() {
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.PONTO_IDADE, 9);
+    }
+
+    public void setPontoSexo(float pontoSexo) {
+        this.pontoSexo = pontoSexo;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.PONTO_SEXO, pontoSexo);
+    }
+
+    public double getPontoSexo() {
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.PONTO_SEXO, 0.5f);
+    }
+
+    public void setTargetCoordinateX(float coordinateX) {
+        this.targetCoordinateX = coordinateX;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_SEXO, coordinateX);
+    }
+
+    public float getTargetCoordinateX() {
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.RAW_SEXO, -1);
+    }
+
+    public void setTargetCoordinateY(float coordinateY) {
+        this.targetCoordinateY = coordinateY;
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.RAW_IDADE, coordinateY);
+    }
+
+    public float getTargetCoordinateY() {
+        return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.RAW_IDADE, -1);
+    }
 }

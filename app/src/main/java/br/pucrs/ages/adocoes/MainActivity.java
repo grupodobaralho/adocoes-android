@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.Adocao.AdocaoFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Favoritos.FavoritosFragment;
+import br.pucrs.ages.adocoes.Funcionalidades.Filtro.FilterActivity;
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemConteudoInstitucional.ListagemConteudoInstitucionalFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores.ListaMenoresFragment;
 import br.pucrs.ages.adocoes.Funcionalidades.Login.LoginActivity;
@@ -24,8 +25,10 @@ import br.pucrs.ages.adocoes.Funcionalidades.Sobre.SobreFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int REQ_CODE_FILTER = 1;
     private MenuItem iconTrocaModoDeVisualizacao;
     private  boolean isListaVertical = true;
+    private MenuItem iconFiltro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         //Instanciação das referências.
         iconTrocaModoDeVisualizacao = menu.findItem(R.id.troca_para_horizontal);
+        iconFiltro = menu.findItem(R.id.filtro);
         return true;
     }
 
@@ -104,6 +108,10 @@ public class MainActivity extends AppCompatActivity
 
                     }
                 }
+                return true;
+            case R.id.filtro:
+                Intent child = new Intent(getBaseContext(), FilterActivity.class);
+                startActivityForResult(child, REQ_CODE_FILTER);
                 return true;
             default:
                 break;
@@ -153,7 +161,7 @@ public class MainActivity extends AppCompatActivity
 
         //Apaga as opções de troca.
         iconTrocaModoDeVisualizacao.setVisible(false);
-
+        iconFiltro.setVisible(false);
 
         switch (viewId) {
             case 1:
@@ -169,6 +177,7 @@ public class MainActivity extends AppCompatActivity
                 title = "Crianças e Adolescentes";
                 //Mostra a opção de troca
                 iconTrocaModoDeVisualizacao.setVisible(true);
+                iconFiltro.setVisible(true);
                 break;
             case 4:
                 fragment = ListagemConteudoInstitucionalFragment.newInstance();
@@ -205,5 +214,15 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQ_CODE_FILTER && resultCode == RESULT_OK) {
+            ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Crianças e Adolescentes");
+            if (myFragment1 != null && myFragment1.isVisible()) {
+                myFragment1.fetchMenores(isListaVertical);
+            }
+        }
     }
 }

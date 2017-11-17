@@ -133,19 +133,29 @@ public class ListaMenoresFragment extends Fragment {
         });
 
         mRecyclerView.setAdapter(mListaVerticalAdapter);
+        fetchMenores(true);
+
+        // For testing purpose only!
+//        menores = new ArrayList<>();
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        menores.add(new Menor("Homerinho"));
+//        setItems(true);
+
+    }
+
+    public void fetchMenores(final boolean isListagemVertical) {
         String token = UserBusiness.getInstance().getAccessToken();
-        RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
+        double pontoIdade = UserBusiness.getInstance().getPontoIdade();
+        double pontoSexo = UserBusiness.getInstance().getPontoSexo();
+        RestUtil.getMenoresEndPoint().menores(token, pontoIdade, pontoSexo).enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
                     menores = response.body();
                     System.out.println(menores);
-                    if (index == 0) {
-                        setItems(true);
-                    } else {
-                        setItems(false);
-                    }
-
+                    setItems(isListagemVertical);
                 }else {
                     try {
                         Log.e("ListagemDeMenores", response.errorBody().string());
@@ -160,15 +170,6 @@ public class ListaMenoresFragment extends Fragment {
                 Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
             }
         });
-
-        // For testing purpose only!
-//        menores = new ArrayList<>();
-//        menores.add(new Menor("Homerinho"));
-//        menores.add(new Menor("Homerinho"));
-//        menores.add(new Menor("Homerinho"));
-//        menores.add(new Menor("Homerinho"));
-//        setItems(true);
-
     }
 
     private void demonstraInteresseApi(final Menor menor){
