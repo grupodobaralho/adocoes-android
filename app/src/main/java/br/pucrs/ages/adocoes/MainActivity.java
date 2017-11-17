@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = new ListaMenoresFragment();
         String title = "Crianças e Adolescentes";
-        
+
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment, title);
@@ -89,12 +89,19 @@ public class MainActivity extends AppCompatActivity
             case R.id.troca_para_horizontal:
                 ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Crianças e Adolescentes");
                 if (myFragment1 != null && myFragment1.isVisible()) {
-                    isListaVertical = !isListaVertical;
-                    myFragment1.setItems(isListaVertical);
-                    if (isListaVertical) {
-                        iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_array_white_48dp);
-                    } else {
+                    int index = myFragment1.getIndex();
+
+                    if (index == 0) {
+                        isListaVertical = false;
+                        myFragment1.setItems(false);
+                        myFragment1.setIndex(1);
                         iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_list_white_48dp);
+                    } else {
+                        isListaVertical = true;
+                        myFragment1.setItems(true);
+                        myFragment1.setIndex(0);
+                        iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_array_white_48dp);
+
                     }
                 }
                 return true;

@@ -44,6 +44,8 @@ public class ListaMenoresFragment extends Fragment {
     private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
     private boolean isLogged;
 
+    static int index = 0;
+
     public ListaMenoresFragment() {
         // Required empty public constructor
     }
@@ -54,6 +56,14 @@ public class ListaMenoresFragment extends Fragment {
 
 
 
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     @Override
@@ -130,7 +140,12 @@ public class ListaMenoresFragment extends Fragment {
                 if (response.body() != null) {
                     menores = response.body();
                     System.out.println(menores);
-                    setItems(true);
+                    if (index == 0) {
+                        setItems(true);
+                    } else {
+                        setItems(false);
+                    }
+
                 }else {
                     try {
                         Log.e("ListagemDeMenores", response.errorBody().string());
