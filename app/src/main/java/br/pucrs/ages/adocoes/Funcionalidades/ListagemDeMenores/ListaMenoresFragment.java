@@ -21,6 +21,7 @@ import java.util.List;
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
+import br.pucrs.ages.adocoes.Model.Body.Interesse;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
@@ -157,14 +158,15 @@ public class ListaMenoresFragment extends Fragment {
 
     private void demonstraInteresseApi(final Menor menor){
         String token = UserBusiness.getInstance().getAccessToken();
-        RestUtil.getMenoresEndPoint().postMenorInteresse(menor.getId(), token, menor).enqueue(new Callback<Menor>() {
+        System.out.println(menor.getId());
+        RestUtil.getEuEndPoint().postMenorInteresse(token, new Interesse(menor.getId(), "favoritar")).enqueue(new Callback<Menor>() {
             @Override
             public void onResponse(Call<Menor> call, Response<Menor> response) {
                 if (response.body() != null) {
                     Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
                     try {
-                        Log.e("ListagemDeMenores", response.errorBody().string());
+                        Log.e("Demonstra interesse", response.errorBody().string());
                         Toast.makeText(getActivity(), "Erro em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -174,7 +176,7 @@ public class ListaMenoresFragment extends Fragment {
 
             @Override
             public void onFailure(Call<Menor> call, Throwable t) {
-                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+                Log.e("Demonstra interesse", t.getLocalizedMessage(), t);
             }
         });
         //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();

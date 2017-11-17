@@ -15,8 +15,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
+import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /*
 import java.io.BufferedReader;
 
@@ -27,20 +42,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 */
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-
-import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
-import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
-import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
-import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.R;
-import br.pucrs.ages.adocoes.Rest.RestUtil;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by israeldeorce on 20/09/17.
@@ -104,7 +105,7 @@ public class FavoritosFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
                         if(isLogged)
-                            Toast.makeText(getActivity(), "Não implementado!", Toast.LENGTH_SHORT).show();
+                            desfazerInteresseApi(menor, position);
                         else
                             desfazerInteresseLocal(menor, position);
                     }
@@ -141,39 +142,34 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
-        String id_interessado = UserBusiness.getInstance().getUserId();
-        RestUtil.getInteressadosEndPoint().getMenoresInteressadoInteresse(id_interessado, "favorito", token).enqueue(new Callback<List<Menor>>() {
+        // @GET("eu/menores")
+        //Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
+        //RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
                     items = response.body();
-                    System.out.println(items);
                     pagerSnapHelper.attachToRecyclerView(null);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mListAdapter);
                     mListAdapter.setData(items);
                 }else {
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
                     try {
-                        Log.e("ListagemDeMenores", response.errorBody().string());
+                        Log.e("ListagemDeInteresses", response.errorBody().string());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<List<Menor>> call, Throwable t) {
-                Log.e("ListagemDeMenores", t.getLocalizedMessage(), t);
+                Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
             }
         });
-        /*items.add(new Menor("Israelzinho1"));
-        items.add(new Menor("Israelzinho2"));
-        items.add(new Menor("Israelzinho3"));
-        items.add(new Menor("Israelzinho4"));
-        items.add(new Menor("Israelzinho5"));
-        items.add(new Menor("Israelzinho6"));
-        */
+
     }
     private void listaMenoresLocal(){
         mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
@@ -188,8 +184,34 @@ public class FavoritosFragment extends Fragment {
         }
     }
 
-    private void desfazerInteresseApi(Menor menor, int position){
-        Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
+    private void desfazerInteresseApi(final Menor menor, final int position){
+        String token = UserBusiness.getInstance().getAccessToken();
+        //Call<List<Menor>> getMenoresInteressado(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
+        RestUtil.getEuEndPoint().deleteMenorEu(token, menor.getId(), "favoritar").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.body() != null) {
+                    items.remove(position);
+                    pagerSnapHelper.attachToRecyclerView(null);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setAdapter(mListAdapter);
+                    mListAdapter.setData(items);
+                }else {
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponse " + menor.getId(), Toast.LENGTH_SHORT).show();
+                    try {
+                        Log.e("Desfazer Interesse", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Desfazer Interesse", t.getLocalizedMessage(), t);
+            }
+        });
+        //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
     }
     private void desfazerInteresseLocal(Menor menor, int position){
         boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);

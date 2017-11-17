@@ -9,7 +9,6 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -41,6 +40,6 @@ public interface InteressadosEndPoint {
     //favorito|apadrinhamento|adocao
     //vale a pena transformar o tipoInteresse em Enum (pesquisar)
     @GET("interessados/{id_interessado}/menores")
-    Call<List<Menor>> getMenoresInteressadoInteresse(@Path("id_interessado") String interessadoId, @Query("tipo") String tipoInteresse, @Header("Authorization") String accessToken);
+    Call<List<Menor>> getMenoresInteressadoInteresse(@Path("id_interessado") String interessadoId, @Header("Authorization") String accessToken, @Query("interesse") String tipo);
 
 }
