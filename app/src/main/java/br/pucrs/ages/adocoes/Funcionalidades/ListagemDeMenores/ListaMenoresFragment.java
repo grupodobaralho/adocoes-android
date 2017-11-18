@@ -155,7 +155,13 @@ public class ListaMenoresFragment extends Fragment {
                 if (response.body() != null) {
                     menores = response.body();
                     System.out.println(menores);
-                    setItems(isListagemVertical);
+                    
+                    if (index == 0) {
+                        setItems(true);
+                    } else {
+                        setItems(false);
+                    }
+
                 }else {
                     try {
                         Log.e("ListagemDeMenores", response.errorBody().string());

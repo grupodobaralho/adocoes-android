@@ -3,6 +3,7 @@ package br.pucrs.ages.adocoes.Funcionalidades.MenorDetails;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -64,8 +66,8 @@ public class MenorDetailsButtonsFragment extends Fragment {
 
         isLogged = UserBusiness.getInstance().isLogged();
 
-        Button btnAdotar = (Button) view.findViewById(R.id.btnAdotar);
-        Button btnFavoritar = (Button) view.findViewById(R.id.btnFavoritar);
+        ImageButton btnAdotar = (ImageButton) view.findViewById(R.id.btnAdotar);
+        ImageButton btnFavoritar = (ImageButton) view.findViewById(R.id.btnFavoritar);
 
         btnAdotar.setOnClickListener(new OnClickListener() {
             public void onClick(View v)  {
