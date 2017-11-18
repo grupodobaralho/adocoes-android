@@ -31,7 +31,6 @@
         android:text="Hercilio"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textAllCaps="true"
         android:layout_above="@+id/tv_idade"
         android:textSize="22sp"/>
 

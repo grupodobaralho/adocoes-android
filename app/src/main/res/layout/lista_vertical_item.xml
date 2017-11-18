@@ -39,9 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:textSize="22sp"
-            android:text="Hercilio"
-            android:textAllCaps="true" />
-
+            android:text="Hercilio"/>
         <TextView
             android:id="@+id/tv_detalhe"
             android:layout_width="wrap_content"
