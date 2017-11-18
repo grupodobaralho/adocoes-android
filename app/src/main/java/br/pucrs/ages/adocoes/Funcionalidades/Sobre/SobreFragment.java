@@ -56,7 +56,7 @@ public class SobreFragment extends Fragment {
         webView.setWebViewClient(new WebViewClient());
 
 
-        webView.loadUrl("file:///android_asset/sobre.html");
+        webView.loadUrl("file:///android_asset/Sobre/About.html");
 
         return view;
     }
