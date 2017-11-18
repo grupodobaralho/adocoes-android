@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by israeldeorce on 20/09/17.
+ * Created by Israel Deorce on 20/09/17.
  */
 
 public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.MenorItemView> {
@@ -80,6 +80,7 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
             itemView.tvNome.setText(menor.getNome());
             //itemView.tvDetalhe.setText(menor.getSexo().toString());
         }
+        //NAO ESTA FUNCIONANDO POIS A ROTA DA API ESTA ERRADA! OBS: NAO ESTA RETORNANDO MIDIA
 //        if(isLogged) {
 //            for (RefMidia midia : menor.getMidias()) {
 //                if (midia.isPrincipal()) {

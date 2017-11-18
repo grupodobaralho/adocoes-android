@@ -20,6 +20,7 @@ import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
@@ -28,7 +29,7 @@ import retrofit2.Response;
 
 
 /**
- * Created by israeldeorce on 20/09/17.
+ * Created by Israel Deorce on 20/09/17.
  */
 
 public class AdocaoFragment extends Fragment {
@@ -72,7 +73,7 @@ public class AdocaoFragment extends Fragment {
         if(isLogged)
             listaMenoresApi();
         else
-            Toast.makeText(getActivity(), "Você não têm lista de Adoções ainda.", Toast.LENGTH_SHORT);
+            Toast.makeText(getActivity(), "Lista de Adocoes indisponivel para usuários anônimos.", Toast.LENGTH_SHORT);
 
         mAdocoesAdapter = new AdocaoAdapter(getActivity());
         mAdocoesAdapter.setData(items);
@@ -84,32 +85,34 @@ public class AdocaoFragment extends Fragment {
 
     private void listaMenoresApi() {
         String token = UserBusiness.getInstance().getAccessToken();
-        // @GET("eu/menores")
-        //Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
-        //RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresEu(token, "adotar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "adotar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
             @Override
-            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
                 if (response.body() != null) {
-                    items = response.body();
+                    for(ObjetoDeMenorEu o : response.body()){
+                        List<Menor> list = o.getMenores();
+                        for(Menor m : list){
+                            items.add(m);
+                        }
+                    }
+                    //items = response.body();
                     pagerSnapHelper.attachToRecyclerView(null);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mAdocoesAdapter);
                     mAdocoesAdapter.setData(items);
-                } else {
+                }else {
                     Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
                     try {
-                        Log.e("ListagemDeInteresses", response.errorBody().string());
+                        Log.e("Adocoes em Andamento", response.errorBody().string());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-
             @Override
-            public void onFailure(Call<List<Menor>> call, Throwable t) {
-                Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
+            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
+                Log.e("Adocoes em Andamento", t.getLocalizedMessage(), t);
             }
         });
     }

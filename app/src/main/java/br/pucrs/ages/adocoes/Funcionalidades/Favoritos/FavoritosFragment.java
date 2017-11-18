@@ -25,6 +25,7 @@ import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import okhttp3.ResponseBody;
@@ -44,7 +45,7 @@ import java.io.PrintWriter;
 */
 
 /**
- * Created by israeldeorce on 20/09/17.
+ * Created by Israel Deorce on 20/09/17.
  */
 
 public class FavoritosFragment extends Fragment {
@@ -127,9 +128,10 @@ public class FavoritosFragment extends Fragment {
             public void OnMenorItemSelected(Menor menor, int position) {
                 // Coloque aqui a ação de ir para tela de detalhes :)
                 if(isLogged){
-                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
-                    startActivity(intent);
+                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " disponivel em breve", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
+//                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
+//                    startActivity(intent);
                 } else {
                     Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " para interessado deslogado", Toast.LENGTH_SHORT).show();
                 }
@@ -142,21 +144,28 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
-        // @GET("eu/menores")
-        //Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String tipo);
-        //RestUtil.getMenoresEndPoint().menores(token).enqueue(new Callback<List<Menor>>() {
-        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
             @Override
-            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
+            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
                 if (response.body() != null) {
-                    items = response.body();
-                    pagerSnapHelper.attachToRecyclerView(null);
-                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setAdapter(mListAdapter);
-                    mListAdapter.setData(items);
+                    if(response.body().isEmpty())
+                        Toast.makeText(getActivity(), "A sua lista de interesses está vazia!", Toast.LENGTH_SHORT).show();
+                    else {
+                        for (ObjetoDeMenorEu o : response.body()) {
+                            List<Menor> list = o.getMenores();
+                            for (Menor m : list) {
+                                items.add(m);
+                            }
+                        }
+                        //items = response.body();
+                        pagerSnapHelper.attachToRecyclerView(null);
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setAdapter(mListAdapter);
+                        mListAdapter.setData(items);
+                    }
                 }else {
-                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Erro: response.body() é null", Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("ListagemDeInteresses", response.errorBody().string());
                     } catch (IOException e) {
@@ -165,7 +174,7 @@ public class FavoritosFragment extends Fragment {
                 }
             }
             @Override
-            public void onFailure(Call<List<Menor>> call, Throwable t) {
+            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
                 Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
             }
         });
@@ -175,7 +184,7 @@ public class FavoritosFragment extends Fragment {
         mListaFavoritos = DatabaseHelper.getInstance(getActivity()).getAllFavoritos();
 
         if (mListaFavoritos.getCount() == 0) {
-            Toast.makeText(getActivity(), "A sua lista de favoritos está vazia!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "A sua lista de interesses está vazia!", Toast.LENGTH_SHORT).show();
         } else {
             while (mListaFavoritos.moveToNext()) {
                 Menor menor = new Menor(mListaFavoritos.getString(1));
@@ -197,6 +206,7 @@ public class FavoritosFragment extends Fragment {
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mListAdapter);
                     mListAdapter.setData(items);
+                    Toast.makeText(getActivity(), "Removeu interesse por " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getActivity(), "Erro: caiu no else do onResponse " + menor.getId(), Toast.LENGTH_SHORT).show();
                     try {
@@ -216,7 +226,7 @@ public class FavoritosFragment extends Fragment {
     private void desfazerInteresseLocal(Menor menor, int position){
         boolean result = DatabaseHelper.getInstance(getActivity()).removeFavorito(menor);
         if (result) {
-            Toast.makeText(getActivity(), "desfavoritou " + menor.getNome(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Removeu interesse por " + menor.getNome(), Toast.LENGTH_SHORT).show();
             items.remove(position);
             mListAdapter.setData(items);
 
