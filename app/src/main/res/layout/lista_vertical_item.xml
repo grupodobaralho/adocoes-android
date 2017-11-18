@@ -48,4 +48,12 @@
             android:text="Detalhe" />
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/first_ivider_down"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/Gray" />
+
 </RelativeLayout>
