@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,32 +10,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="1dp">
 
-        <TextView
-            android:id="@+id/tv_text"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gostaria de"
-            android:textAlignment="center" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnAdotar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Manifestar Interesse em Adotar"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            <ImageButton
+                android:id="@+id/btnAdotar"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/adotar" />
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:lines="2"
+                android:text="Interesse em Adotar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnFavoritar"
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Manifestar Interesse"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btnFavoritar"
+                android:layout_width="180dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_adocoes" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:lines="2"
+                android:text="Favoritar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
