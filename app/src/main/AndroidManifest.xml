@@ -26,11 +26,6 @@
         <activity
             android:name=".Funcionalidades.Login.LoginActivity"
             android:label="@string/title_activity_login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Settings.SettingsActivity"
@@ -47,8 +42,16 @@
         <activity
             android:name=".Funcionalidades.ImagePreview.ImagePreviewActivity"
             android:label="Detalhes" />
-        <activity android:name=".Funcionalidades.MenorDetails.StreamActivity"></activity>
-        <activity android:name=".Funcionalidades.Filtro.FilterActivity">"
+        <activity android:name=".Funcionalidades.MenorDetails.StreamActivity" />
+        <activity android:name=".Funcionalidades.Filtro.FilterActivity">
+
+        </activity>
+        <activity android:name=".StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
