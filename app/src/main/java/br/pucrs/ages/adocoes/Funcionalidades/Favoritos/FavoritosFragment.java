@@ -3,7 +3,6 @@ package br.pucrs.ages.adocoes.Funcionalidades.Favoritos;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,7 +22,6 @@ import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
-import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
@@ -165,7 +163,7 @@ public class FavoritosFragment extends Fragment {
                         mListAdapter.setData(items);
                     }
                 }else {
-                    Toast.makeText(getActivity(), "Erro: response.body() é null", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Acesso não autorizado.", Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("ListagemDeInteresses", response.errorBody().string());
                     } catch (IOException e) {
