@@ -15,6 +15,7 @@ public class  SharedPreferencesOperations {
     public static final String RAW_IDADE = "rawIdade";
     public static final String ACCESS_TOKEN = "accessToken";
     public static final String USER_ID = "userId";
+    public static final String IS_LISTAGEM_VERTICAL = "isListagemVertical";
 
     public static void saveOnPrefs(String key, int value){
         SharedPreferences settings = AdocoesApplication.getAdocoesApplicationContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);

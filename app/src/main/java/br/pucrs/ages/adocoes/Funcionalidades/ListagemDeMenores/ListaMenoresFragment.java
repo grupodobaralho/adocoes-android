@@ -44,7 +44,6 @@ public class ListaMenoresFragment extends Fragment {
     private PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
     private boolean isLogged;
 
-    static int index = 0;
 
     public ListaMenoresFragment() {
         // Required empty public constructor
@@ -56,14 +55,6 @@ public class ListaMenoresFragment extends Fragment {
 
 
 
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
     }
 
     @Override
@@ -112,26 +103,21 @@ public class ListaMenoresFragment extends Fragment {
         mListaHorizontalAdapter.setListener(acaoIrMenorDetalhes);
 
         mRecyclerView.setAdapter(mListaVerticalAdapter);
-        fetchMenores(true);
+        fetchMenores();
     }
 
-    public void fetchMenores(final boolean isListagemVertical) {
+    public void fetchMenores() {
         String token = UserBusiness.getInstance().getAccessToken();
         double pontoIdade = UserBusiness.getInstance().getPontoIdade();
         double pontoSexo = UserBusiness.getInstance().getPontoSexo();
+        final boolean listagemVertical = UserBusiness.getInstance().isListagemVertical();
         RestUtil.getMenoresEndPoint().menores(token, pontoIdade, pontoSexo).enqueue(new Callback<List<Menor>>() {
             @Override
             public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
                     menores = response.body();
                     System.out.println(menores);
-                    
-                    if (index == 0) {
-                        setItems(true);
-                    } else {
-                        setItems(false);
-                    }
-
+                    trocarVisualizacao(listagemVertical);
                 }else {
                     try {
                         Log.e("ListagemDeMenores", response.errorBody().string());
@@ -189,7 +175,7 @@ public class ListaMenoresFragment extends Fragment {
         else
             Toast.makeText(getActivity(), "Não foi possível demonstrar interesse em ", Toast.LENGTH_SHORT).show();
     }
-    public void setItems( boolean isListagemVertical) {
+    public void trocarVisualizacao(boolean isListagemVertical) {
         if (isListagemVertical){
             pagerSnapHelper.attachToRecyclerView(null);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);

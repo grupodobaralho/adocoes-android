@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -235,7 +234,7 @@ public class Menor implements Serializable {
         this.midias = midias;
     }
 
-    public  int getAge() {
+    public  int getIdade() {
 
         int age = 0;
         try {
@@ -266,13 +265,8 @@ public class Menor implements Serializable {
     public static Calendar toCalendar(final String iso8601string)
             throws ParseException {
         Calendar calendar = GregorianCalendar.getInstance();
-        String s = iso8601string.replace("Z", "+00:00");
-        try {
-            s = s.substring(0, 22) + s.substring(23);  // to get rid of the ":"
-        } catch (IndexOutOfBoundsException e) {
-            throw new ParseException("Invalid length", 0);
-        }
-        Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(s);
+        String s =  iso8601string.substring(0, iso8601string.length() - 5);
+        Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(s);
         calendar.setTime(date);
         return calendar;
     }

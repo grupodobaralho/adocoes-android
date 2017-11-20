@@ -132,4 +132,12 @@ public class UserBusiness {
     public float getTargetCoordinateY() {
         return SharedPreferencesOperations.loadFloatFromPrefs(SharedPreferencesOperations.RAW_IDADE, -1);
     }
+
+    public void setListagemVertical(boolean isListagemVertical) {
+        SharedPreferencesOperations.saveOnPrefs(SharedPreferencesOperations.IS_LISTAGEM_VERTICAL, isListagemVertical);
+    }
+
+    public boolean isListagemVertical() {
+        return SharedPreferencesOperations.loadBooleanFromPrefs(SharedPreferencesOperations.IS_LISTAGEM_VERTICAL, true);
+    }
 }

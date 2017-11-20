@@ -93,19 +93,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.troca_para_horizontal:
                 ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Crianças e Adolescentes");
                 if (myFragment1 != null && myFragment1.isVisible()) {
-                    int index = myFragment1.getIndex();
-
-                    if (index == 0) {
-                        isListaVertical = false;
-                        myFragment1.setItems(false);
-                        myFragment1.setIndex(1);
+                    isListaVertical = UserBusiness.getInstance().isListagemVertical();
+                    UserBusiness.getInstance().setListagemVertical(!isListaVertical);
+                    if (isListaVertical) {
+                        myFragment1.trocarVisualizacao(false);
                         iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_list_white_48dp);
                     } else {
-                        isListaVertical = true;
-                        myFragment1.setItems(true);
-                        myFragment1.setIndex(0);
+                        myFragment1.trocarVisualizacao(true);
                         iconTrocaModoDeVisualizacao.setIcon(R.drawable.ic_view_array_white_48dp);
-
                     }
                 }
                 return true;
@@ -221,7 +216,7 @@ public class MainActivity extends AppCompatActivity
         if(requestCode == REQ_CODE_FILTER && resultCode == RESULT_OK) {
             ListaMenoresFragment myFragment1 = (ListaMenoresFragment)getSupportFragmentManager().findFragmentByTag("Crianças e Adolescentes");
             if (myFragment1 != null && myFragment1.isVisible()) {
-                myFragment1.fetchMenores(isListaVertical);
+                myFragment1.fetchMenores();
             }
         }
     }
