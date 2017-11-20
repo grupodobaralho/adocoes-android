@@ -151,8 +151,8 @@ public class FavoritosFragment extends Fragment {
                     else {
                         for (ObjetoDeMenorEu o : response.body()) {
                             List<Menor> list = o.getMenores();
-                            for (Menor m : list) {
-                                items.add(m);
+                            if (list != null) {
+                                items.addAll(list);
                             }
                         }
                         //items = response.body();
