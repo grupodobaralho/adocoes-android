@@ -31,10 +31,6 @@ import retrofit2.Response;
 
 public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontalAdapter.MenorItemView>{
 
-    public interface OnMenorSelectedListener {
-        void OnMenorItemSelected(Menor menor);
-    }
-
     private OnMenorSelectedListener mOnMenorSelectedListener;
     private OnMenorSelectedListener mOnMenorFavoritarListener;
 

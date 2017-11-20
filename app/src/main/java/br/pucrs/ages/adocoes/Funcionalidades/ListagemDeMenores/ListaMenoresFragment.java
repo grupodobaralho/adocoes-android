@@ -84,65 +84,35 @@ public class ListaMenoresFragment extends Fragment {
         mListaVerticalAdapter = new ListaVerticalAdapter(getActivity());
         mListaHorizontalAdapter = new ListaHorizontalAdapter(getActivity());
 
-        mListaVerticalAdapter.setOnMenorFavoritarListener(new ListaVerticalAdapter.OnMenorSelectedListener() {
+
+        final OnMenorSelectedListener acaoDeFavoritar = new OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
-                // Coloque aqui a ação de favoritar :)
-                if(isLogged)
+                isLogged = UserBusiness.getInstance().isLogged();
+                if (isLogged)
                     demonstraInteresseApi(menor);
                 else
                     demonstraInteresseLocal(menor);
             }
-        });
+        };
 
-        mListaVerticalAdapter.setListener(new ListaVerticalAdapter.OnMenorSelectedListener() {
-            @Override
-            public void OnMenorItemSelected(Menor menor) {
-                // Coloque aqui a ação de ir para tela de detalhes :)
-                // Boa Roberto ;)
-
-                Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
-                startActivity(intent);
-            }
-        });
-
-        /**
-         * Listener para favoritar um menor na lista Horizontal
-         */
-        mListaHorizontalAdapter.setOnMenorFavoritarListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
-            @Override
-            public void OnMenorItemSelected(Menor menor) {
-                // Coloque aqui a ação de favoritar :)
-
-                // Chama o Banco e verifica se o menor já é um favorito
-                if(isLogged)
-                    demonstraInteresseApi(menor);
-                else
-                    demonstraInteresseLocal(menor);
-            }
-        });
-
-        mListaHorizontalAdapter.setListener(new ListaHorizontalAdapter.OnMenorSelectedListener() {
+        final OnMenorSelectedListener acaoIrMenorDetalhes = new OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor) {
                 Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, menor);
+                intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, (menor));
                 startActivity(intent);
             }
-        });
+        };
+
+        mListaVerticalAdapter.setOnMenorFavoritarListener(acaoDeFavoritar);
+        mListaHorizontalAdapter.setOnMenorFavoritarListener(acaoDeFavoritar);
+
+        mListaVerticalAdapter.setListener(acaoIrMenorDetalhes);
+        mListaHorizontalAdapter.setListener(acaoIrMenorDetalhes);
 
         mRecyclerView.setAdapter(mListaVerticalAdapter);
         fetchMenores(true);
-
-        // For testing purpose only!
-//        menores = new ArrayList<>();
-//        menores.add(new Menor("Homerinho"));
-//        menores.add(new Menor("Homerinho"));
-//        menores.add(new Menor("Homerinho"));
-//        menores.add(new Menor("Homerinho"));
-//        setItems(true);
-
     }
 
     public void fetchMenores(final boolean isListagemVertical) {
