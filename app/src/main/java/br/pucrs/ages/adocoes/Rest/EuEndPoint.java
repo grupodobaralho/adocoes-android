@@ -2,19 +2,17 @@ package br.pucrs.ages.adocoes.Rest;
 
 import java.util.List;
 
-import br.pucrs.ages.adocoes.Model.Eu;
 import br.pucrs.ages.adocoes.Model.Body.Interesse;
+import br.pucrs.ages.adocoes.Model.Eu;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -22,7 +20,7 @@ import retrofit2.http.Query;
  * Created by Israel Deorce on 11/11/17.
  */
 
-public interface euEndPoint {
+public interface EuEndPoint {
 
     @GET("eu")
     Call<Eu> getEu(@Header("Authorization") String accessToken);

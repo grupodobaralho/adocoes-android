@@ -48,8 +48,8 @@ public class RestUtil {
         return retrofit.create(ConteudosEndPoint.class);
     }
 
-    public static euEndPoint getEuEndPoint() {
-        return retrofit.create(euEndPoint.class);
+    public static EuEndPoint getEuEndPoint() {
+        return retrofit.create(EuEndPoint.class);
     }
 
     public static InteressadosEndPoint getInteressadosEndPoint() {
