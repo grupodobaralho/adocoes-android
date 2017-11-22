@@ -85,24 +85,18 @@ public class AdocaoFragment extends Fragment {
 
     private void listaMenoresApi() {
         String token = UserBusiness.getInstance().getAccessToken();
-        RestUtil.getEuEndPoint().getMenoresEu(token, "adotar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "adotar").enqueue(new Callback<List<Menor>>() {
             @Override
-            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
-                    for(ObjetoDeMenorEu o : response.body()){
-                        List<Menor> list = o.getMenores();
-                        for(Menor m : list){
-                            items.add(m);
-                        }
-                    }
-                    //items = response.body();
+                    items = response.body();
                     pagerSnapHelper.attachToRecyclerView(null);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setAdapter(mAdocoesAdapter);
                     mAdocoesAdapter.setData(items);
                 }else {
-                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Erro: response.body() é null", Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("Adocoes em Andamento", response.errorBody().string());
                     } catch (IOException e) {
@@ -111,9 +105,39 @@ public class AdocaoFragment extends Fragment {
                 }
             }
             @Override
-            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
                 Log.e("Adocoes em Andamento", t.getLocalizedMessage(), t);
             }
         });
+//        RestUtil.getEuEndPoint().getMenoresEu(token, "adotar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
+//            @Override
+//            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
+//                if (response.body() != null) {
+//                    for(ObjetoDeMenorEu o : response.body()){
+//                        List<Menor> list = o.getMenores();
+//                        for(Menor m : list){
+//                            items.add(m);
+//                        }
+//                    }
+//                    //items = response.body();
+//                    pagerSnapHelper.attachToRecyclerView(null);
+//                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+//                    mRecyclerView.setLayoutManager(layoutManager);
+//                    mRecyclerView.setAdapter(mAdocoesAdapter);
+//                    mAdocoesAdapter.setData(items);
+//                }else {
+//                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
+//                    try {
+//                        Log.e("Adocoes em Andamento", response.errorBody().string());
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
+//                Log.e("Adocoes em Andamento", t.getLocalizedMessage(), t);
+//            }
+//        });
     }
 }

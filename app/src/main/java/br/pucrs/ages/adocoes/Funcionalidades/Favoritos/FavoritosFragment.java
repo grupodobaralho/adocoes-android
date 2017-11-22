@@ -142,28 +142,18 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
-        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
             @Override
-            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
-                    if(response.body().isEmpty())
-                        Toast.makeText(getActivity(), "A sua lista de interesses está vazia!", Toast.LENGTH_SHORT).show();
-                    else {
-                        for (ObjetoDeMenorEu o : response.body()) {
-                            List<Menor> list = o.getMenores();
-                            if (list != null) {
-                                items.addAll(list);
-                            }
-                        }
-                        //items = response.body();
-                        pagerSnapHelper.attachToRecyclerView(null);
-                        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setAdapter(mListAdapter);
-                        mListAdapter.setData(items);
-                    }
+                    items = response.body();
+                    pagerSnapHelper.attachToRecyclerView(null);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setAdapter(mListAdapter);
+                    mListAdapter.setData(items);
                 }else {
-                    Toast.makeText(getActivity(), "Acesso não autorizado.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Erro: response.body() é null", Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("ListagemDeInteresses", response.errorBody().string());
                     } catch (IOException e) {
@@ -172,10 +162,44 @@ public class FavoritosFragment extends Fragment {
                 }
             }
             @Override
-            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
                 Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
             }
         });
+//        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
+//            @Override
+//            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
+//                if (response.body() != null) {
+//                    if(response.body().isEmpty())
+//                        Toast.makeText(getActivity(), "A sua lista de interesses está vazia!", Toast.LENGTH_SHORT).show();
+//                    else {
+//                        for (ObjetoDeMenorEu o : response.body()) {
+//                            List<Menor> list = o.getMenores();
+//                            if (list != null) {
+//                                items.addAll(list);
+//                            }
+//                        }
+//                        //items = response.body();
+//                        pagerSnapHelper.attachToRecyclerView(null);
+//                        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setAdapter(mListAdapter);
+//                        mListAdapter.setData(items);
+//                    }
+//                }else {
+//                    Toast.makeText(getActivity(), "Acesso não autorizado.", Toast.LENGTH_SHORT).show();
+//                    try {
+//                        Log.e("ListagemDeInteresses", response.errorBody().string());
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
+//                Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
+//            }
+//        });
 
     }
     private void listaMenoresLocal(){

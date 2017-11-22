@@ -145,7 +145,7 @@ public class ListaMenoresFragment extends Fragment {
                 }else {
                     try {
                         Log.e("Demonstra interesse", response.errorBody().string());
-                        Toast.makeText(getActivity(), "Erro em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Não foi possível demonstrar interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -157,7 +157,6 @@ public class ListaMenoresFragment extends Fragment {
                 Log.e("Demonstra interesse", t.getLocalizedMessage(), t);
             }
         });
-        //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
     }
 
     private void demonstraInteresseLocal(Menor menor){

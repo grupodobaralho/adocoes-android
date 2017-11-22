@@ -30,7 +30,8 @@ public interface EuEndPoint {
 
     //@Query("interesse") String tipo
     @GET("eu/menores")
-    Call<List<ObjetoDeMenorEu>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
+    Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
+    //Call<List<ObjetoDeMenorEu>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
 
     //https://stackoverflow.com/questions/36251080/retrofit-2-0-how-to-delete
     @DELETE("eu/menores/{id_menor}")
