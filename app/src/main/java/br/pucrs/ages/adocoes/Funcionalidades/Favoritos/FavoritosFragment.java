@@ -3,6 +3,7 @@ package br.pucrs.ages.adocoes.Funcionalidades.Favoritos;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +23,7 @@ import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
@@ -124,14 +126,12 @@ public class FavoritosFragment extends Fragment {
         mListAdapter.setListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor, int position) {
-                // Coloque aqui a ação de ir para tela de detalhes :)
-                if(isLogged){
-                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " disponivel em breve", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-//                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
-//                    startActivity(intent);
-                } else {
-                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " para interessado deslogado", Toast.LENGTH_SHORT).show();
+                if(isLogged) {
+                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
+                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, (menor));
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " para usuários não logados disponivel em breve!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
