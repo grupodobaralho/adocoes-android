@@ -127,11 +127,11 @@ public class MenorDetailsButtonsFragment extends Fragment {
             @Override
             public void onResponse(Call<Menor> call, Response<Menor> response) {
                 if (response.body() != null) {
-                    Toast.makeText(getActivity(), "Você iniciou o processo de adoção da criança " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
                     try {
                         Log.e("Demonstra interesse", response.errorBody().string());
-                        Toast.makeText(getActivity(), "Erro em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Não foi possível demonstrar interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

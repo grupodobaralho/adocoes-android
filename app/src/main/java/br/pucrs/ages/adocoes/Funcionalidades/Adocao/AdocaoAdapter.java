@@ -25,9 +25,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     private Activity activity;
     private List<Menor> items = new ArrayList<>();
     private AdocaoAdapter.OnMenorSelectedListener mOnMenorSelectedListener;
-    private AdocaoAdapter.OnMenorSelectedListener mOnMenorDesfavoritarListener;
-    private boolean isLogged;
-
+    
     public interface OnMenorSelectedListener {
         void OnMenorItemSelected(Menor menor, int position);
     }
@@ -36,9 +34,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
         this.mOnMenorSelectedListener = selectListener;
     }
 
-    public void setOnMenorDesfavoritarListener(AdocaoAdapter.OnMenorSelectedListener favoritarListener) {
-        mOnMenorDesfavoritarListener = favoritarListener;
-    }
 
     public AdocaoAdapter(Activity activity) {
         this.activity = activity;
@@ -73,7 +68,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     }
 
     class MenorItemView extends RecyclerView.ViewHolder {
-
         TextView tvNome;
         TextView tvDetalhe;
         ImageView imgFoto;
@@ -88,6 +82,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
             btnFavoritar = (ImageButton) view.findViewById(R.id.btn_favoritar);
             rlCell = (RelativeLayout) view.findViewById(R.id.rl_cell);
 
+
             rlCell.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -96,7 +91,5 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
                 }
             });
         }
-
-
     }
 }

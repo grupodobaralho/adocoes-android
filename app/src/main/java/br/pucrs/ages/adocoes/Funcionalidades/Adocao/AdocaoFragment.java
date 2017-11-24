@@ -1,6 +1,7 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Adocao;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import retrofit2.Call;
@@ -78,6 +79,19 @@ public class AdocaoFragment extends Fragment {
         mAdocoesAdapter = new AdocaoAdapter(getActivity());
         mAdocoesAdapter.setData(items);
 
+        mAdocoesAdapter.setListener(new AdocaoAdapter.OnMenorSelectedListener() {
+            @Override
+            public void OnMenorItemSelected(Menor menor, int position) {
+                if(isLogged) {
+                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
+                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, (menor));
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " para usuários não logados disponivel em breve!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         mRecyclerView.setAdapter(mAdocoesAdapter);
         //mRecyclerView.setVisibility(View.VISIBLE);
 
@@ -109,35 +123,5 @@ public class AdocaoFragment extends Fragment {
                 Log.e("Adocoes em Andamento", t.getLocalizedMessage(), t);
             }
         });
-//        RestUtil.getEuEndPoint().getMenoresEu(token, "adotar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
-//            @Override
-//            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
-//                if (response.body() != null) {
-//                    for(ObjetoDeMenorEu o : response.body()){
-//                        List<Menor> list = o.getMenores();
-//                        for(Menor m : list){
-//                            items.add(m);
-//                        }
-//                    }
-//                    //items = response.body();
-//                    pagerSnapHelper.attachToRecyclerView(null);
-//                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-//                    mRecyclerView.setLayoutManager(layoutManager);
-//                    mRecyclerView.setAdapter(mAdocoesAdapter);
-//                    mAdocoesAdapter.setData(items);
-//                }else {
-//                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponde ", Toast.LENGTH_SHORT).show();
-//                    try {
-//                        Log.e("Adocoes em Andamento", response.errorBody().string());
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
-//                Log.e("Adocoes em Andamento", t.getLocalizedMessage(), t);
-//            }
-//        });
     }
 }
