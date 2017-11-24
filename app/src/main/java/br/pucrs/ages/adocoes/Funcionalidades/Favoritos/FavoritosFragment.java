@@ -25,7 +25,6 @@ import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import okhttp3.ResponseBody;
@@ -33,16 +32,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/*
-import java.io.BufferedReader;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-*/
 
 /**
  * Created by Israel Deorce on 20/09/17.
@@ -104,6 +93,7 @@ public class FavoritosFragment extends Fragment {
 
                 alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        isLogged = UserBusiness.getInstance().isLogged();
                         // User clicked OK button
                         if(isLogged)
                             desfazerInteresseApi(menor, position);
@@ -126,6 +116,7 @@ public class FavoritosFragment extends Fragment {
         mListAdapter.setListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor, int position) {
+                isLogged = UserBusiness.getInstance().isLogged();
                 if(isLogged) {
                     Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
                     intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, (menor));
@@ -166,40 +157,6 @@ public class FavoritosFragment extends Fragment {
                 Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
             }
         });
-//        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
-//            @Override
-//            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
-//                if (response.body() != null) {
-//                    if(response.body().isEmpty())
-//                        Toast.makeText(getActivity(), "A sua lista de interesses está vazia!", Toast.LENGTH_SHORT).show();
-//                    else {
-//                        for (ObjetoDeMenorEu o : response.body()) {
-//                            List<Menor> list = o.getMenores();
-//                            if (list != null) {
-//                                items.addAll(list);
-//                            }
-//                        }
-//                        //items = response.body();
-//                        pagerSnapHelper.attachToRecyclerView(null);
-//                        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-//                        mRecyclerView.setLayoutManager(layoutManager);
-//                        mRecyclerView.setAdapter(mListAdapter);
-//                        mListAdapter.setData(items);
-//                    }
-//                }else {
-//                    Toast.makeText(getActivity(), "Acesso não autorizado.", Toast.LENGTH_SHORT).show();
-//                    try {
-//                        Log.e("ListagemDeInteresses", response.errorBody().string());
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
-//                Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
-//            }
-//        });
 
     }
     private void listaMenoresLocal(){
