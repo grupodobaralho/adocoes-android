@@ -1,6 +1,8 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Adocao;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -79,6 +82,34 @@ public class AdocaoFragment extends Fragment {
         mAdocoesAdapter = new AdocaoAdapter(getActivity());
         mAdocoesAdapter.setData(items);
 
+        mAdocoesAdapter.setOnMenorCancelarAdocaoListener(new AdocaoAdapter.OnMenorSelectedListener() {
+            @Override
+            public void OnMenorItemSelected(final Menor menor, final int position) {
+                // Coloque aqui a ação de desfavoritar :)
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+                alert.setTitle("Atenção");
+                alert.setMessage("Deseja realmente cancelar a adoção pelo " + menor.getNome() + "?");
+
+                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        if(isLogged)
+                            cancelarAdocaoApi(menor, position);
+                    }
+                });
+
+                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked Cancel button
+                    }
+                });
+
+                AlertDialog dialog = alert.create();
+                alert.show();
+            }
+        });
+
         mAdocoesAdapter.setListener(new AdocaoAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor, int position) {
@@ -95,6 +126,35 @@ public class AdocaoFragment extends Fragment {
         mRecyclerView.setAdapter(mAdocoesAdapter);
         //mRecyclerView.setVisibility(View.VISIBLE);
 
+    }
+
+    private void cancelarAdocaoApi(final Menor menor, final int position) {
+        String token = UserBusiness.getInstance().getAccessToken();
+        RestUtil.getEuEndPoint().deleteMenorEu(token, menor.getId(), "adotar").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.body() != null) {
+                    items.remove(position);
+                    pagerSnapHelper.attachToRecyclerView(null);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setAdapter(mAdocoesAdapter);
+                    mAdocoesAdapter.setData(items);
+                    Toast.makeText(getActivity(), "Cancelou Adoção por " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getActivity(), "Erro: caiu no else do onResponse " + menor.getId(), Toast.LENGTH_SHORT).show();
+                    try {
+                        Log.e("Desfazer Interesse", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Desfazer Interesse", t.getLocalizedMessage(), t);
+            }
+        });
     }
 
     private void listaMenoresApi() {

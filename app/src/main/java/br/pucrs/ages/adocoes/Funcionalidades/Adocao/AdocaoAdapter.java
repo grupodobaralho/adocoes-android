@@ -35,7 +35,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     private Activity activity;
     private List<Menor> items = new ArrayList<>();
     private AdocaoAdapter.OnMenorSelectedListener mOnMenorSelectedListener;
-//    private AdocaoAdapter.OnMenorSelectedListener mOnMenorCancelarAdocaoListener;
+    private AdocaoAdapter.OnMenorSelectedListener mOnMenorCancelarAdocaoListener;
     private boolean isLogged;
 
     public interface OnMenorSelectedListener {
@@ -44,6 +44,10 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
 
     public void setListener(AdocaoAdapter.OnMenorSelectedListener selectListener) {
         this.mOnMenorSelectedListener = selectListener;
+    }
+
+    public void setOnMenorCancelarAdocaoListener(OnMenorSelectedListener adocaoListener) {
+        mOnMenorCancelarAdocaoListener = adocaoListener;
     }
 
     public AdocaoAdapter(Activity activity) {
@@ -57,10 +61,20 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
         }
     }
 
-    @Override
-    public AdocaoAdapter.MenorItemView onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_vertical_item, parent, false);
+//    @Override
+//    public AdocaoAdapter.MenorItemView onCreateViewHolder(ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_menor_details_buttons, parent, false);
+//        TextView btnAdotarText = (TextView) view.findViewById(R.id.btn_adotar_text);
+//        btnAdotarText.setText("Cancelar Adoção");
+//        return new AdocaoAdapter.MenorItemView(view);
+//    }
 
+
+    @Override
+    public MenorItemView onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_vertical_item, parent, false);
+        ImageButton ib = (ImageButton) view.findViewById(R.id.btn_favoritar);
+        ib.setImageResource(R.drawable.unlike_filled);
         return new AdocaoAdapter.MenorItemView(view);
     }
 
@@ -74,7 +88,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
         }
-
 
         if(isLogged) {
             for (RefMidia midia : menor.getMidias()) {
@@ -124,6 +137,14 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
             btnFavoritar = (ImageButton) view.findViewById(R.id.btn_favoritar);
             rlCell = (RelativeLayout) view.findViewById(R.id.rl_cell);
 
+
+            btnFavoritar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Menor menorItem = items.get(getAdapterPosition());
+                    mOnMenorCancelarAdocaoListener.OnMenorItemSelected(menorItem, getAdapterPosition());
+                }
+            });
 
             rlCell.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.io.IOException;
-
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Body.Interesse;
@@ -54,7 +52,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
@@ -68,7 +66,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
         ImageButton btnFavoritar = (ImageButton) view.findViewById(R.id.btnFavoritar);
 
         btnAdotar.setOnClickListener(new OnClickListener() {
-            public void onClick(View v)  {
+            public void onClick(View v) {
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
@@ -78,7 +76,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
                 alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
-                        if(isLogged)
+                        if (isLogged)
                             demonstraInteresseApi(mMenor);
 //                            Toast.makeText(getActivity(), "Você não está logado, logo não tens permissão para adotar", Toast.LENGTH_SHORT);
                     }
@@ -96,24 +94,25 @@ public class MenorDetailsButtonsFragment extends Fragment {
             }
         });
 
+
         btnFavoritar.setOnClickListener(new OnClickListener() {
             public void onClick(View v)  {
 
-                // Coloque aqui a ação de favoritar :)
+            // Coloque aqui a ação de favoritar :)
 
-                // Chama o Banco e verifica se o menor já é um favorito
-                boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(mMenor);
-                if(isFavorite) {
-                    Toast.makeText(getActivity(), ";) Já favoritou " + mMenor.getNome(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            // Chama o Banco e verifica se o menor já é um favorito
+            boolean isFavorite = DatabaseHelper.getInstance(getActivity()).contemMenor(mMenor);
+            if(isFavorite) {
+                Toast.makeText(getActivity(), ";) Já favoritou " + mMenor.getNome(), Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                // Chama o Banco e tenta inserir um novo favorito
-                boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(mMenor);
-                if(result)
-                    Toast.makeText(getActivity(), "favoritou " + mMenor.getNome(), Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
+            // Chama o Banco e tenta inserir um novo favorito
+            boolean result = DatabaseHelper.getInstance(getActivity()).insereFavorito(mMenor);
+            if(result)
+                Toast.makeText(getActivity(), "favoritou " + mMenor.getNome(), Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getActivity(), "nao favoritou", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -129,12 +128,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
                 if (response.body() != null) {
                     Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
-                    try {
-                        Log.e("Demonstra interesse", response.errorBody().string());
-                        Toast.makeText(getActivity(), "Não foi possível demonstrar interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(getActivity(), "Você já iniciou a Adoção de " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -145,5 +139,4 @@ public class MenorDetailsButtonsFragment extends Fragment {
         });
         //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
     }
-
 }
