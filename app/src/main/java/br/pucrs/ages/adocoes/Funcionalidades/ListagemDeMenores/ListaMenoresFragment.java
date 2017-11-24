@@ -24,6 +24,7 @@ import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Body.Interesse;
 import br.pucrs.ages.adocoes.Model.Menor;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -137,11 +138,12 @@ public class ListaMenoresFragment extends Fragment {
     private void demonstraInteresseApi(final Menor menor){
         String token = UserBusiness.getInstance().getAccessToken();
         System.out.println(menor.getId());
-        RestUtil.getEuEndPoint().postMenorInteresse(token, new Interesse(menor.getId(), "favoritar")).enqueue(new Callback<Menor>() {
+        RestUtil.getEuEndPoint().postMenorInteresse(token, new Interesse(menor.getId(), "favoritar")).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<Menor> call, Response<Menor> response) {
-                if (response.body() != null) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.code() == 200) {
                     Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
                     try {
                         Log.e("Demonstra interesse", response.errorBody().string());
@@ -153,8 +155,9 @@ public class ListaMenoresFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Menor> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.e("Demonstra interesse", t.getLocalizedMessage(), t);
+                Toast.makeText(getActivity(), "caiu no failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
