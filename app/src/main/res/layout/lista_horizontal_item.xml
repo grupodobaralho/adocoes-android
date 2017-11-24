@@ -17,7 +17,7 @@
         android:background="@null"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/like_filled"
+        android:src="@drawable/icone_adocoes"
         android:scaleType="fitCenter"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"

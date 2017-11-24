@@ -69,8 +69,8 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
         final Menor menor = items.get(position);
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
-            itemView.tvIdade.setText(Integer.toString(menor.getIdade()));
-            itemView.tvSexo.setText(menor.getSexo().toString());
+            itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
+            itemView.tvSexo.setText("Sexo: "+menor.getSexo().toString());
         }
 
         for (RefMidia midia : menor.getMidias()) {

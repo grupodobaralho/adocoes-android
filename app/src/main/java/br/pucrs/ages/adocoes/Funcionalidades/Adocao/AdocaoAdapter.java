@@ -74,7 +74,9 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     public MenorItemView onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_vertical_item, parent, false);
         ImageButton ib = (ImageButton) view.findViewById(R.id.btn_favoritar);
-        ib.setImageResource(R.drawable.unlike_filled);
+        ib.setImageResource(R.drawable.cross);
+        ib.getLayoutParams().height = 100;
+        ib.getLayoutParams().width = 100;
         return new AdocaoAdapter.MenorItemView(view);
     }
 
@@ -87,7 +89,13 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
 
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
-            itemView.tvDetalhe.setText(menor.getSexo().toString());
+            itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
+
+            itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
+
+//            itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
+//            itemView.tvIdade.setText("Idade: "+menor.getSexo().toString());
+
         }
 
         if(isLogged) {
@@ -126,6 +134,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     class MenorItemView extends RecyclerView.ViewHolder {
         TextView tvNome;
         TextView tvDetalhe;
+        TextView tvIdade;
         ImageView imgFoto;
         ImageButton btnFavoritar;
         RelativeLayout rlCell;
@@ -134,6 +143,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
             super(view);
             tvNome = (TextView) view.findViewById(R.id.tv_nome);
             tvDetalhe = (TextView) view.findViewById(R.id.tv_detalhe);
+            tvIdade = (TextView) view.findViewById(R.id.tv_idade);
             imgFoto = (ImageView) view.findViewById(R.id.img_menor);
             btnFavoritar = (ImageButton) view.findViewById(R.id.btn_favoritar);
             rlCell = (RelativeLayout) view.findViewById(R.id.rl_cell);

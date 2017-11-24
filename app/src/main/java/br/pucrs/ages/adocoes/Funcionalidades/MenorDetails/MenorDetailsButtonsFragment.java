@@ -81,7 +81,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
                         isLogged = UserBusiness.getInstance().isLogged();
                         // User clicked OK button
                         if (isLogged)
-                            demonstraInteresseApi(mMenor);
+                            demonstrarAdotar(mMenor);
 //                            Toast.makeText(getActivity(), "Você não está logado, logo não tens permissão para adotar", Toast.LENGTH_SHORT);
                     }
                 });
@@ -111,6 +111,27 @@ public class MenorDetailsButtonsFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void demonstrarAdotar(final Menor menor){
+        String token = UserBusiness.getInstance().getAccessToken();
+        System.out.println(menor.getId());
+        RestUtil.getEuEndPoint().postMenorInteresse(token, new Interesse(menor.getId(), "adotar")).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.body() != null) {
+                    Toast.makeText(getActivity(), "Iniciou processo Adoção com " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getActivity(), "Você já iniciou a Adoção de " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Demonstra interesse", t.getLocalizedMessage(), t);
+            }
+        });
+        //Toast.makeText(getActivity(), "Ainda não implementado", Toast.LENGTH_SHORT).show();
     }
 
     private void demonstraInteresseApi(final Menor menor){

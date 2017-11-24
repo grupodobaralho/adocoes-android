@@ -78,7 +78,8 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
 
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
-            //itemView.tvDetalhe.setText(menor.getSexo().toString());
+            itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
+            itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
         }
 
         if(isLogged) {
@@ -118,6 +119,7 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
 
         TextView tvNome;
         TextView tvDetalhe;
+        TextView tvIdade;
         ImageView imgFoto;
         ImageButton btnFavoritar;
         RelativeLayout rlCell;
@@ -129,6 +131,7 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
             imgFoto = (ImageView) view.findViewById(R.id.img_menor);
             btnFavoritar = (ImageButton) view.findViewById(R.id.btn_favoritar);
             rlCell = (RelativeLayout) view.findViewById(R.id.rl_cell);
+            tvIdade = (TextView) view.findViewById(R.id.tv_idade);
 
 
             btnFavoritar.setOnClickListener(new View.OnClickListener() {
