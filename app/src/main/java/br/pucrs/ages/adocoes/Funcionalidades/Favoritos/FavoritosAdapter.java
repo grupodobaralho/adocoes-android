@@ -80,32 +80,32 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
             itemView.tvNome.setText(menor.getNome());
             //itemView.tvDetalhe.setText(menor.getSexo().toString());
         }
-        //NAO ESTA FUNCIONANDO POIS A ROTA DA API ESTA ERRADA! OBS: NAO ESTA RETORNANDO MIDIA
-//        if(isLogged) {
-//            for (RefMidia midia : menor.getMidias()) {
-//                if (midia.isPrincipal()) {
-//                    String token = UserBusiness.getInstance().getAccessToken();
-//                    RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
-//                        @Override
-//                        public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
-//                            MenorMidia midia = response.body();
-//
-//                            if (midia != null) {
-//                                byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
-//                                Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-//                                itemView.imgFoto.setImageBitmap(imgBitmap);
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onFailure(Call<MenorMidia> call, Throwable t) {
-//
-//                        }
-//                    });
-//                    break;
-//                }
-//            }
-//        }
+
+        if(isLogged) {
+            for (RefMidia midia : menor.getMidias()) {
+                if (midia.isPrincipal()) {
+                    String token = UserBusiness.getInstance().getAccessToken();
+                    RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
+                        @Override
+                        public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                            MenorMidia midia = response.body();
+
+                            if (midia != null) {
+                                byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                                Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                                itemView.imgFoto.setImageBitmap(imgBitmap);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<MenorMidia> call, Throwable t) {
+
+                        }
+                    });
+                    break;
+                }
+            }
+        }
 
     }
 

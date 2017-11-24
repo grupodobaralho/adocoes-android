@@ -26,15 +26,20 @@ public interface EuEndPoint {
     Call<Eu> getEu(@Header("Authorization") String accessToken);
 
     @POST("eu/menores")
-    Call<Menor> postMenorInteresse(@Header("Authorization") String accessToken, @Body Interesse body);
+    Call<ResponseBody> postMenorInteresse(@Header("Authorization") String accessToken, @Body Interesse body);
 
     //@Query("interesse") String tipo
     @GET("eu/menores")
-    Call<List<ObjetoDeMenorEu>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
+    Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
+    //Call<List<ObjetoDeMenorEu>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
 
     //https://stackoverflow.com/questions/36251080/retrofit-2-0-how-to-delete
     @DELETE("eu/menores/{id_menor}")
     Call<ResponseBody> deleteMenorEu(@Header("Authorization") String accessToken, @Path("id_menor") String id_menor, @Query("interesse") String interesse);
+
+    //@DELETE("eu/menores/{id_menor}")
+    //Call<ResponseBody> deleteMenorEu(@Header("Authorization") String accessToken, @Path("id_menor") String id_menor, @Query("interesse") String interesse);
+
 
     //@PUT("/eu/ordenacao")
 }

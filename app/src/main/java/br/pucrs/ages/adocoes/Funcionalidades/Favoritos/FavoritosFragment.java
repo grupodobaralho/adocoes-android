@@ -3,6 +3,7 @@ package br.pucrs.ages.adocoes.Funcionalidades.Favoritos;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,8 +23,8 @@ import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SQLite.DatabaseHelper;
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
+import br.pucrs.ages.adocoes.Funcionalidades.MenorDetails.MenorDetailsActivity;
 import br.pucrs.ages.adocoes.Model.Menor;
-import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import br.pucrs.ages.adocoes.R;
 import br.pucrs.ages.adocoes.Rest.RestUtil;
 import okhttp3.ResponseBody;
@@ -31,16 +32,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/*
-import java.io.BufferedReader;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-*/
 
 /**
  * Created by Israel Deorce on 20/09/17.
@@ -102,6 +93,7 @@ public class FavoritosFragment extends Fragment {
 
                 alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        isLogged = UserBusiness.getInstance().isLogged();
                         // User clicked OK button
                         if(isLogged)
                             desfazerInteresseApi(menor, position);
@@ -124,14 +116,13 @@ public class FavoritosFragment extends Fragment {
         mListAdapter.setListener(new FavoritosAdapter.OnMenorSelectedListener() {
             @Override
             public void OnMenorItemSelected(Menor menor, int position) {
-                // Coloque aqui a ação de ir para tela de detalhes :)
-                if(isLogged){
-                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " disponivel em breve", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
-//                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, ( menor));
-//                    startActivity(intent);
-                } else {
-                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " para interessado deslogado", Toast.LENGTH_SHORT).show();
+                isLogged = UserBusiness.getInstance().isLogged();
+                if(isLogged) {
+                    Intent intent = new Intent(getActivity(), MenorDetailsActivity.class);
+                    intent.putExtra(MenorDetailsActivity.EXTRA_MENOR, (menor));
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(getActivity(), "Detalhes de " + menor.getNome() + " para usuários não logados disponivel em breve!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -142,28 +133,18 @@ public class FavoritosFragment extends Fragment {
 
     private void listaMenoresApi(){
         String token = UserBusiness.getInstance().getAccessToken();
-        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<ObjetoDeMenorEu>>() {
+        RestUtil.getEuEndPoint().getMenoresEu(token, "favoritar").enqueue(new Callback<List<Menor>>() {
             @Override
-            public void onResponse(Call<List<ObjetoDeMenorEu>> call, Response<List<ObjetoDeMenorEu>> response) {
+            public void onResponse(Call<List<Menor>> call, Response<List<Menor>> response) {
                 if (response.body() != null) {
-                    if(response.body().isEmpty())
-                        Toast.makeText(getActivity(), "A sua lista de interesses está vazia!", Toast.LENGTH_SHORT).show();
-                    else {
-                        for (ObjetoDeMenorEu o : response.body()) {
-                            List<Menor> list = o.getMenores();
-                            if (list != null) {
-                                items.addAll(list);
-                            }
-                        }
-                        //items = response.body();
-                        pagerSnapHelper.attachToRecyclerView(null);
-                        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setAdapter(mListAdapter);
-                        mListAdapter.setData(items);
-                    }
+                    items = response.body();
+                    pagerSnapHelper.attachToRecyclerView(null);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setAdapter(mListAdapter);
+                    mListAdapter.setData(items);
                 }else {
-                    Toast.makeText(getActivity(), "Acesso não autorizado.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Erro: response.body() é null", Toast.LENGTH_SHORT).show();
                     try {
                         Log.e("ListagemDeInteresses", response.errorBody().string());
                     } catch (IOException e) {
@@ -172,7 +153,7 @@ public class FavoritosFragment extends Fragment {
                 }
             }
             @Override
-            public void onFailure(Call<List<ObjetoDeMenorEu>> call, Throwable t) {
+            public void onFailure(Call<List<Menor>> call, Throwable t) {
                 Log.e("ListagemDeInteresses", t.getLocalizedMessage(), t);
             }
         });

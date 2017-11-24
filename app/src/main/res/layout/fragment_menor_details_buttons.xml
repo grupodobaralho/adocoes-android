@@ -28,6 +28,7 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/adotar" />
             <TextView
+                android:id="@+id/btn_adotar_text"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:lines="2"
