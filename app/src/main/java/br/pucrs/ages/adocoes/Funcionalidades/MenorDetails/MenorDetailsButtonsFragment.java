@@ -3,7 +3,6 @@ package br.pucrs.ages.adocoes.Funcionalidades.MenorDetails;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -75,22 +73,21 @@ public class MenorDetailsButtonsFragment extends Fragment {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
                 alert.setTitle("Atenção");
-                alert.setMessage("Você realmente deseja adotar este menor?");
+                alert.setMessage("Você realmente deseja adotar esta criança / adolescente?");
 
                 alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
                         if(isLogged)
                             demonstraInteresseApi(mMenor);
-                        else
-                            Toast.makeText(getActivity(), "Você não está logado, logo não tens permissão de adotar menores..", Toast.LENGTH_SHORT);
+//                            Toast.makeText(getActivity(), "Você não está logado, logo não tens permissão para adotar", Toast.LENGTH_SHORT);
                     }
                 });
 
                 alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
-                        Toast.makeText(getActivity(),  "Não" , Toast.LENGTH_SHORT ).show();
+//                        Toast.makeText(getActivity(),  "Não" , Toast.LENGTH_SHORT ).show();
                     }
                 });
 
