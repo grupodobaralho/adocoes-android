@@ -127,7 +127,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.body() != null) {
-                    Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Iniciou processo Adoção com " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getActivity(), "Você já iniciou a Adoção de " + menor.getNome(), Toast.LENGTH_SHORT).show();
                 }
