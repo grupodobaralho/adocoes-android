@@ -1,7 +1,10 @@
 package br.pucrs.ages.adocoes.Funcionalidades.Adocao;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +16,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorMidia;
+import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
+import br.pucrs.ages.adocoes.Rest.RestUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by israeldeorce on 20/09/17.
@@ -25,7 +35,9 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     private Activity activity;
     private List<Menor> items = new ArrayList<>();
     private AdocaoAdapter.OnMenorSelectedListener mOnMenorSelectedListener;
-    
+//    private AdocaoAdapter.OnMenorSelectedListener mOnMenorCancelarAdocaoListener;
+    private boolean isLogged;
+
     public interface OnMenorSelectedListener {
         void OnMenorItemSelected(Menor menor, int position);
     }
@@ -33,7 +45,6 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
     public void setListener(AdocaoAdapter.OnMenorSelectedListener selectListener) {
         this.mOnMenorSelectedListener = selectListener;
     }
-
 
     public AdocaoAdapter(Activity activity) {
         this.activity = activity;
@@ -55,11 +66,42 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
 
     @Override
     public void onBindViewHolder(AdocaoAdapter.MenorItemView holder, int position) {
-        AdocaoAdapter.MenorItemView itemView = holder;
+        final AdocaoAdapter.MenorItemView itemView = holder;
         final Menor menor = items.get(position);
+
+        isLogged = UserBusiness.getInstance().isLogged();
+
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
         }
+
+
+        if(isLogged) {
+            for (RefMidia midia : menor.getMidias()) {
+                if (midia.isPrincipal()) {
+                    String token = UserBusiness.getInstance().getAccessToken();
+                    RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
+                        @Override
+                        public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {
+                            MenorMidia midia = response.body();
+
+                            if (midia != null) {
+                                byte[] imageAsBytes = Base64.decode(midia.getConteudo().getBytes(), Base64.DEFAULT);
+                                Bitmap imgBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                                itemView.imgFoto.setImageBitmap(imgBitmap);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<MenorMidia> call, Throwable t) {
+
+                        }
+                    });
+                    break;
+                }
+            }
+        }
+
     }
 
     @Override
