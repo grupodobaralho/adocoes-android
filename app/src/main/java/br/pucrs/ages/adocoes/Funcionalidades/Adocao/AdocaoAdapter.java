@@ -87,6 +87,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
 
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
+            itemView.tvDetalhe.setText(menor.getSexo().toString());
         }
 
         if(isLogged) {
