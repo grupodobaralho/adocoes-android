@@ -117,7 +117,7 @@ public class ViewPagerFragment extends Fragment {
                                 imageView.setImageBitmap(imgBitmap);
                                 break;
                             case "video":
-                                imageView.setImageResource(R.drawable.boy_7);
+                                imageView.setImageResource(R.drawable.ic_play_arrow_black_48dp);
                                 break;
                             default:
                                 imageView.setImageResource(R.drawable.boy_1);
