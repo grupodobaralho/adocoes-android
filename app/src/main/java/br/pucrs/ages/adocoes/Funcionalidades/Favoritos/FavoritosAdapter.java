@@ -78,8 +78,10 @@ public class FavoritosAdapter extends RecyclerView.Adapter<FavoritosAdapter.Meno
 
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
-            itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
-            itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
+            if(isLogged) {
+                itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
+                itemView.tvIdade.setText("Idade: " + Integer.toString(menor.getIdade()));
+            }
         }
 
         if(isLogged) {
