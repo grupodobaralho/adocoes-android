@@ -3,6 +3,7 @@ package br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.DrawableRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -74,6 +75,7 @@ public class ListaVerticalAdapter extends RecyclerView.Adapter<ListaVerticalAdap
             itemView.tvNome.setText(menor.getNome());
             itemView.tvDetalhe.setText("Sexo: "+menor.getSexo().toString());
             itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
+            itemView.btnFavoritar.setImageResource(R.drawable.icone_adocoes_black_white);
         }
 
 

@@ -90,12 +90,7 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
             itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
-
             itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
-
-//            itemView.tvDetalhe.setText("Sexo: " + menor.getSexo().toString());
-//            itemView.tvIdade.setText("Idade: "+menor.getSexo().toString());
-
         }
 
         if(isLogged) {
