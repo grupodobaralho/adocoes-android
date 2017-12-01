@@ -166,5 +166,5 @@ public class AdocaoAdapter extends RecyclerView.Adapter<AdocaoAdapter.MenorItemV
             });
         }
     }
-    
+
 }
