@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrs.ages.adocoes.Database.SharedPreferences.UserBusiness;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorInteresse;
 import br.pucrs.ages.adocoes.Model.MenorMidia;
 import br.pucrs.ages.adocoes.Model.RefMidia;
 import br.pucrs.ages.adocoes.R;
@@ -33,6 +36,7 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
 
     private OnMenorSelectedListener mOnMenorSelectedListener;
     private OnMenorSelectedListener mOnMenorFavoritarListener;
+    private List<MenorInteresse> listMenorInteresse;
 
     public void setListener(OnMenorSelectedListener listener) {
         this.mOnMenorSelectedListener = listener;
@@ -67,15 +71,45 @@ public class ListaHorizontalAdapter extends RecyclerView.Adapter<ListaHorizontal
     public void onBindViewHolder(ListaHorizontalAdapter.MenorItemView holder, int position) {
         final MenorItemView itemView = holder;
         final Menor menor = items.get(position);
+        final String token = UserBusiness.getInstance().getAccessToken();
+        listMenorInteresse = new ArrayList<>();
+
         if (menor != null) {
             itemView.tvNome.setText(menor.getNome());
             itemView.tvIdade.setText("Idade: "+Integer.toString(menor.getIdade()));
             itemView.tvSexo.setText("Sexo: "+menor.getSexo().toString());
+
+            RestUtil.getEuEndPoint().getInteresses(token, menor.getId()).enqueue(new Callback<List<MenorInteresse>>() {
+                @Override
+                public void onResponse(Call<List<MenorInteresse>> call, Response<List<MenorInteresse>> response) {
+                    if (response.body() != null) {
+                        listMenorInteresse = response.body();
+                        if(listMenorInteresse.isEmpty());
+                        else {
+                            for(MenorInteresse mInteresse : listMenorInteresse){
+                                if(mInteresse.getTipoInteresse().equals("favoritar"))
+                                    itemView.btnFavoritar.setImageResource(R.drawable.icone_adocoes_black_white);
+                            }
+                        }
+                    }else {
+                        try {
+                            Log.e("MenorInteresse", response.errorBody().string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<MenorInteresse>> call, Throwable t) {
+                    Log.e("MenorInteresse", t.getLocalizedMessage(), t);
+                }
+            });
+
         }
 
         for (RefMidia midia : menor.getMidias()) {
             if (midia.isPrincipal()) {
-                String token = UserBusiness.getInstance().getAccessToken();
                 RestUtil.getMenoresEndPoint().menorMidia(menor.getId(), midia.getId(), token).enqueue(new Callback<MenorMidia>() {
                     @Override
                     public void onResponse(Call<MenorMidia> call, Response<MenorMidia> response) {

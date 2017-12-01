@@ -1,6 +1,8 @@
 package br.pucrs.ages.adocoes.Funcionalidades.ListagemDeMenores;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -79,12 +81,31 @@ public class ListaMenoresFragment extends Fragment {
 
         final OnMenorSelectedListener acaoDeFavoritar = new OnMenorSelectedListener() {
             @Override
-            public void OnMenorItemSelected(Menor menor) {
-                isLogged = UserBusiness.getInstance().isLogged();
-                if (isLogged)
-                    demonstraInteresseApi(menor);
-                else
-                    demonstraInteresseLocal(menor);
+            public void OnMenorItemSelected(final Menor menor) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+                alert.setTitle("Atenção");
+                alert.setMessage("Deseja demonstrar interesse em " + menor.getNome() + "?");
+
+                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        isLogged = UserBusiness.getInstance().isLogged();
+                        // User clicked OK button
+                        if(isLogged)
+                            demonstraInteresseApi(menor);
+                        else
+                            demonstraInteresseLocal(menor);
+                    }
+                });
+
+                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked Cancel button
+                    }
+                });
+
+                AlertDialog dialog = alert.create();
+                alert.show();
             }
         };
 
@@ -143,7 +164,7 @@ public class ListaMenoresFragment extends Fragment {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.code() == 200) {
                     Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
-                   // Toast.makeText(getActivity(), "Demonstrou interesse em " + menor.getNome(), Toast.LENGTH_SHORT).show();
+                    fetchMenores();
                 }else {
                     try {
                         Log.e("Demonstra interesse", response.errorBody().string());

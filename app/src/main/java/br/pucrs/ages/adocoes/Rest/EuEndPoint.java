@@ -5,6 +5,7 @@ import java.util.List;
 import br.pucrs.ages.adocoes.Model.Body.Interesse;
 import br.pucrs.ages.adocoes.Model.Eu;
 import br.pucrs.ages.adocoes.Model.Menor;
+import br.pucrs.ages.adocoes.Model.MenorInteresse;
 import br.pucrs.ages.adocoes.Model.ObjetoDeMenorEu;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -31,15 +32,16 @@ public interface EuEndPoint {
     //@Query("interesse") String tipo
     @GET("eu/menores")
     Call<List<Menor>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
-    //Call<List<ObjetoDeMenorEu>> getMenoresEu(@Header("Authorization") String accessToken, @Query("interesse") String interesse);
 
     //https://stackoverflow.com/questions/36251080/retrofit-2-0-how-to-delete
     @DELETE("eu/menores/{id_menor}")
     Call<ResponseBody> deleteMenorEu(@Header("Authorization") String accessToken, @Path("id_menor") String id_menor, @Query("interesse") String interesse);
 
+    @GET("eu/menores/{id_menor}")
+    Call<List<MenorInteresse>> getInteresses(@Header("Authorization") String accessToken, @Path("id_menor") String id_menor);
+
     //@DELETE("eu/menores/{id_menor}")
     //Call<ResponseBody> deleteMenorEu(@Header("Authorization") String accessToken, @Path("id_menor") String id_menor, @Query("interesse") String interesse);
-
 
     //@PUT("/eu/ordenacao")
 }
