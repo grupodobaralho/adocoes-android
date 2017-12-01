@@ -71,27 +71,38 @@ public class MenorDetailsButtonsFragment extends Fragment {
         btnAdotar.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
+                isLogged = UserBusiness.getInstance().isLogged();
+
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
                 alert.setTitle("Atenção");
-                alert.setMessage("Você realmente deseja adotar esta criança / adolescente?");
+                if (isLogged){
+                    alert.setMessage("Você realmente deseja adotar esta criança / adolescente?");
 
-                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        isLogged = UserBusiness.getInstance().isLogged();
-                        // User clicked OK button
-                        if (isLogged)
+                    alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
                             demonstrarAdotar(mMenor);
 //                            Toast.makeText(getActivity(), "Você não está logado, logo não tens permissão para adotar", Toast.LENGTH_SHORT);
-                    }
-                });
+                        }
+                    });
 
-                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-//                        Toast.makeText(getActivity(),  "Não" , Toast.LENGTH_SHORT ).show();
-                    }
-                });
+                    alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+                } else {
+                    alert.setMessage("É necessário um cadastro no CNA para realizar esta operação. Acesso o site 'x' para mais detalhes.")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });;
+                }
+
 
                 AlertDialog dialog = alert.create();
                 alert.show();
