@@ -106,6 +106,7 @@ public class MenorDetailsButtonsFragment extends Fragment {
 
                 AlertDialog dialog = alert.create();
                 alert.show();
+                
             }
         });
 
