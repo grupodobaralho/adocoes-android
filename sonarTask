@@ -1,0 +1,1 @@
+gradle sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.verbose=true
