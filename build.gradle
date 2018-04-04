@@ -3,6 +3,7 @@
 apply plugin: 'org.sonarqube'
 apply plugin: 'jacoco'
 
+
 buildscript {
     repositories {
         jcenter()
@@ -37,21 +38,10 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-/*allprojects {
-    ext.baseVersion = "0.1"
-    ext.snapshotVersion = true
-
-    group = "org.sonarqube"
-    version = "$baseVersion" + (snapshotVersion ? "-SNAPSHOT" : "")
-}*/
-
-sonarqube {
-    properties {
-        property "sonar.sources", "src/main/java"
-        property "sonar.binaries", "build/intermediates/classes/debug"
-        property "sonar.projectKey", "org.sonarqube:java-gradle-simple"
-        property "sonar.jacoco.reportPaths", "${project.buildDir}/jacoco/test.exec"
-        property "sonar.exclusions", "**/*Generated.java"
-        property "sonar.java.coveragePlugin", "jacoco"
-    }
+task printInfoSonar(){
+    println "exemplo de comando sonar: \n gradle sonarqube \\ \n" +
+            "  -Dsonar.organization=meunome_ou_organizacap-github \\\n" +
+            "  -Dsonar.host.url=https://sonarcloud.io \\\n" +
+            "  -Dsonar.login=meu_token_gerado_para_o_projeto"
 }
+
